@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WebGameEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="List_Game" EntityType="WebGameModel.List_Game" />
+    <EntitySet Name="Accounts" EntityType="WebGameModel.Account" />
+    <EntitySet Name="GameSubmits" EntityType="WebGameModel.GameSubmit" />
+    <EntitySet Name="List_Jobs" EntityType="WebGameModel.List_Jobs" />
+    <EntitySet Name="Apply_Job" EntityType="WebGameModel.Apply_Job" />
+  </EntityContainer>
+  <EntityType Name="List_Game">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LinkIOS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkAndroid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Caption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Featured_Games" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassWord" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GameSubmit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GameTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoFootageLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkAppStore" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoreAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateSubmit" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="List_Jobs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Team" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Vacancies" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Apply_Job">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="CurrentCompany" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CV" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="LinkedInURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TwitterURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GithubURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PortfolioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="More" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

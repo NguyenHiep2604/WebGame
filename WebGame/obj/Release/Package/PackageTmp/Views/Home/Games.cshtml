@@ -1,0 +1,2122 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using WebGame.Models
+
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<title>Games | Lion Studios</title>
+<div class="games-page lang-en">
+    <div class="hero full-height">
+        <div class="pic-wrapper">
+            <figure class="pic-1"></figure>
+            <figure class="pic-2"></figure>
+            <figure class="pic-3"></figure>
+            <figure class="pic-4"></figure>
+            <figure class="pic-5"></figure>
+            <figure class="pic-6"></figure>
+        </div>
+
+        <div class="inner-wrap">
+            <div class="hero-intro">
+                <h1>
+                    Games
+                </h1>
+                <h2>
+                    Play our chart-topping&nbsp;hits!
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="games-table" id="games-table">
+        <div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+            <div class="games-filter-outer-wrap">
+                <div class="wrapper">
+                    <ul class="filter-nav ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header" role="tablist">
+                        <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active" aria-controls="featured" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true">
+                            <a role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1" style="cursor:pointer">Featured Games</a>
+                        </li>
+                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="all" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
+                            <a role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2" style="cursor:pointer">All Games</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div id="Featured Games" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false" style="display: block;">
+                    <h3>
+                        Featured Games
+                    </h3>
+                    @* Featured Game *@
+                    @{
+                        var dataListGameFeatured = ViewBag.DataListGameFeatured as List<List_Game>;
+                    }
+                    @foreach (var game in dataListGameFeatured)
+                    {
+                        <div class="app-pod award-on">
+                            <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon"><div class="app-icon">
+                                <img src="@Url.Action("ViewImage", "Home", new { @id = game.ID })" alt="Game icon">
+                            </div>
+                            <div class="app-overlay">
+                                <h6 class="app-title">@game.Name</h6><div class="app-button-wrap">
+                                    <div class="app-button">
+                                        <a href="@game.LinkIOS">
+                                            <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                        </a>
+                                    </div>
+                                    <div class="app-button">
+                                        <a href="@game.LinkAndroid">
+                                            <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                        </a>
+                                    </div>
+                                </div>
+                                <p class="award-caption">@game.Caption</p>
+                            </div>
+                        </div>
+                    }
+
+
+
+                    <!-- Save the Girl -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon"><div class="app-icon">
+                            <img src="~/Content/Image/Save-the-Girl.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Save the Girl</h6><div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/save-the-girl/id1490384223">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.xmgame.savethegirl">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 87countries</p>
+                        </div>
+                    </div>
+                    <!-- Slap Kings -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Slap-Kings-square.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Slap Kings</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/slap-kings/id1500010832">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=mobi.gameguru.slapkings">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 54 countries</p>
+                        </div>
+                    </div>
+                    <!-- Blendy! -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/blendy-icon-600rev.jpg" alt="Game icon">
+                        </div><div class="app-overlay">
+                            <h6 class="app-title">Blendy!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/blendy-juicy-simulation/id1487720650">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.majorfrank.blendit&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 8 countries</p>
+                        </div>
+                    </div>
+                    <!-- Mr Bullet -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/mrb-icon-600rev.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Mr Bullet</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/us/app/mr-bullet/id1449014713?mt=8">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lionstudios.mrbullet">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">Top 10 in 35 countries</p>
+                        </div>
+                    </div>
+                    <!-- Ink Inc. -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/inkinc738x0w-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Ink Inc.</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/ink-inc-tattoo-drawing/id1480236789">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.srgstudios.inkinc&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 28 countries</p>
+                        </div>
+                    </div>
+                    <!-- ID Please -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/idplease-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">ID Please</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id-please-club-simulation/id1486931468">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.NeverEndingGames.IdPlease">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 18 countries</p>
+                        </div>
+                    </div>
+                    <!-- Forge Ahead -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/forgeahead-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Forge Ahead</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/forge-ahead-be-a-blacksmith/id1485491919">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.protopiagames.forgeahead&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 6 countries </p>
+                        </div>
+                    </div>
+                    <!-- i Peel Good -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/I-Peel-Good-square-new.jpg" alt="Game icon">
+                        </div><div class="app-overlay">
+                            <h6 class="app-title">i Peel Good</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/i-peel-good/id1471374791">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.portbliss.ipeelgood&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 25 countries</p>
+                        </div>
+                    </div>
+                    <!-- Happy Glass -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_HappyGlass.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Happy Glass</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/id1425793208">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.game5mobile.lineandwater">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 39 countries</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="All Games" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
+                    <h3>
+                        All Games
+                    </h3>
+                    @{
+                        var dataListAllGame = ViewBag.DataListAllGame as List<List_Game>;
+                    }
+                    @foreach (var game in dataListAllGame)
+                    {
+                        <!-- Grabby Grab -->
+                        <div class="app-pod">
+                            <div class="app-icon">
+                                <img src="@Url.Action("ViewImage", "Home", new { @id = game.ID })" alt="Game icon">
+                            </div>
+                            <div class="app-overlay">
+                                <h6 class="app-title">@game.Name</h6>
+                                <div class="app-button-wrap">
+                                    <div class="app-button">
+                                        <a href="@game.LinkIOS">
+                                            <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                        </a>
+                                    </div>
+                                    <div class="app-button">
+                                        <a href="@game.LinkAndroid">
+                                            <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <!-- Icing On The Dress -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Icinng-on-the-Dress.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Icing On The Dress</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/icing-on-the-dress/id1540237278">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zjcgame.icingonthedress&amp;hl=en_US&amp;gl=US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Meteors Attack! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Meteor-Blast.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Meteors Attack!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.redfox.meteorblast">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Silhouette Art -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Silhouette-Art.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Silhouette Art</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/nz/app/silhouette-art/id1540712425">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.tgame.silhouetteartnew">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Street Hustle -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/street-hustle-copy.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Street Hustle</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/street-hustle/id1536136806">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.alyagames.homeless&amp;hl=en_US&amp;gl=US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Draw Duel -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Draw-Duel.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Draw Duel</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/tt/app/grabby-claw/id1532928122">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.nak.gamepack&amp;hl=en_US&amp;gl=US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Welcome Baby 3D -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Welcome-Baby-3d.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Welcome Baby 3D</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/app/id1540312859">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.miathecat.welcomebaby&amp;hl=en_US&amp;gl=US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gladiator: Hero of the Arena -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Gladiator.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Gladiator: Hero of the Arena</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/gladiator-hero-of-the-arena/id1540975505">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.ace.gladiator">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paw Care -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Paw-Care.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Paw Care</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/paw-care/id1533208474">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zenga.doggyheaven">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Nail Salon -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Nail-Salon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Nail Salon</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id1523081624">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.tintash.nailsalon">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Save the Baby -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Save-the-Baby.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Save the Baby</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/save-the-baby-adventure-game/id1495926853">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.AlexReutov.SaveTheBaby">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stuntman -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Stuntman.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Stuntman</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/app/id1531896539">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.kadka.stuntman">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gravity Push -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Gravity-push.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Gravity Push</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id1527869932">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.TapOn.GravityPush">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Banker ! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Banker.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Banker !</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/banker/id1534433859">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.rooster.banker">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Police Officer -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Police-Officer.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Police Officer</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/police-officer/id1532246360">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.rooster.policeofficer">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paper&#8217;s Grade, Please! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/pgp-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Paper’s Grade, Please!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/papers-grade-please/id1511646233">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.hyperdivestudio.papersgradeplease">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mr Fight -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/mrf-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Mr Fight</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/mr-fight-wrestling-puzzles/id1531323041">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.onebutton.mrfight">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Parenting Choices -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/ptc-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Parenting Choices</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/parenting-choices/id1523366362">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.wixot.neighborhoodwatch">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Girl Next Door -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/nbr-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Girl Next Door</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/girl-next-door/id1526285252">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.wixot.neighborhoodwatch">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hey Girl! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/gtg-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Hey Girl!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/hey-girl/id1526168323">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.barsstudios.getthegirl">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Piercing Parlor -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/prc-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Piercing Parlor</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/piercing-parlor/id1525710248">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.mindstormstudios.piercingparlor">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hospital Inc. -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/hos-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Hospital Inc.</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/hospital-inc/id1525583169">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.MindstormStudios.HospitalInc">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Spin the Battle -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/stb-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Spin the Battle</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/spin-the-battle/id1525199722">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lootcopter.spinthebattle">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pawn Shop Master -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/pawnshop-master-appicon-512px.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Pawn Shop Master</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id1511472595">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.alphapotato.pawnshopmaster">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dodge Action 3D -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/dod-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Dodge Action 3D</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/dodge-action-3d/id1529054706">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.gamestart.dodgeaction3d">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Wig Master -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/wigmaster-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Wig Master</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/wig-master/id1528027064">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lightningstrikegames.toupee">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Prank Master 3D! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/prankmaster3d-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Prank Master 3D!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/0/id1528127833">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.alphapotato.prankster">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bait Car -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/baitcar-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Bait Car</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/bait-car/id1504761153">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.srgstudios.legitgta">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Braid Salon -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/braidsalon-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Braid Salon</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/braid-salon/id1516909394">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.GFLabs.BraidSalon">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Yes, That Dress! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/ytd-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Yes, That Dress!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/yes-that-dress/id1515895992">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zjcgame.superdress&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Death Incoming -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/dec-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Death Incoming</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/death-coming/id1523244705">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.oneway.Deathcoming&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Element Flow -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/EF_GameIcon_1024.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Element Flow</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/element-flow/id1523868720">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=mobi.gameguru.elementflow&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- No One Escape -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/noe-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">No One Escape</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lioncel.NoOneEscape">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stairway to Heaven -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/stairwayicon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Stairway to Heaven</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/stairway-to-heaven/id1502360847">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fruit Clinic -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Fruit Clinic</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id1522861493">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lightningstrikegames.fruitsurgeon">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Clue Hunter -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/clu-icon.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Clue Hunter</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/clue-hunter/id1521190468">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zjcgame.cluehunter">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Murder Hornet! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/mdr_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Murder Hornet!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/murder-hornet/id1517461736">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.dangernoodle.killerbee&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Just Draw -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/jsd.png" alt="Game icon">
+                        </div><div class="app-overlay">
+                            <h6 class="app-title">Just Draw</h6><div class="app-button-wrap"><div class="app-button"><a href="https://apps.apple.com/pl/app/just-draw-drawing-puzzles/id1511594765"><img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store"></a></div><div class="app-button"><a href="https://play.google.com/store/apps/details?id=com.onebutton.jd"><img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play"></a></div></div>
+                        </div>
+                    </div>
+                    <!-- Pull Him Out -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/pul.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Pull Him Out</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/pull-him-out/id1515233303">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.stx.pullhimout&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Speak to the Manager -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/spk.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Speak to the Manager</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/speak-to-the-manager/id1514927350">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.HiROGAMES.Speaktothemanager">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Crayon Epoxy -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/cre.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Crayon Epoxy</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/crayon-epoxy/id1500013553">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=mobi.gameguru.crayonepoxy">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bullet Bender -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/ben_icon2_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Bullet Bender</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/bullet-bender/id1503789026">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.playCog.bulletBender&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Super Salon -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/plk_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Super Salon</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/super-salon/id1493911570">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.flashreadinc.pluckinawesome&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Save the Girl -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Save-the-Girl.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Save the Girl</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/save-the-girl/id1490384223">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.xmgame.savethegirl">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 87countries</p>
+                        </div>
+                    </div>
+                    <!-- Slap Kings -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Slap-Kings-square.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Slap Kings</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/slap-kings/id1500010832">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=mobi.gameguru.slapkings">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 54 countries</p>
+                        </div>
+                    </div>
+                    <!-- Color Me Happy! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/cmh_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Color Me Happy!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/color-me-happy/id1499138555">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.zenga.mypatience&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mr Ninja -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/mrn_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Mr Ninja</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/mr-ninja-slicey-puzzles/id1489291053">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lionstudios.mrninja&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chores! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/cho_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Chores!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/chores-spring-into-cleaning/id1482395931">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.chitralekha.tinyiron&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slap That! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/slp_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Slap That!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/slap-that-winner-slaps-all/id1497724712">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.flashreadinc.pluckinawesome&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blendy! -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/blendy-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Blendy!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/blendy-juicy-simulation/id1487720650">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.majorfrank.blendit&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 8 countries</p>
+                        </div>
+                    </div>
+                    <!-- Mr Bullet -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/mrb-icon-600rev.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Mr Bullet</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/us/app/mr-bullet/id1449014713?mt=8">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lionstudios.mrbullet">
+                                        <img src="~/Content/Image/btn-google-play.svg">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">Top 10 in 35 countries</p>
+                        </div>
+                    </div>
+                    <!-- The Warrior -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/war_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">The Warrior</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/the-warrior-top-stickman/id1434833173">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.minix.speargames&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stencil Art -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/ste_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Stencil Art</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/stencil-art-spray-masters/id1483027214">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.dmg.stencilart&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fill In 3D -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/fil_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Fill In 3D</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/fill-in-3d/id1458916022">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.galacticthumb.fillin3d&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ink Inc. -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/inkinc738x0w-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Ink Inc.</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/ink-inc-tattoo-drawing/id1480236789">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.srgstudios.inkinc&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 28 countries</p>
+                        </div>
+                    </div>
+                    <!-- ID Please -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/idplease-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">ID Please</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/id-please-club-simulation/id1486931468">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.NeverEndingGames.IdPlease">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 18 countries</p>
+                        </div>
+                    </div>
+                    <!-- Forge Ahead -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/forgeahead-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Forge Ahead</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/forge-ahead-be-a-blacksmith/id1485491919">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.protopiagames.forgeahead&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 6 countries </p>
+                        </div>
+                    </div>
+                    <!-- i Peel Good -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/I-Peel-Good-square-new.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">i Peel Good</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/i-peel-good/id1471374791">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.portbliss.ipeelgood&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 25 countries</p>
+                        </div>
+                    </div>
+                    <!-- Happy Glass -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_HappyGlass.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Happy Glass</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/id1425793208">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.game5mobile.lineandwater">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 39 countries</p>
+                        </div>
+                    </div>
+                    <!-- Pressure Washer -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/wet_icon_600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Pressure Washer</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/pressure-washer-squeaky-clean/id1484805464">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.appdesign.washer&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hooked Inc -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_Hooked.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Hooked Inc</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/app/hooked-inc-fisher-tycoon/id1436213906">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=se.ace.fishinc">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">Top 10 in 7 countries</p>
+                        </div>
+                    </div>
+                    <!-- Love Balls -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_LoveBalls.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Love Balls</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/love-balls/id1348173937">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.supertapx.lovedots">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 44 countries</p>
+                        </div>
+                    </div>
+                    <!-- Nails Done -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/nal-icon-600rev.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Nails Done</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/nails-done/id1487604820">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lioncel.nailsdone&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Idle Makeover -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/idlemakeover-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Idle Makeover</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/idle-makeover/id1487204113">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.mindstormstudios.idlemakeover&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Splash Canyons -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/splashcanyons-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Splash Canyons</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/splash-canyon-water-puzzles/id865685473">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.LionStudios.SplashCanyons">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Puzzle Fuzzle -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/puzzlefuzzle-icon-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Puzzle Fuzzle</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/puzzle-fuzzle/id1460555504">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.stx.puzzlefuzzle&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Rolling Domino -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/rollingIcon-1024-1-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Rolling Domino</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/rolling-domino/id1478871278">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.xmgame.rollingdomino">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Icing on the Cake -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Icing-on-the-Cake-new.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Icing on the Cake</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/icing-on-the-cake/id1474917623">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.portbliss.icycake">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 64 countries</p>
+                        </div>
+                    </div>
+                    <!-- The Real Juggle -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/real-juggle-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">The Real Juggle</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/the-real-juggle/id1454567241">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.SPSoftwareProductions.TheRealJuggle&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Idle Car -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/idle-car-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Idle Car</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/idle-car/id1467495112">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.chitralekha.idlecar">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Happy Shots Golf -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/hsgolf690x0w-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Happy Shots Golf</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/happy-shots-golf/id1473564137">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.stx.happyshotsgolf">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pack Master -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/pack1024x1024-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Pack Master</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/us/app/pack-master/id1457690430">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.dmg.packmaster&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cowboy! -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/cowboyIcon-1-1-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Cowboy!</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://apps.apple.com/US/app/id1442035289">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=io.ngames.cowboy&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cut It -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/cutitIcon-1024-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Cut It</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/us/app/cut-it/id1440971279?mt=8">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.stx.cutit">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Flip Rush -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/FlipRush-Avatar-600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Flip Rush</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/car-rush/id1150344350">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.GalacticThumb.FlipRush&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Popular Wars -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/PopularWars-Avatar-600x600.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Popular Wars</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/popular-wars/id1444781694">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.game5mobile.popular">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Flip Trickster -->
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/fliptrickster460x0w-600rev.jpg" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Flip Trickster</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/flip-trickster/id1351027839">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.revolverolver.fliptrickster&amp;hl=en_US">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">#1 in 42 countries</p>
+                        </div>
+                    </div>
+                    <!-- Big Big Baller -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_BigBigBaller.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Big Big Baller</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/id1435120620">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.supertapx.bigbigballer">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ultra Sharp -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_UltraSharp.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Ultra Sharp</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/ultra-sharp/id1417799395?mt=8">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Draw In -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_DrawIn.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Draw In</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/draw-in/id1384622732">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.supertapx.drawin">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cash, Inc. Fame &#038; Fortune Game -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_CashInc.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Cash, Inc. Fame &amp; Fortune Game</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/cash-inc-fame-fortune-game/id1270598321">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.alegrium.cong2">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ball Smasher -->
+                    <div class="app-pod">
+                        <div class="app-icon">
+                            <img src="~/Content/Image/Game_Avatars_600x600_BallSmasher.png" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">Ball Smasher</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="https://itunes.apple.com/app/idle-ball-crush/id1381559021?mt=8">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.lionstudios.ballsmasher">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cta-basic cta-slim pattern-black-spots">
+        <h2>
+            Have a game you want Lion&nbsp;Studios to&nbsp;publish?
+        </h2>
+        <a href="https://lionstudios.cc/game-submissions" class="std-button">
+            Tell us more
+        </a>
+    </div>
+</div>
+@section scripts{
+    @*<script>jQuery("#tabs").tabs();</script>*@
+    <script>
+        var tabsName = document.getElementsByClassName('ui-tabs-tab');
+        var tabsContent = document.getElementsByClassName('ui-tabs-panel');
+        function showContent(id) {
+            for (var i = 0; i < tabsContent.length; i++) {
+                tabsContent[i].style.display = 'none';
+            }
+            var content = document.getElementById(id);
+            content.style.display = 'block';
+        }
+        for (var i = 0; i < tabsName.length; i++) {
+            tabsName[i].addEventListener('click', function () {
+                var id = this.innerText;
+                for (var i = 0; i < tabsName.length; i++) {
+                    tabsName[i].classList.remove("ui-tabs-active");
+                    tabsName[i].classList.remove("ui-state-active");
+                }
+                this.className += " ui-tabs-active";
+                this.className += " ui-state-active";
+                showContent(id);
+            })
+        }
+        showContent('Featured Games');
+    </script>
+    <script src="~/Scripts/gameSubmit.js"></script>
+}

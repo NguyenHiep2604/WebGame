@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "DetailsJob";
+    Layout = "~/Views/Shared/_LayoutDetailsJobs.cshtml";
+}
+
+<div class="content">
+    <div class="section-wrapper accent-section page-full-width">
+        <div class="section page-centered posting-header">
+            <div class="posting-headline">
+                <h2>@ViewBag.Vacancies</h2>
+                <div class="posting-categories">
+                    <div href="#" class="sort-by-time posting-category medium-category-label">@ViewBag.Location /</div>
+                    <div href="#" class="sort-by-team posting-category medium-category-label">Lion Studios – @ViewBag.Team /</div>
+                    <div href="#" class="sort-by-commitment posting-category medium-category-label">Full-time</div>
+                </div>
+            </div>
+            <div class="postings-btn-wrapper">
+                <a class="postings-btn template-btn-submit hex-color" href="@Url.Action("ApplyJob", "Home", new { id = @ViewBag.ID })">Apply for this job</a>
+            </div>
+        </div>
+    </div>
+    <div class="section-wrapper page-full-width">
+        <div class="section page-centered">
+            <div>
+                <a href="@Url.Action("Index","Home")" style="font-size: 11pt" class="postings-link">Lion Studios</a>
+                <span style="font-size: 11pt">
+                    is a mobile games publisher that works with mobile developers to get their games discovered by players around the world. Headquartered in San Francisco, Lion Studios’ creative and strategy teams utilize their expertise to help game developers break through the noise and grow their businesses. Since launching in 2018, Lion Studios has driven 90% of its games to the Top 10 in the App Store and Google Play and helped drive 16 games to #1 in the US App Store’s Top Free chart. Many of the studio’s games hit the top 10 and the top 20 across both the App Store and Google Play. Collectively, the studio has driven hundreds of millions of downloads. Check out some of our hit releases: Mr. Bullet, Happy Glass, Save the Girl, and Slap Kings.
+                </span>
+            </div>
+            <div><br></div>
+            <div>AppLovin is one of Inc.’s Best Workplaces and a recipient of the 2019 Glassdoor Top CEO employee’s choice award. The San Francisco Business Times awarded AppLovin one of the Bay Area’s Best Places to Work in 2019 and 2020, and the Workplace Wellness Award in 2019 which recognizes businesses that are leaders in improving worker well-being.</div>
+            <div><br></div>
+            <div>We are looking for a self-starting, creative, driven and results focused Product Analyst to join our team in Berlin. If you're looking to make an impact, and the opportunity to work with a fun, collaborative team - we’d love to talk to you!</div>
+        </div>
+        <div class="section page-centered">
+            <div>
+                @Html.Raw(System.Uri.UnescapeDataString(ViewBag.Description))
+            </div>
+        </div>
+        <div class="section page-centered last-section-apply" data-qa="btn-apply-bottom">
+            <a class="postings-btn template-btn-submit hex-color" href="@Url.Action("ApplyJob", "Home", new { id = @ViewBag.ID })">Apply for this job</a>
+        </div>
+    </div>
+</div>

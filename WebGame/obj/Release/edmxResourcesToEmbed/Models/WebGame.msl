@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebGameModelStoreContainer" CdmEntityContainer="WebGameEntities">
+    <EntitySetMapping Name="List_Game">
+      <EntityTypeMapping TypeName="WebGameModel.List_Game">
+        <MappingFragment StoreEntitySet="List_Game">
+          <ScalarProperty Name="Featured_Games" ColumnName="Featured_Games" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+          <ScalarProperty Name="LinkAndroid" ColumnName="LinkAndroid" />
+          <ScalarProperty Name="LinkIOS" ColumnName="LinkIOS" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="WebGameModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GameSubmits">
+      <EntityTypeMapping TypeName="WebGameModel.GameSubmit">
+        <MappingFragment StoreEntitySet="GameSubmit">
+          <ScalarProperty Name="DateSubmit" ColumnName="DateSubmit" />
+          <ScalarProperty Name="MoreAbout" ColumnName="MoreAbout" />
+          <ScalarProperty Name="LinkAppStore" ColumnName="LinkAppStore" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="VideoFootageLink" ColumnName="VideoFootageLink" />
+          <ScalarProperty Name="GameTitle" ColumnName="GameTitle" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="List_Jobs">
+      <EntityTypeMapping TypeName="WebGameModel.List_Jobs">
+        <MappingFragment StoreEntitySet="List_Jobs">
+          <ScalarProperty Name="Vacancies" ColumnName="Vacancies" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apply_Job">
+      <EntityTypeMapping TypeName="WebGameModel.Apply_Job">
+        <MappingFragment StoreEntitySet="Apply_Job">
+          <ScalarProperty Name="More" ColumnName="More" />
+          <ScalarProperty Name="OtherWebsite" ColumnName="OtherWebsite" />
+          <ScalarProperty Name="PortfolioURL" ColumnName="PortfolioURL" />
+          <ScalarProperty Name="GithubURL" ColumnName="GithubURL" />
+          <ScalarProperty Name="TwitterURL" ColumnName="TwitterURL" />
+          <ScalarProperty Name="LinkedInURL" ColumnName="LinkedInURL" />
+          <ScalarProperty Name="CV" ColumnName="CV" />
+          <ScalarProperty Name="CurrentCompany" ColumnName="CurrentCompany" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

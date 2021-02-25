@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "ListJobs";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .imageEvent {
+        height: 100px;
+        width: 100px;
+    }
+
+    .image {
+        height: 200px;
+        width: 200px;
+    }
+
+    .tieude, .mota, .ngaydang {
+        height: 25px;
+        width: 600px;
+    }
+
+    .button {
+        margin-top: 5%;
+    }
+</style>
+
+<div id="detailsDialog">
+    <div id="detailsForm" novalidate="novalidate" class="detailsForm">
+        <input id="ID" name="ID" type="hidden">
+        <div class="details-form-field">
+            <label for="Team"><strong>Nhóm:</strong></label>
+            <input class="form-control Team" id="Team" name="Team" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="Location"><strong>Khu vực:</strong></label>
+            <input class="form-control Location" id="Location" name="Location" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="Vacancies"><strong>Vị trí:</strong></label>
+            <input class="form-control Vacancies" id="Vacancies" name="Vacancies" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="Description"><strong>Nội dung:</strong></label>
+            <input class="form-control Description" id="Description" name="Description" type="text">
+        </div>
+        <div class="details-form-field button">
+            <button class="btnLuu btn btn-success" type="button" id="btnSave" onclick="btnSave()">Add</button>
+            <button class="btnUpdate btn btn-primary" type="button" id="btnUpdate" onclick="btnUpdate()">Update</button>
+        </div>
+    </div>
+</div>
+<h4 id="ListName"><strong>Danh sách Jobs</strong></h4>
+<div id="gridJobs" />
+<script type="text/x-kendo-template" id="template">
+    <div class="toolbar">
+        <button class="k-button k-button-icontext" onclick="createItem()"><span class="k-icon k-i-plus"></span>Create New</button>
+    </div>
+</script>
+<script src="//cdn.ckeditor.com/4.14.1/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("Description");
+    var data = CKEDITOR.instances.Description.getData();
+</script>
+<script src="~/Scripts/AdminScript/listJobs.js"></script>
+
+
+
+
+
+

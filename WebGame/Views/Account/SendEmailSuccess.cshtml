@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "SendEmailSuccess";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Vui lòng kiểm tra Email và click vào đường link để đổi mật khẩu !</h4>
+                @*Quay lại Login*@
+                <p class="text-center"><a href="@Url.Action("LogOut","Account")">Quay lại đăng nhập</a> </p>
+            </article>
+        </div>
+    </div>
+</div>

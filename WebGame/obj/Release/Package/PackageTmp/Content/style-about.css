@@ -1,0 +1,589 @@
+/* About Us */
+.about-page .hero {
+  background-color: #eb3945;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  min-height: 850px;
+  max-height: 1100px;
+}
+.about-page .wedge-mask-hero-bottom {
+  position: absolute;
+  bottom: 0;
+}
+.about-page .intro-panel-video {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+.about-page .hero-intro {
+  max-width: 550px;
+}
+.about-page .hero-intro h1 {
+  color: #5c060c;
+}
+.lang-cn .about-intro h1, .lang-jp .about-intro h1, .lang-kr .about-intro h1 {
+  font-weight: bold;
+}
+.about-lion {
+  background-color: #fff;
+}
+.about-lion > .inner-wrap {
+  max-width: 1080px;
+  display: flex;
+  align-items: center;
+  padding: 225px 7.5%;
+  text-align: center;
+  justify-content: center;
+}
+.about-lion h2 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 30px;
+  line-height: 1.25em;
+  margin: auto auto 1.5em;
+}
+.about-lion p {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 20px;
+  line-height: 1.25em;
+  max-width: 75%;
+  margin: auto;
+}
+.about-photo-break {
+  height: 100vh;
+  background-image: url('Image/about-bg-photo-developer-laptop.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20% top;
+}
+.about-help {
+  background-color: #fff;
+}
+.about-help > .inner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 7.5%;
+  text-align: center;
+}
+.about-help .help-pod-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 75px;
+  grid-row-gap: 0px;
+}
+.about-help .help-pod-wrapper.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.about-help .help-pod-wrapper.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.about-help .help-pod-wrapper.div3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.about-help h2 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 36px;
+  line-height: 1.25em;
+  margin: 0 auto 3.5em;
+}
+.about-help h3 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 24px;
+  margin: 0 auto 1em;
+  line-height: 1.15em;
+  max-width: 85%;
+}
+.about-help p {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 18px;
+  line-height: 1.35em;
+}
+.help-pod-icon {
+  width: 100%;
+  max-width: 140px;
+  margin: auto auto 1em;
+}
+.help-pod-icon.invisible {
+  transform: translateY(50%);
+}
+.about-values {
+  min-height: 800px;
+  max-height: 1100px;
+  background-color: #222;
+  color: #fff;
+}
+.about-values > .inner-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1100px;
+  padding: 150px 60px;
+  background-image: url('Image/logo-lion-overlay-black.svg');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center center;
+}
+.values-pods-parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: auto;
+}
+.values-pods-parent .div1 {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.values-pods-parent .div2 {
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 0 35% 0 0;
+}
+.values-pods-parent .div3 {
+  grid-area: 2 / 2 / 3 / 3;
+  padding: 0 0 0 35%;
+}
+.lang-jp .values-pods-parent .div2 {
+  padding: 0 20% 0 0;
+}
+.lang-jp .values-pods-parent .div3 {
+  padding: 0 0 0 30%;
+}
+.about-values h2 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 60px;
+  line-height: 1.15em;
+  margin: 0 0 1.5em;
+  max-width: 450px;
+}
+.about-values p {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 30px;
+  line-height: 1.35em;
+}
+.about-values h3 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 24px;
+  margin: 0 0 0.25em;
+}
+.about-values .values-capsules p {
+  font-size: 18px;
+  margin: 0 0 1.5em;
+}
+.about-photostrip {
+  height: 70vh;
+  min-height: 400px;
+  background-image: url('Image/about-photostrip.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+.about-our-story {
+	background-color:#e3a927;
+}
+.about-our-story h2 {
+	font-size:60px;
+  font-family: 'acherusgrotesque-black';
+  color: #fff;
+  margin:0 auto 0.5em;
+  max-width:1100px;
+  width: 85%;
+}
+.about-our-story > .inner-wrap {
+  min-height: 800px;
+  max-width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:120px 0;	
+}
+#our-story-row {
+	transition:background-color 0.5s ease-out;
+}
+#our-story-wrap {
+  width:100%;
+}
+.our-story-slide {
+	outline: none;
+padding:2.5% 0 0;
+transition:transform 0.75s ease-out;
+transform:translateX(-16vw) translateY(1vw);
+}	
+.our-story-slide.slick-current {
+transform:translateX(0) translateY(0);
+}	
+.our-story-slide.slick-current ~ .our-story-slide {
+transform:translateX(16vw) translateY(1vw);
+}	
+.our-story-slide img {
+	width:100%;
+	max-width:642px;
+	margin:auto;
+transform: translateY(10px) rotate(-4deg) scale(1.35);
+transition:transform 0.75s ease-out;
+	border-radius:10px;
+}
+.our-story-slide.slick-current img {
+transform: translateY(0) rotate(0) scale(1.35);
+}
+.our-story-slide.slick-current ~ .our-story-slide img {
+transform: translateY(10px) rotate(4deg) scale(1.35);
+}	
+.our-story-slide > p {
+font-size:20px;
+line-height:1.25em;
+color:#fff;
+	width:120%;
+	left:-10%;
+	margin:110px auto 1.5em;
+	text-align:center;
+	opacity:0;
+transition:opacity 0.5s ease-out;
+}
+.our-story-slide > p strong {
+  font-family: 'acherusgrotesque-black';
+}
+.our-story-slide > p em {
+  font-family: 'acherusgrotesque-regularitalic';
+}
+.lang-cn .our-story-slide > p strong, .lang-jp .our-story-slide > p strong, .lang-kr .our-story-slide > p strong {
+  font-weight: bold;
+}
+.our-story-slide.slick-current > p {
+	opacity:1;
+}
+#our-story-wrap .slick-arrow {
+	display: inline-block;
+	position: absolute;
+	width: 25%;
+	height: 100%;
+	z-index: 100;
+	opacity: 0;
+  cursor:pointer;
+}
+#our-story-wrap .slick-prev {
+top:0;
+	left:0;
+}
+#our-story-wrap .slick-next {
+top:0;
+	right:0;
+}
+#our-story-wrap .slick-arrow.slick-disabled {
+  cursor:default;
+}
+.about-hiring {
+  height: 100vh;
+  min-height: 900px;
+  background-image: url('Image/about-bg-photo-lion-halftone.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  padding: 200px 12%;
+}
+.about-hiring > .inner-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.about-hiring h2 {
+  font-family: 'acherusgrotesque-black';
+  color: #fff;
+  font-size: 120px;
+  line-height: 1.9em;
+  margin: 0 0 0.8em;
+}
+.lang-jp .about-hiring h2 { /* Language Edit */
+  font-size: 72px;
+}
+.about-hiring h2 .highlight {
+  background-color: #000;
+  display: inline;
+  padding: 0 0.4em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.about-hiring .jobs-link {
+  display: inline-block;
+  margin: 0;
+  font-family: 'acherusgrotesque-black';
+  color: #fff;
+  font-size: 36px;
+  background-color: #000;
+  padding: 0.35em 0.75em 0.5em;
+}
+.lang-cn .about-hiring .jobs-link, .lang-jp .about-hiring .jobs-link, .lang-kr .about-hiring .jobs-link {
+  font-weight: bold;
+}
+/* Media Queries */
+@media screen and (min-width: 1800px) {
+  .about-hiring .jobs-link {
+    font-size: 60px;
+  }
+  .lang-cn .about-hiring .jobs-link { /* Language Edit */
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 768px) {
+  .about-page .hero {
+    background-image: url('../images/about-hero-bg-art-mrbullet-medium.jpg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 100%;
+  }
+  .about-lion > .inner-wrap {
+    padding: 120px 7.5%;
+  }
+  .about-lion h2 {
+    font-size: 24px;
+  }
+  .about-lion p {
+    font-size: 18px;
+  }
+  .about-photo-break {
+    height: 45vh;
+    background-attachment: initial;
+    background-position: 10% top;
+  }
+  .about-help h2 {
+    font-size: 30px;
+  }
+  .about-help h3 {
+    font-size: 18px;
+  }
+  .about-help .help-pod-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 75px;
+    width: 75%;
+    max-width: 320px;
+  }
+  .about-help .help-pod-wrapper.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .about-help .help-pod-wrapper.div2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .about-help .help-pod-wrapper.div3 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .about-values {
+    height: initial;
+  }
+  .values-pods-parent .div2 {
+    padding: 0 10% 0 0;
+  }
+  .values-pods-parent .div3 {
+    padding: 0 0 0 10%;
+  }
+  .about-values p {
+    font-size: 24px;
+  }
+  .about-values h3 {
+    font-size: 18px;
+  }
+  .about-values .values-capsules p {
+    font-size: 16px;
+  }
+  .about-values > .inner-wrap {
+    background-size: 50%;
+  }
+  .about-photostrip {
+    height: 35vw;
+    min-height: 250px;
+    background-attachment: initial;
+    background-position: center center;
+  }
+  .about-hiring {
+    height: auto;
+    min-height: unset;
+    background-image: url('../images/about-bg-photo-lion-halftone.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    padding: 170px 12% 120px;
+  }
+  .about-hiring h2 {
+    font-size: 80px;
+  }
+  .about-hiring .jobs-link {
+    font-size: 30px;
+  }
+  .our-story-slide {
+	padding: 4.5% 0 0;
+	transform: translateX(-40vw) translateY(1vw);
+  }
+  .our-story-slide.slick-current ~ .our-story-slide {
+	transform: translateX(40vw) translateY(1vw);
+  }
+  .our-story-slide img {
+	transform: translateY(10px) rotate(-4deg) scale(2);
+	border-radius: 6px;
+  }
+  .our-story-slide.slick-current img {
+	transform: translateY(0) rotate(0) scale(2);
+  }
+  .our-story-slide.slick-current ~ .our-story-slide img {
+	transform: translateY(10px) rotate(4deg) scale(2);
+  }
+  #our-story-wrap .slick-arrow {
+	width: 20%;
+  }
+  .about-our-story h2 {
+	font-size: 46px;
+	margin: 0 auto 1em;
+	width: 75%;
+  }
+  .about-our-story > .inner-wrap {
+	min-height: unset;
+	padding: 80px 0;
+  }
+  .our-story-slide > p {
+	font-size: 18px;
+	width: 200%;
+	left: -50%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .about-page .hero {
+    background-image: url('../images/about-hero-bg-art-mrbullet-mobile.jpg');
+  }
+  .about-hiring .jobs-link {
+    font-size: 18px;
+  }
+  .about-page .hero {
+    justify-content: center;
+    min-height: 640px;
+  }
+  .about-page .hero > .inner-wrap {
+    align-items: flex-start;
+    min-height: auto;
+  }
+  .about-photo-break {
+    height: 25vh;
+    min-height: 220px;
+  }
+  .about-values {
+    height: auto;
+    max-height: initial;
+  }
+  .values-pods-parent {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .values-pods-parent .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .values-pods-parent .div2 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .values-pods-parent .div3 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .values-pods-parent .div2, .values-pods-parent .div3 {
+    padding: 0;
+    margin: 2em auto auto;
+  }
+  .about-values h2 {
+    font-size: 36px;
+    margin: 1em auto 0;
+    text-align: center;
+  }
+  .about-values p {
+    font-size: 18px;
+    text-align: center;
+  }
+  .about-values .values-capsules p {
+    max-width: 265px;
+    font-size: 14px;
+    margin: 0 auto 1.5em;
+  }
+  .about-values h3 {
+    text-align: center;
+  }
+  .about-values > .inner-wrap {
+    padding: 50px 7.5%;
+    background-image: none;
+  }
+  .values-pods-parent .div2 p::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 45vw;
+    padding: 2em 0 0;
+    background-image: url('../images/logo-lion-overlay-black.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-origin: content-box;
+  }
+  .about-lion > .inner-wrap {
+    padding: 80px 10%;
+  }
+  .about-lion h2 {
+    font-size: 21px;
+  }
+  .about-lion p {
+    font-size: 16px;
+    max-width: 85%;
+  }
+  .about-help h2 {
+    font-size: 24px;
+    margin: 0 auto 2em;
+    width: 85%;
+  }
+  .about-photostrip {
+    height: 45vw;
+    min-height: 170px;
+  }
+  .about-hiring {
+    padding: 90px 10% 65px;
+  }
+  .about-hiring h2 {
+    font-size: 36px;
+  }
+  .about-help p {
+    font-size: 16px;
+  }
+  .about-help .help-pod-wrapper {
+    grid-template-rows: auto;
+    grid-row-gap: 50px;
+    width: 85%;
+  }
+  .about-help > .inner-wrap {
+    padding: 80px 7.5%;
+  }
+  .help-pod-icon {
+    max-width: 100px;
+    margin: auto auto 1em;
+  }
+  .our-story-slide img {
+	transform: unset!important;
+  }
+  .our-story-slide {
+	padding: 20px 30px 0!important;
+	transform: unset!important;
+  }
+  .about-our-story h2 {
+	font-size: 30px;
+	text-align: center;
+  }
+  .our-story-slide > p {
+	font-size: 14px!important;
+	width: 95%!important;
+	left: 0;
+	margin: 1em auto 1.5em;
+  }
+  .about-our-story > .inner-wrap {
+	padding: 60px 0;
+  }
+}
+@media screen and (max-width: 480px) {}

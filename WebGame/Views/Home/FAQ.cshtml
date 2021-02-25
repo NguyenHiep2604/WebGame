@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>FAQ | Lion Studios</title>
+<link href="~/Content/style-pages-forms.css" rel="stylesheet" />
+
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq-page ">
+    <div class="hero minimal-height">
+        <div class="inner-wrap">
+            <div class="hero-intro">
+                <h1>
+                    Frequently Asked Questions
+                </h1>
+            </div>
+        </div>
+        <img class="wedge-mask-hero-bottom" src="~/Content/Image/wedge-mask-hero-bottom-light-gray.svg" alt="">
+    </div>
+    <div class="faq-panel-outer">
+        <div class="faq-panel-inner">
+            <h2>
+                How can we&nbsp;help?
+            </h2>
+            <div>
+                <div class="faq-question">Where can I find your games?</div><div class="faq-answer">You can find our games on the <a href="https://itunes.apple.com/us/developer/lion-studios/id1362220666">App Store</a> and on the <a href="https://play.google.com/store/apps/dev?id=6990178528646658622">Google Play Store</a>.</div><div class="faq-question">I’m a game developer. Will you publish my game?</div><div class="faq-answer">We’d love to work with you! <a href="https://lionstudios.cc/game-submissions/">Send us a note here</a> with details about your game(s) and we’ll get in touch.</div><div class="faq-question">I play your games. How can I share feedback or report a bug?</div><div class="faq-answer">You can send feedback, bug reports, fan mail, and more on our <a href="https://lionstudios.cc/contact-us/">Contact page</a>. We love hearing from our players!</div><div class="faq-question">I want to work at Lion Studios.</div><div class="faq-answer">We’re hiring! Check out available openings under “Lion Studios” on our <a href="https://lionstudios.cc/jobs/">Jobs page</a>.</div><div class="faq-question">I made an accidental purchase in one of your games. How can I request a refund?</div><div class="faq-answer">
+                    <strong>iOS - App Store</strong><br>
+                    Please visit the <a href="https://reportaproblem.apple.com/">Report a Problem page</a> on Apple’s website, and sign in with your Apple ID. Once you’ve signed in, click “Apps” and then “Report a Problem” next to the purchase you would like a refund for.<br>
+                    <br>
+                    <strong>Android - Google Play Store</strong><br>
+                    If you would like a refund for a purchase made on an Android device, please <a href="https://support.google.com/googleplay/answer/7205930?hl=en">refer to this page</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/gameSubmit.js"></script>

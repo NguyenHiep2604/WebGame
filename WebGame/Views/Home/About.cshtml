@@ -1,0 +1,308 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<title>About Us | Lion Studios</title>
+<link href="~/Content/About.css" rel="stylesheet" />
+<link href="~/Content/style-about.css" rel="stylesheet" />
+
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="about-page">
+    <div class="hero video-bg">
+        <video class="intro-panel-video" id="intro-panel-video" autoplay="" muted="" loop="" playsinline="">
+            <source src="/Content/Video/about-header-video-7-20-web.mp4" type="video/mp4" />
+        </video>
+        <div class="inner-wrap">
+            <div class="hero-intro">
+                <h1>
+                    About Us
+                </h1>
+                <h2>
+                    We turn mobile games into chart-topping hits.
+                </h2>
+            </div>
+        </div>
+        <img class="wedge-mask-hero-bottom" src="~/Content/Image/wedge-mask-hero-bottom-white.svg" alt="">
+    </div>
+    <div class="row about-lion">
+        <div class="inner-wrap">
+            <div>
+                <h2 data-scroll="offset(0,200px) once" class="visible">
+                    Lion Studios is a mobile games publishing studio based in San Francisco, California with offices across the globe. <span class="red">Our mission is to publish fun, entertaining games</span> that are played by people all over the&nbsp;world.
+                </h2>
+                <p data-scroll="offset(0,200px) once" class="visible">
+                    Our team of gamers, designers, developers, and analysts partner with you through every step of the game development&nbsp;process.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row about-photo-break fixedbg">
+    </div>
+    <div class="row about-help">
+        <div class="inner-wrap">
+            <h2>
+                How we help developers like&nbsp;you
+            </h2>
+            <div class="help-pod-wrapper">
+                <div class="div1">
+                    <img class="help-pod-icon visible" src="~/Content/Image/icon-about-people.svg" data-scroll="offset(0,200px) once" alt="people icon">
+                    <h3>
+                        Experienced and passionate team
+                    </h3>
+                    <p>
+                        Get strategic advice from our experts on how to grow your&nbsp;game.
+                    </p>
+                </div>
+                <div class="div2">
+                    <img class="help-pod-icon visible" src="~/Content/Image/icon-about-devices.svg" data-scroll="offset(0,225px) once" alt="devices icon">
+                    <h3>
+                        Space to test and strategically iterate your mobile&nbsp;game
+                    </h3>
+                    <p>
+                        We partner with you to try out new creative ads and monetization strategies, constantly looking for better iterations.
+                    </p>
+                </div>
+                <div class="div3">
+                    <img class="help-pod-icon visible" src="~/Content/Image/icon-about-tap.svg" data-scroll="offset(0,250px) once" alt="phone tap icon">
+                    <h3>
+                        Continued access to all our resources
+                    </h3>
+                    <p>
+                        You’ll not only get access to AppLovin’s mobile gaming experts, but AppLovin’s suite of online developer tools to improve and market your&nbsp;game.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row about-values">
+        <div class="inner-wrap">
+            <div class="values-pods-parent">
+                <div class="div1">
+                    <h2>
+                        Our Beliefs &amp;&nbsp;Values
+                    </h2>
+                </div>
+                <div class="div2">
+                    <p>
+                        Here at Lion Studios, we’re a tight-knit team of innovators, doers, and leaders. We value hard work, and great ideas — join us and create your mobile gaming legacy!
+                    </p>
+                </div>
+                <div class="div3 values-capsules">
+                    <h3>
+                        Honesty
+                    </h3>
+                    <p>
+                        We’re direct, respectful, and build trust within our team.
+                    </p>
+                    <h3>
+                        Courage
+                    </h3>
+                    <p>
+                        We empower our team to take smart risks so we can move quickly and create better games.
+                    </p>
+                    <h3>
+                        Passion
+                    </h3>
+                    <p>
+                        We inspire others with our hunger for excellence and care intensely about success.
+                    </p>
+                    <h3>
+                        Teamwork
+                    </h3>
+                    <p>
+                        We always support each other and constantly improve through open and proactive communication.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row about-photostrip fixedbg">
+    </div>
+    <div class="row about-our-story" id="our-story-row">
+        <div class="inner-wrap">
+            <h2>
+                Our Story
+            </h2>
+            <div id="our-story-wrap" class="slick-initialized slick-slider">
+                <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button" aria-disabled="true" style="display: block;">Previous</button>
+                <div class="slick-list draggable" style="padding: 0px;">
+                    <div class="slick-track" style="opacity: 1; width: 2776px; transform: translate3d(347px, 0px, 0px);">
+                        <div class="our-story-slide slick-slide slick-current slick-center" data-slick-index="0" aria-hidden="true" style="width: 347px;" tabindex="0">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-1-sm.png" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-1.png" class="" alt="">
+                            </picture>
+                            <p>
+                                Lion Studios is a mobile game publishing studio with offices in <br><strong>San Francisco</strong>, Berlin, and Shanghai.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="1" aria-hidden="true" style="width: 347px;" tabindex="0">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-2-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-2.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                Since our launch in 2018, we’ve <strong>published 67 games with 13 games reaching #1 in the charts</strong> and many more breaking the top&nbsp;10.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 347px;" tabindex="0">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-3-sm.png" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-3.png" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>April 20, 2018</strong><br>
+                                <em>Love Balls</em> from SuperTapx launched with Lion — reached <strong>#1 in App Store in 63 countries and #1 in Google Play in 54 countries — in just one&nbsp;day</strong>.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 347px;" tabindex="-1">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-4-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-4.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>July 2018</strong><br>
+                                Official launch of the Lion Studios&nbsp;brand!
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="4" aria-hidden="true" style="width: 347px;" tabindex="-1">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-5-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-5.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>July 12, 2018</strong><br>
+                                Lion Studios launched the first <strong>Ultimate Game Changers Contest</strong> — selecting four mobile games based on virality and stickiness — proving to have the most promise to become the next <span style="white-space:nowrap;">chart-topper</span>.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="5" aria-hidden="true" style="width: 347px;" tabindex="-1">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-6-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-6.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>August 28, 2019</strong><br>
+                                <em>i Peel Good</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 17 countries and #1 in Google Play in 4&nbsp;countries</strong>.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="6" aria-hidden="true" style="width: 347px;" tabindex="-1">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-7-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-7.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>October 9, 2019</strong><br>
+                                <em>Icing On The Cake</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 40 countries and #1 in Google Play in 22&nbsp;countries</strong>.
+                            </p>
+                        </div>
+                        <div class="our-story-slide slick-slide" data-slick-index="7" aria-hidden="true" style="width: 347px;" tabindex="-1">
+                            <picture>
+                                <source srcset="~/Content/Image/our-story-card-8-sm.jpg" media="(max-width: 640px)">
+                                <img src="~/Content/Image/our-story-card-8.jpg" class="" alt="">
+                            </picture>
+                            <p>
+                                <strong>January 2020</strong><br>
+                                We’ve reached a new year, and a new decade! We’re celebrating launching <strong>44 games in 2019 and more to&nbsp;come</strong>!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" aria-disabled="false">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="row about-hiring">
+        <div class="inner-wrap">
+            <h2>
+                <span class="highlight">We’re<br>Hiring</span>
+            </h2>
+            <a href="@Url.Action("Lobs","Home")" class="jobs-link">Apply Here</a>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/slick.min.js" id="slick-slider-script-js"></script>
+    <script src="~/Scripts/aboutuspage.js"></script>
+    <script type="text/javascript" src="~/Scripts/ScriptAbout.js" id="our-story-script-js"></script>
+    <script>
+        $('.slick-track').slick({
+            nextArrow: '<i class="fa fa-arrow-right"></i>',
+            prevArrow: '<i class="fa fa-arrow-left"></i>',
+            // add the rest of your options here
+        });
+    </script>
+    <script src="~/Scripts/gameSubmit.js"></script>
+}

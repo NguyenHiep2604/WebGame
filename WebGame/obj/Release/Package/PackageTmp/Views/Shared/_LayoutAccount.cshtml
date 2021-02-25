@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html class="">
+<head>
+    <title>Login V11</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="~/Content/Image/585e4bcdcb11b227491c3396.png" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage/CSS/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage/CSS/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/LoginPage/CSS/main.css">
+</head>
+
+<body>
+
+    @RenderBody()
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $("form").submit(function (event) {
+            $("#rememberMe").val($("#_rememberMe").prop('checked'));
+        });
+    </script>
+</body>
+</html>

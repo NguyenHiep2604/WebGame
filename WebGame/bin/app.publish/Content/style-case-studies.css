@@ -1,0 +1,269 @@
+/* Case Studies */
+.case-studies-page .hero {
+  background-color: #eb3945;
+}
+.case-studies-posts-wrap {
+  background-color: #fff;
+  margin: auto;
+}
+.case-studies-posts-wrap > .inner-wrap {
+  max-width: 1280px;
+  padding: 0 50px;
+}
+.case-studies-posts-wrap > .inner-wrap > div {
+  display: inline-block;
+  width: 47%;
+  max-width: 555px;
+}
+.case-studies-posts-wrap > .inner-wrap > div:nth-child(even) {
+  margin: 0 0em 60px 0;
+  float: right;
+}
+.case-studies-posts-wrap > .inner-wrap > div:nth-child(odd) {
+  margin: 0 0 60px 0;
+  float: left;
+  clear: left;
+}
+.case-studies-posts-wrap > .inner-wrap > div:nth-child(2) {
+  margin-top: 30px;
+}
+.case-studies-posts-wrap > .inner-wrap > div.clearout {
+  clear: both;
+  float: none;
+  width: 100%;
+  display: block;
+  height: 40px;
+  margin: 0 !important;
+  background-color: transparent;
+}
+.case-pod {
+  padding: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: #dedede 0px 0px 35px;
+  overflow: hidden;
+}
+.case-pod.invisible {
+  transform: translateY(-50px);
+}
+.case-pod img {
+  display: block;
+}
+.hero-subintro:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.hero-subintro {
+  max-width: 1080px;
+  padding: 2em 50px 0;
+  margin: auto auto 8em;
+}
+.column-top {
+  float: left;
+  padding: 20px;
+}
+.column-top:nth-child(1) {
+  width: 40%;
+}
+.column-top:nth-child(2) {
+  width: 60%;
+}
+.column-top h1 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 36px;
+  line-height: 140%;
+}
+.column-top p {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 21px;
+  line-height: 140%;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.column:nth-child(2) {
+  padding: 0 0 0 3em;
+}
+.stats-game-background {
+  filter: brightness(20%);
+  width: 100%;
+}
+.quote-game-background {
+  width: 100%;
+}
+.logo-text {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: auto;
+  text-align: center;
+}
+.logo-text img {
+  border-radius: 25%;
+  width: 20%;
+  margin: 10% auto 10px;
+  height: auto;
+}
+.text-under {
+  color: #fff;
+}
+.text-under h2 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 24px;
+}
+.text-under p {
+  margin-top: 5px;
+  font-size: 15px;
+  font-family: 'acherusgrotesque-bold';
+}
+.description {
+  padding: 40px 50px;
+}
+.stats .description::after {
+  display: block;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.game-description p {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 21px;
+  line-height: 1.5em;
+}
+.game-description p em {
+  font-family: 'acherusgrotesque-regularitalic';
+}
+.game-description p strong {
+  font-family: 'acherusgrotesque-black';
+  background-color: #ffe622;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.stats .game-stats h2 {
+  text-transform: uppercase;
+  font-family: 'acherusgrotesque-bold';
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2em;
+}
+.stats .game-stats p {
+  font-family: 'acherusgrotesque-bold';
+  font-size: 13px;
+  margin-bottom: 1.5em;
+  margin-top: 0.5em;
+}
+.lang-cn .stats .game-stats, .lang-jp .stats .game-stats, .lang-kr .stats .game-stats {
+  font-weight: bold;
+}
+.quote h1 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 42px;
+}
+.quote p {
+  font-family: 'acherusgrotesque-regularitalic';
+  font-size: 18px;
+  line-height: 140%;
+}
+p.speaker-name {
+  font-family: 'acherusgrotesque-bold';
+  margin-top: 1.5em;
+}
+p.speaker-title {
+  font-family: 'acherusgrotesque-regular';
+  margin-top: 0;
+}
+.quote-note {
+  margin: 2em auto 1em;
+}
+.game-studio p {
+  font-size: 15px;
+  margin-top: 2.75em;
+  color: #666;
+}
+.game-title-caption {
+  font-family: 'acherusgrotesque-bolditalic';
+}
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .hero-subintro {
+    margin: auto auto 5em;
+    padding: 3em 0 0;
+  }
+  .column-top {
+    float: none;
+    text-align: center;
+    padding: 0;
+  }
+  .column-top:nth-child(1), .column-top:nth-child(2) {
+    width: 80%;
+    max-width: 550px;
+    margin: auto;
+  }
+  .column-top h1 {
+    font-size: 30px;
+    margin: auto auto 1em;
+  }
+  .column-top p {
+    font-size: 16px;
+  }
+  .case-studies-posts-wrap > .inner-wrap > div:nth-child(even), .case-studies-posts-wrap > .inner-wrap > div:nth-child(odd) {
+    display: block;
+    float: none;
+    width: 85%;
+    margin: 0 auto 60px;
+  }
+}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 640px) {
+  .case-studies-posts-wrap > .inner-wrap {
+    padding: 0;
+  }
+  .case-studies-posts-wrap > .inner-wrap > div:nth-child(even), .case-studies-posts-wrap > .inner-wrap > div:nth-child(odd) {
+    margin: 0 auto 40px;
+  }
+  .column-top h1 {
+    font-size: 24px;
+  }
+  .column-top p {
+    font-size: 14px;
+  }
+  .quote-note {
+    margin: 1em auto;
+  }
+  .quote h1 {
+    font-size: 24px;
+  }
+  .quote p {
+    font-size: 12px;
+  }
+  .game-studio p {
+    font-size: 12px;
+  }
+  .description {
+    padding: 30px 30px 24px;
+  }
+  .game-description p {
+    font-size: 13px;
+  }
+  .stats .game-stats h2, .stats .game-stats p {
+    font-size: 8px;
+  }
+  .column:nth-child(2) {
+    padding: 0 0 0 1.75em;
+  }
+  .text-under h2 {
+    font-size: 14px;
+  }
+  .text-under p {
+    margin-top: 2px;
+    font-size: 10px;
+  }
+  .logo-text img {
+    margin: 10% auto 8px;
+  }
+}
+@media screen and (max-width: 480px) {}

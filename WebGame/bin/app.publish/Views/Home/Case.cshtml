@@ -1,0 +1,502 @@
+﻿
+@{
+    ViewBag.Title = "Case";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Case Studies | Lion Studios</title>
+<link href="~/Content/style-case-studies.css" rel="stylesheet" />
+
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="case-studies-page">
+    <div class="hero minimal-height">
+        <div class="inner-wrap">
+            <div class="hero-intro">
+                <h1>
+                    Case Studies
+                </h1>
+            </div>
+        </div>
+        <img class="wedge-mask-hero-bottom" src="~/Content/Image/wedge-mask-hero-bottom-white.svg" alt="">
+    </div>
+    <div class="case-studies-posts-wrap">
+
+
+        <div class="hero-subintro">
+            <div class="column-top hero-subintro-left">
+                <h1>
+                    We help mobile developers reach their full potential.
+                </h1>
+            </div>
+
+            <div class="column-top hero-intro-right">
+                <p>
+                    Since launching in March 2018, Lion Studios has helped drive 16 games to #1 in the US App Store’s Top Free chart. We’ve also had many games hit the top 10 and the top 20  across both the App Store and Google Play. Collectively, we’ve driven hundreds of millions of&nbsp;downloads.
+                </p>
+            </div>
+        </div>
+
+        <div class="inner-wrap">
+
+
+
+
+            <div class="case-pod quote visible" data-scroll="offset(0,250px) once">
+                <img src="~/Content/Image/lion-studios-casestudy-1of3-quote.jpg" class="quote-game-background" alt="">
+                <div class="description">
+                    <h1>
+                        #1 on App Store and Google Play across 124 countries
+                    </h1>
+                    <div class="quote-note">
+                        <p>
+                            “We've been fortunate to build a close partnership with Lion Studios and have launched several #1 games together. We make a great team and are looking forward to expanding our partnership and continuing to grow our studio.”
+                        </p>
+                    </div>
+                    <p class="speaker-name">
+                        Cumhur Onat
+
+                    </p>
+                    <p class="speaker-title">
+                        Co-founder &amp; CTO
+                    </p>
+                    <div class="game-studio">
+                        <p>
+                            <span class="game-title-caption">
+                                Slap Kings
+                            </span> by GameGuru
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="case-pod quote visible" data-scroll="offset(0,250px) once">
+                <img src="~/Content/Image/supertapx.jpg" class="quote-game-background" alt="">
+                <div class="description">
+                    <h1>
+                        #1 on App Store and Google Play across 87 countries
+                    </h1>
+                    <div class="quote-note">
+                        <p>
+                            “It’s been two years since we began working with Lion Studios. They’re a long-term trusted partner and publisher for our studio and are instrumental in helping us to create many of our #1 hit titles. They’re constantly innovating and full of great ideas. Our most recent game, Save The Girl was downloaded over 140 million times!”
+                        </p>
+                    </div>
+                    <p class="speaker-name">
+                        Ling Yun
+
+                    </p>
+                    <p class="speaker-title">
+                        CEO SuperTapX
+                    </p>
+                    <div class="game-studio">
+                        <p>
+                            <span class="game-title-caption">
+                                Love Balls
+                            </span>  and  <span class="game-title-caption">
+                                Save the Girl
+                            </span> by SuperTapX
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/icing-on-cake-background.jpg" class="stats-game-background" alt="Icing on the Cake">
+                <div class="logo-text">
+                    <img src="~/Content/Image/icing-on-cake-game-logo.jpg" class="case-game-logo" alt="Icing on the Cake">
+                    <div class="text-under">
+                        <h2>
+                            Icing on the Cake
+                        </h2>
+                        <p>
+                            Alpha Potato
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>Icing on the Cake</em> reached <strong>#1 on the App Store</strong> in 40 countries and <strong>#1 on Google Play</strong> in 22 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            October 9 ,2019
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            16
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            Bangladesh
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/mr-bullet-background.jpg" class="stats-game-background" alt="Mr Bullet">
+                <div class="logo-text">
+                    <img src="~/Content/Image/mr-bullet-logo.jpg" class="case-game-logo" alt="Mr Bullet">
+                    <div class="text-under">
+                        <h2>
+                            Mr Bullet
+                        </h2>
+                        <p>
+                            1Button
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>Mr Bullet</em> reached <strong>#1 on the App Store</strong> in 36 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            January 16, 2019
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            3
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            France
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/hooked-background.jpg" class="stats-game-background" alt="Hooked Inc">
+                <div class="logo-text">
+                    <img src="~/Content/Image/hooked-logo.jpg" class="case-game-logo" alt="Hooked Inc">
+                    <div class="text-under">
+                        <h2>
+                            Hooked Inc
+                        </h2>
+                        <p>
+                            ACE
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>Hooked Inc</em> reached <strong>#1 on the App Store</strong> for Simulation Games in 19 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            August 8, 2017
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            2
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            Sweden
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/i-peel-good-background.jpg" class="stats-game-background" alt="i Peel Good">
+                <div class="logo-text">
+                    <img src="~/Content/Image/i-peel-good-game-logo.jpg" class="case-game-logo" alt="i Peel Good">
+                    <div class="text-under">
+                        <h2>
+                            i Peel Good
+                        </h2>
+                        <p>
+                            Alpha Potato
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>i Peel Good</em> reached <strong>#1 on the App Store</strong> in 17 countries and <strong>#1 on Google Play</strong> in 4 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            August 29, 2019
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            16
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            Bangladesh
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/ink-inc-background.jpg" class="stats-game-background" alt="Ink Inc">
+                <div class="logo-text">
+                    <img src="~/Content/Image/ink-inc-logo-game.jpg" class="case-game-logo" alt="Ink Inc">
+                    <div class="text-under">
+                        <h2>
+                            Ink Inc
+                        </h2>
+                        <p>
+                            SRG Studios
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>Ink Inc</em> reached <strong>#1 on the App Store</strong> in 75 countries and <strong>#1 in Google Play</strong> in 47 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            October 31, 2019
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            19
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            Puerto Rico
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod stats visible" data-scroll="offset(0,250px) once">
+
+                <img src="~/Content/Image/forge-ahead-background.jpg" class="stats-game-background" alt="Forge Ahead">
+                <div class="logo-text">
+                    <img src="~/Content/Image/forge-ahead-game-logo.jpg" class="case-game-logo" alt="Forge Ahead">
+                    <div class="text-under">
+                        <h2>
+                            Forge Ahead
+                        </h2>
+                        <p>
+                            Protopia
+                        </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="column game-description">
+                        <p>
+                        </p><p><em>Forge Ahead</em> reached <strong>#1 on Google Play</strong> in 9 countries and <strong>#1 on the App Store</strong> in 8 countries.</p>
+
+                        <p></p>
+                    </div>
+                    <div class="column game-stats">
+                        <h2>
+                            Date Launched
+                        </h2>
+                        <p>
+                            December 4, 2019
+                        </p>
+                        <h2>
+                            Company Size
+                        </h2>
+                        <p>
+                            1
+                        </p>
+                        <h2>
+                            Country of Origin
+                        </h2>
+                        <p>
+                            United States
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="case-pod quote visible" data-scroll="offset(0,250px) once">
+                <img src="~/Content/Image/idle-makeover-background.jpg" class="quote-game-background" alt="">
+                <div class="description">
+                    <h1>
+                        #1 in the App Store in 16 countries
+                    </h1>
+                    <div class="quote-note">
+                        <p>
+                            “Lion Studios was integral to our journey in hitting the top charts; all the way from helping us ideate and brainstorm on the initial concept through to launch, scaling, and live support of the game.”
+                        </p>
+                    </div>
+                    <p class="speaker-name">
+                        Babar Ahmed
+
+                    </p>
+                    <p class="speaker-title">
+                        CEO Mindstorm
+                    </p>
+                    <div class="game-studio">
+                        <p>
+                            <span class="game-title-caption">
+                                Idle Makeover
+
+
+
+
+
+                            </span> by Mindstorm
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="clearout"></div>
+        </div>
+    </div>
+    <div class="cta-basic pattern-black-diamonds">
+        <h2>
+            Want Lion Studios to publish your&nbsp;game?
+        </h2>
+        <a href="https://lionstudios.cc/game-submissions" class="std-button">
+            Submit here
+        </a>
+    </div>
+</div>
+<script src="~/Scripts/gameSubmit.js"></script>

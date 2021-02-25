@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "SubmitGame";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4 id="ListName"><strong>Danh sách Game Submit</strong></h4>
+<div id="gridSubmitGame"></div>
+
+<div id="detailsDialog">
+    <div id="detailsForm" novalidate="novalidate" class="detailsForm">
+        <input id="ID" name="ID" type="hidden">
+        <div class="details-form-field">
+            <label for="FullName"><strong>Full Name:</strong></label>
+            <input class="form-control FullName" id="FullName" name="FullName" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="Email"><strong>Email:</strong></label>
+            <input class="form-control Email" id="Email" name="Email" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="GameTitle"><strong>Game Title:</strong></label>
+            <input class="form-control GameTitle" id="GameTitle" name="GameTitle" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="VideoFootageLink"><strong>Video Footage Link:</strong></label>
+            <input class="form-control VideoFootageLink" id="VideoFootageLink" name="VideoFootageLink" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="CompanyName"><strong>Company Name:</strong></label>
+            <input class="form-control CompanyName" id="CompanyName" name="CompanyName" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="Country"><strong>Country:</strong></label>
+            <input class="form-control Country" id="Country" name="Country" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="LinkAppStore"><strong>Link App Store:</strong></label>
+            <input class="form-control LinkAppStore" id="LinkAppStore" name="LinkAppStore" type="text" readonly>
+        </div>
+        <div class="details-form-field">
+            <label for="MoreAbout"><strong>More About:</strong></label>
+            <textarea class="form-control MoreAbout" id="MoreAbout" name="MoreAbout" readonly></textarea>
+        </div>
+        <div class="details-form-field">
+            <label for="DateSubmit"><strong>Date Submit:</strong></label>
+            <input class="form-control DateSubmit" id="DateSubmit" name="DateSubmit" type="datetime" readonly>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/submitGameAdmin.js"></script>
+}

@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "_LayoutDetailsJobs";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AppLovin - Product Analyst</title>
+    <style>
+        .template-btn-submit.hex-color {
+            background: #00b6e0;
+            border-color: #00add5;
+            color: white;
+        }
+
+            .template-btn-submit.hex-color:visited {
+                color: white;
+            }
+
+            .template-btn-submit.hex-color:hover {
+                background: #00add5;
+                color: white;
+            }
+
+            .template-btn-submit.hex-color:active, .template-btn-submit.hex-color:focus {
+                background: #007f9d;
+                color: white;
+            }
+    </style>
+    <link href="~/Content/detailsJob.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+</head>
+<body class="show header-compact">
+    <div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom " style="">
+        <!--googleoff: all-->
+        <span id="cookieconsent:desc" class="cc-message">
+            This website uses cookies to improve your web experience. By using the site, you agree to the use of cookies.
+            <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.applovin.com/privacy/" rel="noopener noreferrer nofollow" target="_blank">Privacy Policy</a>
+        </span>
+        <div class="cc-compliance">
+            <a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Dismiss</a>
+        </div><!--googleon: all-->
+    </div>
+    <div class="page show">
+        <div class="main-header page-full-width section-wrapper">
+            <div class="main-header-content page-centered narrow-section page-full-width"></div>
+        </div>
+    </div>
+    <div class="content-wrapper posting-page">
+        @RenderBody()
+    </div>
+    <div class="main-footer page-full-width">
+        <div class="main-footer-text page-centered">
+            <a href="https://lever.co/" class="image-link">
+                <span>Jobs powered by </span>
+                <img alt="Lever logo" src="~/Content/Image/lever-logo-full.svg">
+            </a>
+        </div>
+    </div>
+    <div id="walkme-player" class="walkme-direction-ltr walkme-player walkme-zambezi walkme-california walkme-theme-white-blue walkme-position-major-bottom walkme-position-minor-right_corner  walkme-to-destroy walkme-override walkme-css-reset walkme-language-default" role="button" aria-label="Lever Help" style="bottom: 0px; display: block;" data-inanimation="0"></div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .k-search {
+        width: 15.7em;
+        float: right;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    input {
+        height: 2rem !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    input {
+        height: auto !important;
+    }
+
+    .k-numeric-wrap {
+        border-bottom: none !important;
+    }
+
+    .k-i-reload {
+        color: #37b400;
+        font-size: large !important;
+        margin-top: 7px !important;
+    }
+
+    .k-i-plus {
+        color: #0174DF;
+        margin-left: 4px !important;
+        margin-top: 5px !important;
+    }
+
+    .k-i-check {
+        color: #FF8000;
+        margin: 4px !important;
+    }
+
+    .k-i-file-excel {
+        color: #DF7401;
+        margin-left: 4px !important;
+        font-size: large !important;
+        margin-top: 7px !important;
+    }
+
+    .k-i-delete {
+        color: #FE2E64;
+        margin: 4px 4px 0 5px !important;
+    }
+
+    .k-i-hyperlink-open {
+        color: #FE2E9A;
+    }
+
+    .hi-icon-wrap > .k-grid-add {
+        position: absolute;
+        left: 0px;
+        border: 1px solid #0174DF;
+    }
+
+    .hi-icon-wrap > .k-grid-save-changes {
+        position: absolute;
+        left: 45px;
+        border: 1px solid #FF8000;
+    }
+
+    .hi-icon-wrap > .k-pager-refresh {
+        position: absolute;
+        left: 90px;
+        border: 1px solid #37b400;
+    }
+
+    .hi-icon-wrap > .k-delete {
+        position: absolute;
+        left: 135px;
+        border: 1px solid #FE2E64;
+    }
+
+    .hi-icon-wrap > .k-excel {
+        position: absolute;
+        left: 180px;
+        border: 1px solid #DF7401;
+    }
+
+    .hi-icon-effect-9 {
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+
+        .hi-icon-effect-9 > .k-search {
+            margin-top: 10px;
+        }
+
+    .hi-icon-effect-8 > .k-pager-refresh > .k-i-reload,
+    .hi-icon-effect-8 > .k-grid-add > .k-i-plus,
+    .hi-icon-effect-8 > .k-excel > .k-i-file-excel,
+    .hi-icon-effect-8 > .k-import-excel > .k-i-hyperlink-open,
+    .hi-icon-effect-8 > .k-grid-save-changes > .k-i-check,
+    .hi-icon-effect-8 > .k-delete > .k-i-delete {
+        font-size: x-large;
+        margin-top: 6px;
+    }
+
+    .k-input-search {
+        margin: 0;
+        padding: 4px 8px;
+        width: 100%;
+        min-width: 0;
+        height: calc(1.4285714286em + 8px);
+        border: 0;
+        outline: 0;
+        box-sizing: border-box;
+        box-shadow: none;
+        color: inherit;
+        background: none;
+        font: inherit;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-appearance: none;
+    }
+
+    .k-notification h3 {
+        padding: 30px 10px 5px;
+        font-size: 1em;
+        line-height: normal;
+    }
+
+    .k-notification img {
+        margin: 20px;
+        float: left;
+    }
+    /* Success template */
+    .upload-success {
+        width: 300px;
+        height: 100px;
+    }
+    /* For Bootstrap v4 theme */
+    .k-bootstrap-v4 .k-notification h3 {
+        padding: 10px 10px 5px;
+    }
+
+    .k-bootstrap-v4 .k-notification img {
+        margin: 10px 20px 0 0;
+    }
+
+    .k-bootstrap-v4 .upload-success {
+        width: calc( 300px - 2.5rem );
+        height: calc( 100px - 1.5rem );
+    }
+
+
+    /* For Material v2 theme */
+    .k-material-v2 .k-notification h3 {
+        padding: 10px 10px 5px;
+    }
+
+    .k-material-v2 .k-notification img {
+        margin: 10px 20px 0 0;
+    }
+
+    .k-material-v2 .upload-success {
+        width: 270px;
+        height: 70px;
+    }
+
+    .form-control, #Image {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    label, button {
+        margin-left: 10px;
+    }
+
+    .image-game {
+        width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .details-form-field {
+        margin-top: 10px;
+    }
+
+    label {
+        margin-bottom: 0 !important;
+    }
+</style>
+<title>Admin | Lion Studios</title>
+<span id="notification" style="display:none;"></span>
+<h4 id="ListName"><strong>Danh sách Games</strong></h4>
+<div id="gridListGame"></div>
+
+<div id="detailsDialog">
+    <div id="detailsForm" novalidate="novalidate" class="detailsForm">
+        <input id="ID" name="ID" type="hidden">
+        <div class="details-form-field">
+            <label for="Name"><strong>Tên Game :</strong></label>
+            <input class="form-control name" id="Name" name="name" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="LinkIOS"><strong>Đường dẫn AppStore:</strong></label>
+            <input class="form-control linkIOS" id="LinkIOS" name="linkIOS" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="LinkAndroid"><strong>Đường dẫn GooglePlay:</strong></label>
+            <input class="form-control linkAndroid" id="LinkAndroid" name="linkAndroid" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="Caption"><strong>Chú thích:</strong></label>
+            <input class="form-control caption" id="Caption" name="caption" type="text">
+        </div>
+        <div class="details-form-field">
+            <label for="Featured"><strong>Game nổi bật:</strong></label>
+            <select name="Featured" id="Featured">
+                <option value="True">Có</option>
+                <option value="False">Không</option>
+            </select>
+        </div>
+        <div class="details-form-field">
+            <label for="Image"><strong>Hình ảnh:</strong></label>
+            <input id="Image" name="Image" type="file">
+            <img name="hinhanh" id="hinhanh" class="hinhanh" />
+        </div>
+        <div class="details-form-field button">
+            <button class="btnLuu btn btn-success" type="button" id="btnSave" onclick="btnSave()">Add</button>
+            <button class="btnUpdate btn btn-primary" type="button" id="btnUpdate" onclick="btnUpdate()">Update</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AdminScript/listGame.js"></script>
+}
+
+

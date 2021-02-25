@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "_LayoutAdmin";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="~/Content/Data/TrangChu/icon_gangster.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <title>Bullet Warriors | Admin</title>
+    <link href="~/Content/stylesAdmin.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.mobile.all.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.3.915/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.3.915/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2020.3.915/js/kendo.aspnetmvc.min.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="@Url.Action("Index","Home")">Bullet Warriors</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello @Session["Name"].ToString() | <i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="@Url.Action("LogOut","Account")">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">@Session["Name"].ToString()</div>
+                        @* Manage *@
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                            Manage
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="@Url.Action("Index","Admin")">List Game</a>
+                                <a class="nav-link" href="@Url.Action("ListAccount","Admin")">List Account</a>
+                                <a class="nav-link" href="@Url.Action("SubmitGame","Admin")">List Game Submit</a>
+                                <a class="nav-link" href="@Url.Action("ListJobs","Admin")">List Jobs</a>
+                                <a class="nav-link" href="@Url.Action("ListApplyJobs","Admin")">List Apply Jobs</a>
+                                @*<a class="nav-link" href="@Url.Action("TutoriaList","Admin")">Tutoria List</a>
+                                <a class="nav-link" href="@Url.Action("BoxSliderImage","Admin")">Box Slider Image</a>
+                                <a class="nav-link" href="@Url.Action("MAPList","Admin")">MAP List</a>
+                                <a class="nav-link" href="@Url.Action("ImageList","Admin")">Figure List</a>
+                                <a class="nav-link" href="@Url.Action("VideoList","Admin")">Video List</a>*@
+                            </nav>
+                        </div>
+                        @* Layout *@
+                        @*<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Layouts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Layouts PC
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="@Url.Action("IconTaskbar","Admin")">Icon Taskbar</a>
+                                        <a class="nav-link" href="@Url.Action("IconDowloadButton","Admin")">Icon Dowload</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    Layout Mobile
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="@Url.Action("IconTaskbarMobile","Admin")">Icon Taskbar Mobile</a>
+                                        <a class="nav-link" href="@Url.Action("IconDowloadMobile","Admin")">Icon Dowload Mobile</a>
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>*@
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="~/Scripts/AdminScript/all.min.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/AdminScript/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/AdminScript/scripts.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using WebGame.Models;
+
+<title>Home | Lion Studios</title>
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="home-page lang-en">
+    <div class="hero">
+        <img class="logo-lion-overlay" src="~/Content/Image/logo-lion-overlay.svg" alt="">
+        <div class="row row-red">
+            <div class="inner-wrap">
+                <div class="video-wrap">
+                    <video class="intro-panel-video" id="intro-panel-video" poster="~/Content/Image/home-video-poster-4-20.jpg" autoplay="" muted="" loop="" playsinline="">
+                        <source src="~/Content/Video/lion-home-video-7-20-web.mp4" type="video/mp4" id="intro-panel-video-source">
+                    </video>
+                    @*<p class="intro-panel-video-link video-start" data-title="lionstudios-web-trailer-7-20-web">Play the trailer</p>*@
+                </div>
+                <div class="hero-titles">
+                    <h1>
+                        Climb<br>
+                        the<br>
+                        charts
+                    </h1>
+                    <h2>
+                        with us
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="wedge-mask-home-hero-bottom">
+            <img src="~/Content/Image/wedge-mask-hero-bottom-red.svg" alt="">
+        </div>
+    </div>
+    <div class="games-table" id="games-table">
+        <div class="wrapper">
+            <h2>
+                Lion Studios by AppLovin helps mobile game developers of all sizes grow their businesses by publishing and marketing their&nbsp;games.
+            </h2>
+            <h3>
+                Featured Games
+            </h3>
+            <div class="app-icons-wrapper">
+
+                @{ var dataListGameFeatured = ViewBag.DataListGameFeatured as List<List_Game>; }
+                @foreach (var game in dataListGameFeatured)
+                {
+
+                    <div class="app-pod award-on">
+                        <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
+                        <div class="app-icon">
+                            <img src="@Url.Action("ViewImage", "Home", new { @id = game.ID })" alt="Game icon">
+                        </div>
+                        <div class="app-overlay">
+                            <h6 class="app-title">@game.Name</h6>
+                            <div class="app-button-wrap">
+                                <div class="app-button">
+                                    <a href="@game.LinkIOS">
+                                        <img src="~/Content/Image/btn-app-store.svg" alt="Download on the App Store">
+                                    </a>
+                                </div>
+                                <div class="app-button">
+                                    <a href="@game.LinkAndroid">
+                                        <img src="~/Content/Image/btn-google-play.svg" alt="Get it on Google Play">
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="award-caption">@game.Caption </p>
+                        </div>
+                    </div>}
+
+            </div>
+
+            <a href="@Url.Action("Games","Home")" class="arrow-link">See all games</a>
+        </div>
+    </div>
+    <div class="home-quote">
+        <img class="home-quote-spots-overlay" src="~/Content/Image/home-quote-spots-overlay.svg" alt="">
+        <div class="inner-wrap home-quote-wrap">
+            <div class="home-quote-screenshot">
+                <picture>
+                    <source srcset="https://lionstudios.cc/wp-content/uploads/2020/04/game-icon-mr-bullet.jpg" media="(max-width: 640px)">
+                    <img src="~/Content/Image/game-screen-mr-bullet.jpg" alt="game art" data-scroll="offset(0,500px) once" class="visible">
+                </picture>
+            </div>
+            <div class="home-quote-copy">
+                <p class="quote-body">
+                    <span class="open-quote-mark">“</span>Lion Studios has helped make Mr Bullet a sustained global success. They were collaborative and communicative, and their expertise in monetization and growth allowed us to focus on excellent game design and production.”
+                </p>
+                <p>
+                    <span class="quote-name">Thomas Castel</span><br>
+                    <span class="quote-attrib">Co-Founder 1Button</span>
+                </p>
+                <a href="@Url.Action("Case","Home")" class="read-more">Read more</a>
+            </div>
+        </div>
+    </div>
+    <div class="cta-basic pattern-black-diamonds">
+        <h2>
+            Want Lion Studios to publish your&nbsp;game?
+        </h2>
+        <a data-toggle="modal" data-target="#exampleModal" class="std-button" style="cursor:pointer">
+            Submit here
+        </a>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/HomeScript.js"></script>
+    <script src="~/Scripts/gameSubmit.js"></script>
+}

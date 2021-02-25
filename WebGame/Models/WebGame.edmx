@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebGameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apply_Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CurrentCompany" Type="nvarchar(max)" />
+          <Property Name="CV" Type="varbinary(max)" Nullable="false" />
+          <Property Name="LinkedInURL" Type="nvarchar(max)" />
+          <Property Name="TwitterURL" Type="nvarchar(max)" />
+          <Property Name="GithubURL" Type="nvarchar(max)" />
+          <Property Name="PortfolioURL" Type="nvarchar(max)" />
+          <Property Name="OtherWebsite" Type="nvarchar(max)" />
+          <Property Name="More" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GameSubmit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GameTitle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VideoFootageLink" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" />
+          <Property Name="LinkAppStore" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MoreAbout" Type="nvarchar(max)" />
+          <Property Name="DateSubmit" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="List_Game">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+          <Property Name="LinkIOS" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LinkAndroid" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar(max)" />
+          <Property Name="Featured_Games" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="List_Jobs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Team" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Vacancies" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WebGameModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apply_Job" EntityType="Self.Apply_Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameSubmit" EntityType="Self.GameSubmit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="List_Game" EntityType="Self.List_Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="List_Jobs" EntityType="Self.List_Jobs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebGameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WebGameEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="List_Game" EntityType="WebGameModel.List_Game" />
+          <EntitySet Name="Accounts" EntityType="WebGameModel.Account" />
+          <EntitySet Name="GameSubmits" EntityType="WebGameModel.GameSubmit" />
+          <EntitySet Name="List_Jobs" EntityType="WebGameModel.List_Jobs" />
+          <EntitySet Name="Apply_Job" EntityType="WebGameModel.Apply_Job" />
+        </EntityContainer>
+        <EntityType Name="List_Game">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LinkIOS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkAndroid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Caption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Featured_Games" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GameSubmit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GameTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoFootageLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkAppStore" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MoreAbout" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateSubmit" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="List_Jobs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Team" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vacancies" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Apply_Job">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CurrentCompany" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CV" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LinkedInURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TwitterURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GithubURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PortfolioURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="More" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebGameModelStoreContainer" CdmEntityContainer="WebGameEntities">
+          <EntitySetMapping Name="List_Game">
+            <EntityTypeMapping TypeName="WebGameModel.List_Game">
+              <MappingFragment StoreEntitySet="List_Game">
+                <ScalarProperty Name="Featured_Games" ColumnName="Featured_Games" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="LinkAndroid" ColumnName="LinkAndroid" />
+                <ScalarProperty Name="LinkIOS" ColumnName="LinkIOS" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="WebGameModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameSubmits">
+            <EntityTypeMapping TypeName="WebGameModel.GameSubmit">
+              <MappingFragment StoreEntitySet="GameSubmit">
+                <ScalarProperty Name="DateSubmit" ColumnName="DateSubmit" />
+                <ScalarProperty Name="MoreAbout" ColumnName="MoreAbout" />
+                <ScalarProperty Name="LinkAppStore" ColumnName="LinkAppStore" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="VideoFootageLink" ColumnName="VideoFootageLink" />
+                <ScalarProperty Name="GameTitle" ColumnName="GameTitle" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="List_Jobs">
+            <EntityTypeMapping TypeName="WebGameModel.List_Jobs">
+              <MappingFragment StoreEntitySet="List_Jobs">
+                <ScalarProperty Name="Vacancies" ColumnName="Vacancies" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apply_Job">
+            <EntityTypeMapping TypeName="WebGameModel.Apply_Job">
+              <MappingFragment StoreEntitySet="Apply_Job">
+                <ScalarProperty Name="More" ColumnName="More" />
+                <ScalarProperty Name="OtherWebsite" ColumnName="OtherWebsite" />
+                <ScalarProperty Name="PortfolioURL" ColumnName="PortfolioURL" />
+                <ScalarProperty Name="GithubURL" ColumnName="GithubURL" />
+                <ScalarProperty Name="TwitterURL" ColumnName="TwitterURL" />
+                <ScalarProperty Name="LinkedInURL" ColumnName="LinkedInURL" />
+                <ScalarProperty Name="CV" ColumnName="CV" />
+                <ScalarProperty Name="CurrentCompany" ColumnName="CurrentCompany" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

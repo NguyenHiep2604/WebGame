@@ -1,0 +1,604 @@
+/* Jobs Page */
+.jobs-page .hero {
+  background-image: url('Image/jobs-hero-bg-photo-devs-full.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  z-index: 50;
+}
+.jobs-page .hero-intro h1 {
+  color: #eb3945;
+}
+.jobs-page .listings {
+  padding: 120px 7.5% 60px;
+}
+.jobs-page .listings h2 {
+  font-family: 'acherusgrotesque-black';
+  font-size: 36px;
+  line-height: 1.25em;
+  margin: 0 auto 0.5em;
+}
+.jobs-page .listings p.listings-intro {
+  font-family: 'acherusgrotesque-regular';
+  font-size: 21px;
+  line-height: 1.45em;
+  margin: 0 auto 1em 0;
+  max-width: 590px;
+}
+.jobs-page .hero-intro .std-button {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.jobs-statement {
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  min-height: 800px;
+  max-height: 1100px;
+  background-color: #222;
+}
+.jobs-statement .inner-wrap {
+  max-width: 1300px;
+  padding: 0 7.5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  line-height: 1.25em;
+  font-family: "acherusgrotesque-black";
+  color: #fff;
+  text-align: center;
+}
+.jobs-page .culture {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  min-height: 800px;
+}
+.jobs-page .culture > div {
+  flex: 1 1 50%;
+  height: 100%;
+}
+.jobs-page .culture-text {
+  display: flex;
+  align-items: center;
+}
+.jobs-page .culture-text > .inner-wrap {
+  width: 80%;
+  max-width: 500px;
+  margin: auto auto auto 125px;
+}
+.jobs-page .culture-text h2 {
+  font-family: "acherusgrotesque-black";
+  font-size: 50px;
+  line-height: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: auto auto 1.5em 0;
+  color: #eb3945;
+}
+.jobs-page .culture-text h3 {
+  font-family: "acherusgrotesque-black";
+  font-size: 30px;
+  line-height: 1.25em;
+  margin: auto auto 1em 0;
+  color: #eb3945;
+}
+.jobs-page .culture-text p {
+  font-family: "acherusgrotesque-light";
+  font-size: 24px;
+  line-height: 1.25em;
+  margin: auto auto 1em 0;
+}
+.jobs-page .culture-image {
+  background-image: url('Image/jobs-culture-bg-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.jobs-page .big-questions {
+  padding: 10% 12.5%;
+}
+.jobs-page .big-questions .inner-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 800px;
+  justify-content: space-between;
+}
+.jobs-page .big-questions .jobs-text-question {
+  font-family: "acherusgrotesque-black";
+  line-height: 1.475em;
+  font-size: 60px;
+  margin: 0 auto 0.75em 0;
+}
+.jobs-page .big-questions .jobs-text-question.invisible {
+  transform: translateY(-1em);
+}
+.jobs-page .big-questions .jobs-text-question span.highlight {
+  background-color: #fff;
+  display: inline;
+  padding: 0 0.4em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.jobs-page .big-questions .closing-tag {
+  color: #fff;
+  font-family: "acherusgrotesque-black";
+  font-size: 30px;
+  line-height: 1.25em;
+  margin: 3em auto 0 0;
+  max-width: 540px;
+}
+.jobs-page .perks {
+  padding: 120px 0 100px;
+  text-align: center;
+}
+.jobs-page .perks h2 {
+  font-size: 36px;
+  font-family: "acherusgrotesque-black";
+  margin: auto auto 2em;
+}
+.perks-pods-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-evenly;
+}
+.perks-pods-wrap > div {
+  flex: 0 1 30%;
+  padding: 0 2.5%;
+  margin: 0 auto 5%;
+}
+.perks-pods-wrap > div > img {
+  max-height: 85px;
+  margin: auto auto 2em auto;
+}
+.perks-pods-wrap h6 {
+  color: #666;
+  font-family: "acherusgrotesque-regular";
+  font-size: 18px;
+  margin: 0.25em auto;
+  text-align: center;
+  line-height: 1.25em;
+  width: 90%;
+}
+
+/* Lever.co job listings */
+#job-listings {
+	padding:70px 0;
+}
+#job-listings > .inner-wrap {
+	text-align:left;
+}
+
+.selected {
+
+}
+#new-list {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  font-size: 16px;
+}
+#new-list ul,
+#new-list li,
+#new-list h1,
+#new-list h2,
+#new-list h3,
+#new-list h4,
+#new-list h5,
+#new-list h6,
+#new-list p,
+#new-list span {
+  margin: 0;
+  padding: 0;
+}
+#new-list * {
+  box-sizing: border-box;
+}
+#new-list ul {
+  list-style-type: none;
+  margin-top:2em;
+}
+#new-list li.lever-job {
+  text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding:24px;
+	transition:all 0.2s;
+	position:relative;
+}
+#new-list .lever-job-link-wrap li.lever-job::before {
+	display:block;
+	content:'';
+	border-top: 1px solid #e7e7e7;
+	position:absolute;
+	top:-1px;
+	left:24px;
+	width:calc(100% - 48px);
+}
+#new-list .lever-job-link-wrap:last-child li.lever-job::after {
+	display:block;
+	content:'';
+	border-bottom: 1px solid #e7e7e7;
+	position:absolute;
+	bottom:-1px;
+	left:24px;
+	width:calc(100% - 48px);
+}
+#new-list li.lever-job:hover {
+	box-shadow: 0 0 9px rgb(0,0,0,0.2);
+	z-index: 10;
+	background: #fff;
+}
+#new-list .lever-team {
+  margin-bottom: 1.5em;
+}
+#new-list .lever-department {
+  margin-bottom: 3em;
+}
+#new-list .lever-team-title {
+  font-size: 1.25em;
+	margin: 2.5em auto 1.5em 24px;
+	text-align: left;
+}
+#new-list .lever-job-title {
+  	display: inline-block;
+	flex: 0 0 50%;
+	font-family: 'acherusgrotesque-black';
+	color:#666;
+	transition:all 0.2s;
+}
+#new-list .lever-job:hover .lever-job-title, #new-list .lever-job:hover .lever-job-tag {
+  color: #00b6e0;
+}
+#new-list .lever-job-title:active {
+  color: #00b6e0;
+}
+#new-list .lever-job-tag {
+  display: inline-block;
+	color:#999;
+	transition:all 0.2s;
+  flex: 0 0 45%;
+}
+#new-list select {
+  margin: 0.5em;
+	padding: 12px 32px 12px 20px;
+	border: 2px solid #efefef;
+	border-radius: 0;
+	font-size: 18px;
+	background-color: #fff;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url('Image/dropdown-arrow-gray.svg');
+	background-repeat: no-repeat;
+	background-size: 1.5em;
+	background-position: right center;
+	min-width:220px;
+	cursor:pointer;
+	font-family:inherit;
+}
+@media (max-width: 767px) {
+  #new-list .lever-job-tag,
+  #new-list .lever-job-title {
+    flex: 0 0 100%;
+  }
+  #new-list .lever-job {
+    flex-wrap: wrap;
+  }
+}
+#lever-jobs-search {
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 3px;
+  border: 1px solid #E3E4E6;
+  margin-bottom: 1em;
+}
+#lever-clear-filters {
+  cursor: pointer;
+  font-size: 0.75em;
+  display:inline-block;
+  margin-bottom:1.5em;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-family: 'acherusgrotesque-black';
+}
+.lever-jobs-menu-label {
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-family: 'acherusgrotesque-black';
+  color:#999;
+  font-size: 12px;
+  display:inline-block;
+  margin-right:2em!important;
+}
+#lever-jobs-container {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  color: #2c2e2f;
+  font-size: 16px;
+}
+#lever-jobs-container ul,
+#lever-jobs-container li,
+#lever-jobs-container h1,
+#lever-jobs-container h2,
+#lever-jobs-container h3,
+#lever-jobs-container h4,
+#lever-jobs-container h5,
+#lever-jobs-container h6,
+#lever-jobs-container p,
+#lever-jobs-container span {
+  margin: 0;
+  padding: 0;
+}
+#lever-jobs-container * {
+  box-sizing: border-box;
+}
+#lever-jobs-container ul {
+  list-style-type: none;
+}
+#lever-jobs-container li.lever-job {
+  text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding:24px;
+	transition:all 0.2s;
+	position:relative;
+}
+#lever-jobs-container .lever-job-link-wrap li.lever-job::before {
+	display:block;
+	content:'';
+	border-top: 1px solid #e7e7e7;
+	position:absolute;
+	top:-1px;
+	left:24px;
+	width:calc(100% - 48px);
+}
+#lever-jobs-container .lever-job-link-wrap:last-child li.lever-job::after {
+	display:block;
+	content:'';
+	border-bottom: 1px solid #e7e7e7;
+	position:absolute;
+	bottom:-1px;
+	left:24px;
+	width:calc(100% - 48px);
+}
+#lever-jobs-container li.lever-job:hover {
+	box-shadow: 0 0 9px rgb(0,0,0,0.2);
+	z-index: 10;
+	background: #fff;
+}
+#lever-jobs-container .lever-team {
+  margin-bottom: 1.5em;
+}
+#lever-jobs-container .lever-department {
+  margin-bottom: 3em;
+}
+#lever-jobs-container .lever-team-title {
+  font-size: 2em;
+	margin: 2.5em auto 1.5em 24px;
+	text-align: left;
+}
+#lever-jobs-container .lever-department-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+#lever-jobs-container .lever-job-title {
+  	display: inline-block;
+	flex: 0 0 50%;
+	font-size:1.125em;
+	font-family: 'acherusgrotesque-black';
+	color:#666;
+	transition:all 0.2s;
+}
+#lever-jobs-container li.lever-job:hover .lever-job-title, #lever-jobs-container li.lever-job:hover .lever-job-tag {
+  color: #00b6e0;
+}
+#lever-jobs-container li.lever-job:active .lever-job-title {
+  color: #00b6e0;
+}
+#lever-jobs-container .lever-job-tag {
+  display: inline-block;
+	color:#999;
+	transition:all 0.2s;
+  flex: 0 0 45%;
+}
+.lever-job-arrow {
+	border-top:1px solid #bababa;
+	border-right:1px solid #bababa;
+	width:8px;
+	height:8px;
+	margin-right:20px;
+	transform:rotate(45deg);
+	transition:all 0.2s;
+}
+li.lever-job:hover .lever-job-arrow {
+	border-top-color: #00b6e0;
+	border-right-color: #00b6e0;
+}
+@media (max-width: 767px) {
+  #lever-jobs-container .lever-job-tag,
+  #lever-jobs-container .lever-job-title {
+    flex: 0 0 100%;
+  }
+  #lever-jobs-container .lever-job {
+    flex-wrap: wrap;
+  }
+  .lever-job-arrow {
+    display:none;
+  }
+  .lever-jobs-menu-label {
+	display: block;
+  }
+  #new-list select {
+	margin: 0.5em 0;
+  }
+  #lever-clear-filters {
+	display: block;
+	margin-bottom:3em;
+  }
+  #job-listings-body > .inner-wrap {
+  	width:100%;
+  }
+}
+/* End Lever.co */
+
+.jobs-eeo-footer {
+	margin:100px auto;
+	font-size:14px!important;
+	line-height:1.45em;
+	color:#666;
+	max-width:800px;
+	text-align:center;
+}
+/* Media Queries */
+@media screen and (max-width:1600px) {
+  .jobs-page .culture-text > .inner-wrap {
+    margin: auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .jobs-page .grid > div {
+    width: 100%;
+    margin: 0 0 5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .jobs-statement {
+    height: 50vh;
+    min-height: 500px;
+  }
+  .jobs-statement .inner-wrap {
+    font-size: 36px;
+  }
+  .jobs-statement h2 {
+    max-width: 580px;
+  }
+  .jobs-page .hero {
+    background-image: url('../images/jobs-hero-bg-photo-devs-medium.jpg');
+    background-position: left top;
+  }
+  .jobs-page .culture {
+    height: 60vh;
+    min-height: 550px;
+  }
+  .jobs-page .culture-text h2 {
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+  .jobs-page .culture-text h3 {
+    font-size: 18px;
+  }
+  .jobs-page .culture-text p {
+    font-size: 16px;
+  }
+  .jobs-page .culture-text > .inner-wrap {
+    width: 75%;
+  }
+  .jobs-page .big-questions {
+    padding: 10%;
+  }
+  .jobs-page .big-questions .jobs-text-question {
+    font-size: 36px;
+  }
+  .jobs-page .big-questions .inner-wrap {
+    min-height: 550px;
+  }
+  .jobs-page .big-questions .closing-tag {
+    font-size: 21px;
+    max-width: 400px;
+  }
+  .jobs-page .big-questions {
+    padding: 15% 10% 12.5%;
+  }
+  .jobs-page .perks {
+    padding: 100px 0 80px;
+  }
+  .jobs-page .perks h2 {
+    font-size: 30px;
+  }
+  .perks-pods-wrap > div {
+    flex: 0 1 40%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .jobs-page .hero {
+    min-height: auto;
+  }
+  .jobs-page .hero > .inner-wrap {
+    min-height: 600px;
+  }
+  .jobs-page .hero-intro .std-button {
+    font-size: 14px;
+  }
+  .jobs-statement {
+    height: auto;
+    min-height: 80vw;
+  }
+  .jobs-statement .inner-wrap {
+    font-size: 21px;
+  }
+  .jobs-page .culture {
+    flex-direction: column;
+    height: auto;
+  }
+  .jobs-page .culture > div {
+    flex: 1 1 auto;
+    height: auto;
+  }
+  .jobs-page .culture-image {
+    min-height: 550px;
+    width: 100%;
+  }
+  .jobs-page .culture-text > .inner-wrap {
+    margin: 4em auto;
+    text-align: center;
+  }
+  .jobs-page .big-questions .jobs-text-question {
+    font-size: 24px;
+  }
+  .jobs-page .big-questions .inner-wrap {
+    min-height: 400px;
+  }
+  .jobs-page .big-questions .closing-tag {
+    font-size: 16px;
+  }
+  .jobs-page .listings {
+    padding: 80px 7.5% 20px;
+  }
+  .jobs-page .listings h2 {
+    font-size: 24px;
+  }
+  .jobs-page .listings p.listings-intro {
+    font-size: 16px;
+  }
+  .jobs-page .grid > div {
+    margin: 0 0 5%;
+  }
+  .jobs-page .perks {
+    padding: 80px 0 40px;
+  }
+  .perks-pods-wrap > div {
+    flex: 0 1 50%;
+    margin: 0 auto 10%;
+  }
+  .perks-pods-wrap h6 {
+    font-size: 14px;
+  }
+  .jobs-page .grid > div.cat-1 {
+    flex-direction: column;
+  }
+  .jobs-page .grid > div.cat-1 > div:last-child {
+    flex: 1 0 auto;
+  }
+  .jobs-page .grid > div.cat-1 .apply {
+    margin: 1em auto;
+  }
+}
+@media screen and (max-width: 480px) {}

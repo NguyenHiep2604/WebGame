@@ -1,0 +1,288 @@
+﻿@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using WebGame.Models;
+<title>Jobs | Lion Studios</title>
+<link href="~/Content/style-jobs.css" rel="stylesheet" />
+
+<script>
+    var verifyCallback = function (response) {
+        $("#btnSendEmail").prop('disabled', false)
+    };
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
+            'callback': verifyCallback,
+            'theme': 'dark'
+        });
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom:0 !important">
+                <img src="~/Content/Image/lionstudiospoplogo.png" style="width: 190px; text-align: center; margin-left: 30%; margin-right:30%" />
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size:28px; margin-top: -1%; margin-right: 1%">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 2">
+                <form>
+                    <div class="col-sm-6" style="float: left">
+                        <div>
+                            <label>Full Name</label>
+                            <input class="form-control FullName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Your Email</label>
+                            <input class="form-control Email" type="text" required />
+                        </div>
+                        <div>
+                            <label>Game Title(s)</label>
+                            <input class="form-control Title" type="text" required />
+                        </div>
+                        <div>
+                            <label>Video Footage Links</label>
+                            <textarea class="form-control FootageLink"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="float: right">
+                        <div>
+                            <label>Company Name</label>
+                            <input class="form-control CompanyName" type="text" required />
+                        </div>
+                        <div>
+                            <label>Country</label>
+                            <input class="form-control Country" type="text" />
+                        </div>
+                        <div>
+                            <label>Link To Your App Store Account/Game URL</label>
+                            <input class="form-control LinkStore" type="text" required />
+                        </div>
+                        <div>
+                            <label>Tell Us More About Your Team And Game(s)</label>
+                            <textarea class="form-control MoreAbout"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 0 !important">
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jobs-page">
+    <div class="hero full-height">
+        <div class="inner-wrap">
+            <div class="hero-intro">
+                <h1>
+                    Jobs
+                </h1>
+                <h2>
+                    Help us build cool games.
+                </h2>
+                <a class="std-button" href="#job-listings" style="cursor:pointer">
+                    See open positions
+                </a>
+            </div>
+        </div>
+        <img class="wedge-mask-hero-bottom" src="~/Content/Image/wedge-mask-hero-bottom-dark-gray.svg" alt="">
+    </div>
+    <div class="jobs-statement">
+        <div class="inner-wrap">
+            <h2 data-scroll="offset(0,200px) once" class="visible">
+                We’re <span class="red">Lion Studios</span>. Our talented, hardworking and fun-loving team is committed to <span class="red">bringing the world the best mobile&nbsp;games</span>.
+            </h2>
+        </div>
+    </div>
+    <div class="row culture">
+        <div class="culture-image"> </div>
+        <div class="culture-text">
+            <div class="inner-wrap">
+                <h2>
+                    Culture
+                </h2>
+                <h3>
+                    At Lion Studios, we are relentlessly focused on building the best games on the market — always bringing fun, engaging gameplay to players everywhere.
+                </h3>
+                <p>
+                    We take initiative, act with integrity, and aspire to greatness. We embody the “work hard, play hard” mentality here.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row row-red big-questions">
+        <div class="inner-wrap">
+            <div>
+                <p class="jobs-text-question visible" data-scroll="offset(0,200px) once">
+                    <span class="highlight red">
+                        Do you constantly think about mobile&nbsp;games?
+                    </span>
+                </p>
+                <p class="jobs-text-question visible" data-scroll="offset(0,225px) once">
+                    <span class="highlight red">
+                        Tinker with game mechanics?
+                    </span>
+                </p>
+                <p class="jobs-text-question visible" data-scroll="offset(0,250px) once">
+                    <span class="highlight red">
+                        Or love the data behind it&nbsp;all?
+                    </span>
+                </p>
+            </div>
+            <h3 class="closing-tag">
+                Explore our careers below to find out how you can join in on the&nbsp;fun!
+            </h3>
+        </div>
+    </div>
+    <div class="row row-white perks">
+        <div class="inner-wrap">
+            <h2>
+                The Perks
+            </h2>
+            <div class="perks-pods-wrap">
+                <div>
+                    <img src="~/Content/Image/icon-jobs-bandaid.svg" alt="bandaid icon">
+                    <h6>
+                        Free medical, dental, and vision insurance
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-stipend.svg" alt="stipend icon">
+                    <h6>
+                        WFH stipend each paycheck
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-runner.svg" alt="runner icon">
+                    <h6>
+                        Free gym membership
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-shirt.svg" alt="shirt icon">
+                    <h6>
+                        Free laundry service
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-handshake.svg" alt="handshake icon">
+                    <h6>
+                        Employee assistance programs
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-handshake.svg" alt="train icon">
+                    <h6>
+                        Free public transportation
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-airplane.svg" alt="airplane icon">
+                    <h6>
+                        Great vacation time
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-piggybank.svg" alt="piggybank icon">
+                    <h6>
+                        Stock options, 401k matching, life and disability coverage
+                    </h6>
+                </div>
+                <div>
+                    <img src="~/Content/Image/icon-jobs-rocket.svg" alt="rocket icon">
+                    <h6>
+                        Fun events
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-gray listings" id="job-listings">
+        <div class="inner-wrap inner-wrap-medium">
+            <h2>
+                All Open Positions
+            </h2>
+            <p class="listings-intro">
+                If you want to help make the mobile games industry even better, we’d like to meet you.
+            </p>
+            <div>
+
+                <div id="new-list">
+                    <div id="lever-jobs-filter">
+                        <span class="lever-jobs-menu-label">Filter by</span>
+                        @* Filter Location *@
+                        <select class="lever-jobs-filter-locations">
+                            <option value="" disabled="" selected="">All Locations</option>
+                        </select>
+                        @* Filter Team *@
+                        <select class="lever-jobs-filter-teams">
+                            <option value="" disabled="" selected="">All Teams</option>
+                        </select>
+                        <a id="lever-clear-filters" target="_blank" style="display:none">Clear filters</a>
+                    </div>
+                    <ul class="list" style="display: none;">
+                        @{
+                            var listJobs = ViewBag.ListJob as List<List_Jobs>;
+                        }
+                        @foreach (var job in listJobs)
+                        {
+                            <a class="lever-job-link-wrap" data-department="Lion Studios" data-team="@job.Team" data-location="@job.Location" target="_blank" rel="noreferrer" href="@Url.Action("DetailsJob", "Home", new { id = job.ID })">
+                                <li class="lever-job" data-department="Lion Studios" data-team="@job.Team" data-location="@job.Location">
+                                    <span class="lever-job-title">@job.Vacancies</span>
+                                    <span class="lever-job-tag">@job.Location</span>
+                                    <div class="lever-job-arrow"></div>
+                                </li>
+                            </a>
+                        }
+                    </ul>
+                    <div id="lever-no-results" style="display: none;">No results</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-white row-content-minimal" id="job-listings-body">
+        <div class="inner-wrap inner-wrap-medium">
+            <div id="lever-jobs-container">
+                @* Analytics Jobs *@
+                <ul class="lever-team" data-team="Analytics">
+                    <li>
+                        @{
+                            var listGroup = ViewBag.GroupJob as List<GroupJob>;
+                        }
+                        @foreach (var team in listGroup)
+                        {
+                            <h4 class="lever-team-title">@team.GroupName</h4>
+                            foreach (var jobDetail in team.Jobs)
+                            {
+                                <ul>
+                                    <a class="lever-job-link-wrap" data-department="Lion Studios" data-team="@jobDetail.Team" data-location="@jobDetail.Location" target="_blank" rel="noreferrer" href="@Url.Action("DetailsJob", "Home", new { id = jobDetail.ID })">
+                                        <li class="lever-job" data-department="Lion Studios" data-team="@jobDetail.Team" data-location="@jobDetail.Location">
+                                            <span class="lever-job-title">@jobDetail.Vacancies</span><span class="lever-job-tag">@jobDetail.Location</span>
+                                            <div class="lever-job-arrow"></div>
+                                        </li>
+                                    </a>
+                                </ul>
+                            }
+                        }
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">window.leverJobsOptions = { accountName: 'applovin', department: 'Lion Studios', includeCss: false };</script>
+            <p class="jobs-eeo-footer">AppLovin is proud to be an equal opportunity employer. All applicants will be considered for employment without attention to race, color, religion, sex, sexual orientation, gender identity, national origin, veteran or disability status.</p>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/list.min.js"></script>
+<script src="~/Scripts/Jobs.js"></script>
+<script src="~/Scripts/gameSubmit.js"></script>
+

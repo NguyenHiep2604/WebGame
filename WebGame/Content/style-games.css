@@ -231,27 +231,27 @@ figurecaption {
 
 @media screen and (max-width: 768px) {
     .pic-1 {
-        background-image: url("../images/lion-games-layer-tablette-1.jpg");
+        background-image: url("Image/lion-games-layer-tablette-1.jpg");
     }
 
     .pic-2 {
-        background-image: url("../images/lion-games-layer-tablette-2.jpg");
+        background-image: url("Image/lion-games-layer-tablette-2.jpg");
     }
 
     .pic-3 {
-        background-image: url("../images/lion-games-layer-tablette-3.jpg");
+        background-image: url("Image/lion-games-layer-tablette-3.jpg");
     }
 
     .pic-4 {
-        background-image: url("../images/lion-games-layer-tablette-4.jpg");
+        background-image: url("Image/lion-games-layer-tablette-4.jpg");
     }
 
     .pic-5 {
-        background-image: url("../images/lion-games-layer-mobile-5.jpg");
+        background-image: url("Image/lion-games-layer-mobile-5.jpg");
     }
 
     .pic-6 {
-        background-image: url("../images/lion-games-layer-tablette-1.jpg");
+        background-image: url("Image/lion-games-layer-tablette-1.jpg");
     }
 }
 
@@ -262,27 +262,27 @@ figurecaption {
     }
 
     .pic-1 {
-        background-image: url("../images/lion-games-layer-mobile-1.jpg");
+        background-image: url("Image/lion-games-layer-mobile-1.jpg");
     }
 
     .pic-2 {
-        background-image: url("../images/lion-games-layer-mobile-2.jpg");
+        background-image: url("Image/lion-games-layer-mobile-2.jpg");
     }
 
     .pic-3 {
-        background-image: url("../images/lion-games-layer-mobile-3.jpg");
+        background-image: url("Image/lion-games-layer-mobile-3.jpg");
     }
 
     .pic-4 {
-        background-image: url("../images/lion-games-layer-mobile-4.jpg");
+        background-image: url("Image/lion-games-layer-mobile-4.jpg");
     }
 
     .pic-5 {
-        background-image: url("../images/lion-games-layer-mobile-5.jpg");
+        background-image: url("Image/lion-games-layer-mobile-5.jpg");
     }
 
     .pic-6 {
-        background-image: url("../images/lion-games-layer-mobile-1.jpg");
+        background-image: url("Image/lion-games-layer-mobile-1.jpg");
     }
 }
 

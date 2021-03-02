@@ -18,7 +18,7 @@ $(document).ready(function () {
         resizable: true,
         width: "350px",
         height: "720px",
-        title: "View Details Apply Jobs",
+        title: "View details apply job",
         visible: false,
         modal: true
     };
@@ -39,16 +39,16 @@ function onDataBound(arg) {
             dataType: "json",
             success: function (item) {
                 $('#ID').val(item.ID);
-                $('#FullName').val(item.FullName);
-                $('#Email').val(item.Email);
-                $('#Phone').val(item.Phone);
-                $('#CurrentCompany').val(item.CurrentCompany);
-                $('#LinkedInURL').val(item.LinkedInURL);
-                $('#TwitterURL').val(item.TwitterURL);
-                $('#GithubURL').val(item.GithubURL);
-                $('#PortfolioURL').val(item.PortfolioURL);
-                $('#Otherwebsite').val(item.OtherWebsite);
-                $('#More').val(item.More);
+                $('#FullName').text(item.FullName);
+                $('#Email').text(item.Email);
+                $('#Phone').text(item.Phone);
+                $('#CurrentCompany').text(item.CurrentCompany);
+                $('#LinkedInURL').text(item.LinkedInURL);
+                $('#TwitterURL').text(item.TwitterURL);
+                $('#GithubURL').text(item.GithubURL);
+                $('#PortfolioURL').text(item.PortfolioURL);
+                $('#Otherwebsite').text(item.OtherWebsite);
+                $('#More').text(item.More);
                 $('#detailsDialog').data('kendoWindow').center().open();
             }
         });

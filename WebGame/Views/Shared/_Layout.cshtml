@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en-US" class="">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" id="blankslate-style-css" href="~/Content/style.css" type="text/css" media="all">
     <link rel="stylesheet" id="blankslate-child-style-css" href="~/Content/style.css" type="text/css" media="">
     <link rel="stylesheet" id="games-style-css" href="~/Content/style-games.css" type="text/css" media="">
+    <link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
     @*<script type="text/javascript" src="~/Scripts/jquery-3.4.1.js" id="jquery-core-js"></script>*@
     <script type="text/javascript" src="~/Scripts/ScrollTrigger.min.js" id="scroll-trigger-script-js"></script>
     <link rel="icon" href="~/Content/Image/cropped-lion-favicon-ph-32x32.png" sizes="32x32">
@@ -70,26 +71,26 @@
                         <ul id="topnav" class="menu">
                             <li id="menu-item-400">
                                 <a @if (WebGame.Models.Helpers.IsCurrentControllerAndAction("Home", "Games", ViewContext)) { @: class="selected"
-                                   } href="@Url.Action("Games","Home")" aria-current="page">Games</a>
+                                   } href="@Url.Action("Games","Home")" aria-current="page" langKey="Games">Games</a>
                             </li>
                             <li id="menu-item-402">
                                 <a @if (WebGame.Models.Helpers.IsCurrentControllerAndAction("Home", "About", ViewContext)) { @: class="selected"
-                                   } href="@Url.Action("About","Home")">About Us</a>
+                                   } href="@Url.Action("About","Home")" langKey="About">About Us</a>
                             </li>
                             <li id="menu-item-3388">
                                 <a @if (WebGame.Models.Helpers.IsCurrentControllerAndAction("Home", "Jobs", ViewContext)) { @: class="selected"
-                                   } href="@Url.Action("Jobs","Home")">Jobs</a>
+                                   } href="@Url.Action("Jobs","Home")" langKey="Jobs">Jobs</a>
                             </li>
                             <li id="menu-item-634">
                                 <a @if (WebGame.Models.Helpers.IsCurrentControllerAndAction("Home", "Case", ViewContext)) { @: class="selected"
-                                   } href="@Url.Action("Case","Home")">Case Studies</a>
+                                   } href="@Url.Action("Case","Home")" langKey="Case">Case Studies</a>
                             </li>
                             <li id="menu-item-3389">
                                 <a @if (WebGame.Models.Helpers.IsCurrentControllerAndAction("Home", "FAQ", ViewContext)) { @: class="selected"
-                                   } href="@Url.Action("FAQ","Home")">FAQ</a>
+                                   } href="@Url.Action("FAQ","Home")" langKey="FAQ">FAQ</a>
                             </li>
                             <li id="menu-item-3390">
-                                <a  style="border: solid 2px #fff; padding: 0.25em 1.5em; cursor:pointer;" data-toggle="modal" data-target="#exampleModal">Submit Your Game</a>
+                                <a style="border: solid 2px #fff; padding: 0.25em 1.5em; cursor:pointer;" data-toggle="modal" data-target="#exampleModal" langKey="submitGame">Submit Your Game</a>
                             </li>
                         </ul>
                     </div>
@@ -104,10 +105,8 @@
                     <div class="footer-logo">
                         <div class="lang-switcher">
                             <ul>
-                                <li class="lang-en active"><a href="https://lionstudios.cc/">ENG</a></li>
-                                <li class="lang-cn"><a href="https://lionstudios.cc/cn">中文</a></li>
-                                <li class="lang-jp"><a href="https://lionstudios.cc/jp">日本語</a></li>
-                                <li class="lang-kr"><a href="https://lionstudios.cc/kr">한국어</a></li>
+                                <li class="lang-en active"><a href="/Home/ChangeCulture/en">ENG</a></li>
+                                <li class="lang-vi"><a href="/Home/ChangeCulture/vi">VI</a></li>
                             </ul>
                         </div>
                         <a href="@Url.Action("Index","Home")"><img src="~/Content/Image/lion-studios-logo-full-black-footer-2019.svg" alt="Lion Studios"></a>
@@ -116,13 +115,13 @@
                         <div class="footer-nav">
                             <div class="menu-footer-nav-container">
                                 <ul id="footernav" class="menu">
-                                    <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-399 current_page_item menu-item-404"><a href="@Url.Action("Games","Home")" aria-current="page">Games</a></li>
-                                    <li id="menu-item-406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-406"><a href="@Url.Action("About","Home")">About Us</a></li>
-                                    <li id="menu-item-407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-407"><a href="@Url.Action("Case","Home")">Case Studies</a></li>
-                                    <li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="@Url.Action("GameSubmissions","Home")">Submit Your Game</a></li>
-                                    <li id="menu-item-3391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3391"><a href="@Url.Action("Jobs","Home")">Jobs</a></li>
-                                    <li id="menu-item-709" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-709"><a href="@Url.Action("FAQ","Home")">FAQ</a></li>
-                                    <li id="menu-item-405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-405"><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                                    <li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-399 current_page_item menu-item-404"><a href="@Url.Action("Games","Home")" aria-current="page" langKey="Games">Games</a></li>
+                                    <li id="menu-item-406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-406"><a href="@Url.Action("About","Home")" langKey="About">About Us</a></li>
+                                    <li id="menu-item-407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-407"><a href="@Url.Action("Case","Home")" langKey="Case">Case Studies</a></li>
+                                    <li id="menu-item-626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"><a href="@Url.Action("GameSubmissions","Home")" langKey="submitGame">Submit Your Game</a></li>
+                                    <li id="menu-item-3391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3391"><a href="@Url.Action("Jobs","Home")" langKey="Jobs">Jobs</a></li>
+                                    <li id="menu-item-709" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-709"><a href="@Url.Action("FAQ","Home")" langKey="FAQ">FAQ</a></li>
+                                    <li id="menu-item-405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-405"><a href="@Url.Action("Contact","Home")" langKey="Contact">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -166,45 +165,17 @@
         <div id="responsive-menu-wrapper" role="navigation" aria-label="responsive-nav">
             <ul id="responsive-menu" role="menubar" aria-label="responsive-nav">
                 <li id="responsive-menu-item-898" class="nav-link-homepage nav-link-en menu-item menu-item-type-post_type menu-item-object-page menu-item-home responsive-menu-item" role="none">
-                    <a href="https://lionstudios.cc/" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studios</a>
+                    <a href="@Url.Action("Index","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studios</a>
                 </li>
-                @*<li id="responsive-menu-item-900" class="nav-link-homepage nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none">
-                        <a href="https://lionstudios.cc/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studios</a>
-                    </li>*@
-                @*<li id="responsive-menu-item-901" class="nav-link-homepage nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studios</a></li>*@
-                @*<li id="responsive-menu-item-902" class="nav-link-homepage nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">欢迎来到Lion Studios</a></li>*@
-                <li id="responsive-menu-item-426" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-399 current_page_item responsive-menu-item responsive-menu-current-item" role="none"><a href="@Url.Action("Index","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Games</a></li>
-                @*<li id="responsive-menu-item-553" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/games/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">게임</a></li>*@
-                @*<li id="responsive-menu-item-554" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/games/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">ゲームのご紹介</a></li>*@
-                @*<li id="responsive-menu-item-555" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/games/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">游戏介绍</a></li>*@
-                <li id="responsive-menu-item-335" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("About","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">About Us</a></li>
-                @*<li id="responsive-menu-item-349" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/about-us/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studios란?</a></li>*@
-                @*<li id="responsive-menu-item-350" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/about-us/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">Lion Studiosについて</a></li>*@
-                @*<li id="responsive-menu-item-351" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/about-us/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">关于我们</a></li>*@
-                <li id="responsive-menu-item-3420" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Jobs","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Jobs</a></li>
-                @*<li id="responsive-menu-item-3421" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/jobs/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">채용정보</a></li>*@
-                @*<li id="responsive-menu-item-3422" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/jobs/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">採用情報</a></li>*@
-                @*<li id="responsive-menu-item-3423" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/jobs/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">工作机会</a></li>*@
-                <li id="responsive-menu-item-114" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Case","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Case Studies</a></li>
-                @*<li id="responsive-menu-item-352" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/case-studies/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">성공 스토리</a></li>*@
-                @*<li id="responsive-menu-item-353" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/case-studies/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">成功事例</a></li>*@
-                @*<li id="responsive-menu-item-354" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/case-studies/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">成功案例</a></li>*@
-                <li id="responsive-menu-item-713" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("FAQ","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">FAQ</a></li>
-                @*<li id="responsive-menu-item-714" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/faq/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">常见问题</a></li>*@
-                @*<li id="responsive-menu-item-717" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/faq/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">よくあるご質問</a></li>*@
-                @*<li id="responsive-menu-item-720" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/faq/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">FAQ</a></li>*@
-                <li id="responsive-menu-item-425" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Contact","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Contact Us</a></li>
-                @*<li id="responsive-menu-item-556" class="nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/contact-us/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">문의하기</a></li>*@
-                @*<li id="responsive-menu-item-557" class="nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/contact-us/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">お問い合わせ</a></li>*@
-                @*<li id="responsive-menu-item-558" class="nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/contact-us/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">联系我们</a></li>*@
-                <li id="responsive-menu-item-635" class="nav-promo-link nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("GameSubmissions","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem">Submit Your Game</a></li>
-                @*<li id="responsive-menu-item-655" class="nav-promo-link nav-link-kr menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/game-submissions/kr/" class="responsive-menu-item-link" tabindex="1" role="menuitem">퍼블리싱 문의</a></li>*@
-                @*<li id="responsive-menu-item-656" class="nav-promo-link nav-link-jp menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/game-submissions/jp/" class="responsive-menu-item-link" tabindex="1" role="menuitem">ゲームを送信する</a></li>*@
-                @*<li id="responsive-menu-item-657" class="nav-promo-link nav-link-cn menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="https://lionstudios.cc/game-submissions/cn/" class="responsive-menu-item-link" tabindex="1" role="menuitem">提交您的游戏</a></li>*@
+                <li id="responsive-menu-item-426" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-399 current_page_item responsive-menu-item responsive-menu-current-item" role="none"><a href="@Url.Action("Games","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="Games">Games</a></li>
+                <li id="responsive-menu-item-335" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("About","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="About">About Us</a></li>
+                <li id="responsive-menu-item-3420" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Jobs","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="Jobs">Jobs</a></li>
+                <li id="responsive-menu-item-114" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Case","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="Case">Case Studies</a></li>
+                <li id="responsive-menu-item-713" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("FAQ","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="FAQ">FAQ</a></li>
+                <li id="responsive-menu-item-425" class="nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("Contact","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="Contact">Contact Us</a></li>
+                <li id="responsive-menu-item-635" class="nav-promo-link nav-link-en menu-item menu-item-type-post_type menu-item-object-page responsive-menu-item" role="none"><a href="@Url.Action("GameSubmissions","Home")" class="responsive-menu-item-link" tabindex="1" role="menuitem" langKey="submitGame">Submit Your Game</a></li>
                 <li id="responsive-menu-item-371" class="nav-link-language nav-lang-label-en first menu-item menu-item-type-custom menu-item-object-custom responsive-menu-item" role="none"><a href="https://lionstudios.cc/" class="responsive-menu-item-link" tabindex="1" role="menuitem">ENGLISH</a></li>
                 <li id="responsive-menu-item-372" class="nav-link-language nav-lang-label-cn menu-item menu-item-type-custom menu-item-object-custom responsive-menu-item" role="none"><a href="https://lionstudios.cc/cn" class="responsive-menu-item-link" tabindex="1" role="menuitem">中文</a></li>
-                <li id="responsive-menu-item-373" class="nav-link-language nav-lang-label-jp menu-item menu-item-type-custom menu-item-object-custom responsive-menu-item" role="none"><a href="https://lionstudios.cc/jp" class="responsive-menu-item-link" tabindex="1" role="menuitem">日本語</a></li>
-                <li id="responsive-menu-item-374" class="nav-link-language nav-lang-label-kr last menu-item menu-item-type-custom menu-item-object-custom responsive-menu-item" role="none"><a href="https://lionstudios.cc/kr" class="responsive-menu-item-link" tabindex="1" role="menuitem">한국어</a></li>
             </ul><div id="responsive-menu-additional-content"><a href="https://www.applovin.com/" class="responsive-nav-footer-logo"><img src="~/Content/Image/applovin-logo-hz-black-2019.svg" alt="AppLovin"></a></div>
         </div>
     </div>
@@ -213,5 +184,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/sweetalert2.min.js"></script>
+    <script src="~/Scripts/lang.js"></script>
 </body>
 </html>

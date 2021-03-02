@@ -461,6 +461,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -542,6 +545,8 @@
     <Content Include="Content\Image\cho_icon_600x600.png" />
     <Content Include="Content\Image\clu-icon.png" />
     <Content Include="Content\Image\cmh_600x600.png" />
+    <Content Include="Content\Image\contact-hero-bg-photo-speaker-full.jpg" />
+    <Content Include="Content\Image\contact-hero-bg-photo-speaker-mobile.jpg" />
     <Content Include="Content\Image\cowboyIcon-1-1-600rev.jpg" />
     <Content Include="Content\Image\cre.png" />
     <Content Include="Content\Image\cropped-lion-favicon-ph-180x180.png" />
@@ -553,6 +558,7 @@
     <Content Include="Content\Image\dod-icon.png" />
     <Content Include="Content\Image\Draw-Duel.png" />
     <Content Include="Content\Image\dropdown-arrow-gray.svg" />
+    <Content Include="Content\Image\dropdown-arrow.svg" />
     <Content Include="Content\Image\EF_GameIcon_1024.png" />
     <Content Include="Content\Image\fil_icon_600x600.png" />
     <Content Include="Content\Image\flag-cn.gif" />
@@ -629,6 +635,15 @@
     <Content Include="Content\Image\lion-games-layer-3.jpg" />
     <Content Include="Content\Image\lion-games-layer-4.jpg" />
     <Content Include="Content\Image\lion-games-layer-5.jpg" />
+    <Content Include="Content\Image\lion-games-layer-mobile-1.jpg" />
+    <Content Include="Content\Image\lion-games-layer-mobile-2.jpg" />
+    <Content Include="Content\Image\lion-games-layer-mobile-3.jpg" />
+    <Content Include="Content\Image\lion-games-layer-mobile-4.jpg" />
+    <Content Include="Content\Image\lion-games-layer-mobile-5.jpg" />
+    <Content Include="Content\Image\lion-games-layer-tablette-1.jpg" />
+    <Content Include="Content\Image\lion-games-layer-tablette-2.jpg" />
+    <Content Include="Content\Image\lion-games-layer-tablette-3.jpg" />
+    <Content Include="Content\Image\lion-games-layer-tablette-4.jpg" />
     <Content Include="Content\Image\lion-studios-casestudy-1of3-quote.jpg" />
     <Content Include="Content\Image\lion-studios-logo-full-black-footer-2019.svg" />
     <Content Include="Content\Image\lion-studios-logo-header-nav-2020.svg" />
@@ -893,6 +908,7 @@
     <Content Include="Content\style.css" />
     <Content Include="Content\style.min.css" />
     <Content Include="Content\stylesAdmin.css" />
+    <Content Include="Content\sweetalert2.min.css" />
     <Content Include="Content\Video\about-header-video-7-20-web.mp4" />
     <Content Include="Content\Video\lion-home-video-7-20-web.mp4" />
     <Content Include="favicon.ico" />
@@ -988,6 +1004,8 @@
     <Content Include="Content\LoginPage\Font\Poppins-SemiBoldItalic.ttf" />
     <Content Include="Content\LoginPage\Font\Poppins-Thin.ttf" />
     <Content Include="Content\LoginPage\Font\Poppins-ThinItalic.ttf" />
+    <Content Include="Lang\en.json" />
+    <Content Include="Lang\vi.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\GameSubmissions.js" />
     <Content Include="Scripts\Jobs.js" />
@@ -1424,6 +1442,7 @@
     <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js" />
+    <Content Include="Scripts\lang.js" />
     <Content Include="Scripts\list.min.js" />
     <Content Include="Scripts\listAccount.js" />
     <Content Include="Scripts\main.js" />
@@ -1501,6 +1520,7 @@
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
     <Content Include="Scripts\submitGameAdmin.js" />
+    <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />

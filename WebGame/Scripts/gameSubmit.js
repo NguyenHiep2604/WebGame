@@ -14,6 +14,7 @@
         formData.append('Country', $('.Country').val());
         formData.append('LinkStore', $('.LinkStore').val());
         formData.append('MoreAbout', $('.MoreAbout').val());
+        formData.append('g-Recaptcha-Response', reCaptchaResponse);
         $.ajax({
             url: '/Home/SubmitGame',
             data: formData,
@@ -21,11 +22,19 @@
             contentType: false,
             type: 'POST',
             success: function (data) {
-                $("#exampleModal .close").click()
+                $("#exampleModal .close").click();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Submitted successfully !',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             },
             error: function (errormessage) {
                 alert(errormessage.responseText);
             }
         });
     })
+
 });

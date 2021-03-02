@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,15 @@ namespace WebGame.Controllers
 {
     public class HomeController : Controller
     {
+        const string DefaultLangCode = "en";
+        //
+        //ChangeCulture
+        //
+        public ActionResult ChangeCulture(string id)
+        {
+            Session["language"] = id;
+            return Redirect(Request.UrlReferrer.ToString());
+        }
         //--Index--\\
         public ActionResult Index()
         {
@@ -20,6 +30,7 @@ namespace WebGame.Controllers
                                        select gameFeatured;
                 ViewBag.DataListGameFeatured = listGameFeatured.ToList();
             }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Game--\\
@@ -36,11 +47,13 @@ namespace WebGame.Controllers
                                   select game;
                 ViewBag.DataListAllGame = listAllGame.ToList();
             }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--About--\\
         public ActionResult About()
         {
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Jobs--\\
@@ -81,47 +94,61 @@ namespace WebGame.Controllers
                                       select jobBusiness;
                 ViewBag.ListJobsBusinessDev = listBusinessDev.ToList();
             }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Case--\\
         public ActionResult Case()
         {
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--FAQ--\\
         public ActionResult FAQ()
         {
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Game Submissions--\\
         public ActionResult GameSubmissions()
         {
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Contact--\\
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            using(WebGameEntities entities = new WebGameEntities())
+            {
+                var listGame = from game in entities.List_Game
+                               select game;
+                ViewBag.ListGame = listGame.ToList();
+            }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Game Submit--\\
         GameSubmit_DB gameSubmit_DB = new GameSubmit_DB();
         public ActionResult SubmitGame()
         {
-            GameSubmit_Model gameSubmit_Model = new GameSubmit_Model();
-            gameSubmit_Model.FullName = Request["FullName"];
-            gameSubmit_Model.Email = Request["Email"];
-            gameSubmit_Model.GameTitle = Request["Title"];
-            gameSubmit_Model.VideoFootageLink = Request["FootageLink"];
-            gameSubmit_Model.CompanyName = Request["CompanyName"];
-            gameSubmit_Model.Country = Request["Country"];
-            gameSubmit_Model.LinkAppStore = Request["LinkStore"];
-            gameSubmit_Model.MoreAbout = Request["MoreAbout"];
-            gameSubmit_Model.DateSubmit = DateTime.Now;
+            bool recaptcha = ValidRecaptcha();
+            if(recaptcha == true)
+            {
+                GameSubmit_Model gameSubmit_Model = new GameSubmit_Model();
+                gameSubmit_Model.FullName = Request["FullName"];
+                gameSubmit_Model.Email = Request["Email"];
+                gameSubmit_Model.GameTitle = Request["Title"];
+                gameSubmit_Model.VideoFootageLink = Request["FootageLink"];
+                gameSubmit_Model.CompanyName = Request["CompanyName"];
+                gameSubmit_Model.Country = Request["Country"];
+                gameSubmit_Model.LinkAppStore = Request["LinkStore"];
+                gameSubmit_Model.MoreAbout = Request["MoreAbout"];
+                gameSubmit_Model.DateSubmit = DateTime.Now;
 
-            var game = gameSubmit_DB.GameSubmit(gameSubmit_Model);
-            return Json(game, JsonRequestBehavior.AllowGet);
+                var game = gameSubmit_DB.GameSubmit(gameSubmit_Model);
+                return Json(game, JsonRequestBehavior.AllowGet);
+            }
+            return View();
         }
         //--Details Description Job--\\
         public ActionResult DetailsJob(int id)
@@ -138,6 +165,7 @@ namespace WebGame.Controllers
                 ViewBag.Vacancies = Job.Vacancies;
                 ViewBag.Description = Job.Description;
             }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Apply for job--\\
@@ -154,6 +182,7 @@ namespace WebGame.Controllers
                 ViewBag.Vacancies = Job.Vacancies;
                 ViewBag.Description = Job.Description;
             }
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //-----------\\
@@ -182,6 +211,8 @@ namespace WebGame.Controllers
             apply_Job_Model.More = Request["More"];
 
             var submit = apply_Job_DB.SubmitApplyJob(apply_Job_Model);
+
+            ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return Json(submit, JsonRequestBehavior.AllowGet);
         }
         //--View Image
@@ -209,5 +240,47 @@ namespace WebGame.Controllers
                 }
             }
         }
+        //--Valid Recaptcha--\\
+        public bool ValidRecaptcha()
+        {
+            string EncodedResponse = Request["g-Recaptcha-Response"];
+
+            var client = new System.Net.WebClient();
+
+            string PrivateKey = "6LfQtmwaAAAAAAP7HR_hPw3M7tLLABHJrRhY2LuZ";
+
+            var GoogleReply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", PrivateKey, EncodedResponse));
+
+            var captchaResponse = JsonConvert.DeserializeObject<reCaptchaModel>(GoogleReply);
+
+            bool IsCaptchaValid = (captchaResponse.Success == "true" ? true : false);
+            if (IsCaptchaValid == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    public class reCaptchaModel
+    {
+        [JsonProperty("success")]
+        public string Success
+        {
+            get { return m_Success; }
+            set { m_Success = value; }
+        }
+
+        private string m_Success;
+        [JsonProperty("error-codes")]
+        public List<string> ErrorCodes
+        {
+            get { return m_ErrorCodes; }
+            set { m_ErrorCodes = value; }
+        }
+
+        private List<string> m_ErrorCodes;
     }
 }

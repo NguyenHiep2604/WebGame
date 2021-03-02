@@ -5,19 +5,6 @@
 <title>FAQ | Lion Studios</title>
 <link href="~/Content/style-pages-forms.css" rel="stylesheet" />
 
-<script>
-    var verifyCallback = function (response) {
-        $("#btnSendEmail").prop('disabled', false)
-    };
-
-    var onloadCallback = function (e) {
-        grecaptcha.render('g-recaptcha', {
-            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
-            'callback': verifyCallback,
-            'theme': 'dark'
-        });
-    };
-</script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
         async defer></script>
@@ -36,15 +23,15 @@
                     <div class="col-sm-6" style="float: left">
                         <div>
                             <label>Full Name</label>
-                            <input class="form-control FullName" type="text" required />
+                            <input class="form-control FullName" type="text" required onchange="changeName()" />
                         </div>
                         <div>
                             <label>Your Email</label>
-                            <input class="form-control Email" type="text" required />
+                            <input class="form-control Email" type="text" required onchange="changeEmail()" />
                         </div>
                         <div>
                             <label>Game Title(s)</label>
-                            <input class="form-control Title" type="text" required />
+                            <input class="form-control GameTitle" type="text" required onchange="changeGameTitle()" />
                         </div>
                         <div>
                             <label>Video Footage Links</label>
@@ -54,7 +41,7 @@
                     <div class="col-sm-6" style="float: right">
                         <div>
                             <label>Company Name</label>
-                            <input class="form-control CompanyName" type="text" required />
+                            <input class="form-control CompanyName" type="text" required onchange="changeCompanyName()" />
                         </div>
                         <div>
                             <label>Country</label>
@@ -62,18 +49,18 @@
                         </div>
                         <div>
                             <label>Link To Your App Store Account/Game URL</label>
-                            <input class="form-control LinkStore" type="text" required />
+                            <input class="form-control LinkStore" type="text" required onchange="changeGameURL()" />
                         </div>
                         <div>
                             <label>Tell Us More About Your Team And Game(s)</label>
-                            <textarea class="form-control MoreAbout"></textarea>
+                            <textarea class="form-control MoreAbout" onchange="changeMore()"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
                 </form>
             </div>
             <div class="modal-footer" style="border-top: 0 !important">
-                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block" disabled>Submit</button>
             </div>
         </div>
     </div>
@@ -107,4 +94,74 @@
         </div>
     </div>
 </div>
+<script>
+    var reCaptchaResponse = null;
+    isValid = false;
+    function verifyCallback(response) {
+        isValid = false;
+        if (response != null) {
+            isValid = true;
+            reCaptchaResponse = response;
+        }
+        validation();
+    };
+
+    function changeName() {
+        validation();
+    }
+
+    function changeEmail() {
+        validation();
+    }
+
+    function changeGameTitle() {
+        validation();
+    }
+
+    function changeCompanyName() {
+        validation();
+    }
+
+    function changeGameURL() {
+        validation();
+    }
+
+    function changeMore() {
+        validation();
+    }
+
+    var onloadCallback = function (e) {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey': '6LfQtmwaAAAAAELVUp_-u9pLQMmQfI4wnt7jQ1eh',
+            'callback': verifyCallback,
+            'theme': 'dark',
+            'expired-callback': expCallback
+        });
+    };
+
+    var expCallback = function () {
+        //grecaptcha.reset();
+        isValid = false;
+    };
+
+    function validation() {
+        var name = $('.FullName').val();
+        var email = $('.Email').val();
+        var gameTitle = $('.GameTitle').val();
+        var companyName = $('.CompanyName').val();
+        var gameURL = $('.LinkStore').val();
+        var moreAbout = $('.MoreAbout').val();
+        if (name != null && name != "" &&
+            email != null && email != "" &&
+            gameTitle != null && gameTitle != "" &&
+            companyName != null && companyName != "" &&
+            gameURL != null && gameURL != "" &&
+            moreAbout != null && moreAbout != "" &&
+            isValid == true) {
+            $("#gameSubmit").prop('disabled', false)
+        } else {
+            $("#gameSubmit").prop('disabled', true)
+        }
+    }
+</script>
 <script src="~/Scripts/gameSubmit.js"></script>

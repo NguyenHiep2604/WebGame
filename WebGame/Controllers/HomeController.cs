@@ -263,6 +263,21 @@ namespace WebGame.Controllers
                 return false;
             }
         }
+
+        Contact_DB contact_DB = new Contact_DB();
+        //--Submit Contact--\\
+        public ActionResult SubmitContact()
+        {
+            Contact_Model contact_Model = new Contact_Model();
+            contact_Model.FullName = Request["FullName"];
+            contact_Model.Email = Request["Email"];
+            contact_Model.Subject = Request["Subject"];
+            Game_Model game_Model = new Game_Model();
+            game_Model.ID = Convert.ToInt32(Request["Optional"]);
+            contact_Model.Message = Request["Message"];
+            var submitContact = contact_DB.AddContact(contact_Model);
+            return Json(submitContact, JsonRequestBehavior.AllowGet);
+        }
     }
     public class reCaptchaModel
     {

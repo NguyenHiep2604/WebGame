@@ -482,11 +482,17 @@
     </Compile>
     <Compile Include="Models\Apply_Job_DB.cs" />
     <Compile Include="Models\Apply_Job_Model.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>WebGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact_DB.cs" />
+    <Compile Include="Models\Contact_Model.cs" />
     <Compile Include="Models\GameSubmit.cs">
       <DependentUpon>WebGame.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GameSubmit_DB.cs" />
     <Compile Include="Models\GameSubmit_Model.cs" />
+    <Compile Include="Models\Game_Model.cs" />
     <Compile Include="Models\GroupJob.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\List_Game.cs">
@@ -929,6 +935,7 @@
     <Content Include="Scripts\AdminScript\all.min.js" />
     <Content Include="Scripts\AdminScript\bootstrap.bundle.min.js" />
     <Content Include="Scripts\AdminScript\listApplyJobs.js" />
+    <Content Include="Scripts\AdminScript\listContact.js" />
     <Content Include="Scripts\AdminScript\listGame.js" />
     <Content Include="Scripts\AdminScript\listJobs.js" />
     <Content Include="Scripts\AdminScript\scripts.js" />
@@ -952,6 +959,7 @@
     </Content>
     <Content Include="Content\kendo\2014.1.318\images\kendoui.woff" />
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
+    <Content Include="Scripts\contact.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -1637,6 +1645,7 @@
     <Content Include="Views\Shared\_LayoutDetailsJobs.cshtml" />
     <Content Include="Views\Home\ApplyJob.cshtml" />
     <Content Include="Views\Admin\ListApplyJobs.cshtml" />
+    <Content Include="Views\Admin\ListContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

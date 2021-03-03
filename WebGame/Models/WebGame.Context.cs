@@ -30,5 +30,6 @@ namespace WebGame.Models
         public virtual DbSet<GameSubmit> GameSubmits { get; set; }
         public virtual DbSet<List_Jobs> List_Jobs { get; set; }
         public virtual DbSet<Apply_Job> Apply_Job { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

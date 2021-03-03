@@ -272,5 +272,34 @@ namespace WebGame.Controllers
             }
             return Json(new[] { apply_Job_Model }.ToDataSourceResult(request));
         }
+        //--List Contact--\\
+        public ActionResult ListContact()
+        {
+            return View();
+        }
+        //--Read List Contact--\\
+        Contact_DB contact_DB = new Contact_DB();
+        public ActionResult ReadListContact([DataSourceRequest] DataSourceRequest request)
+        {
+            var list = Json(contact_DB.ListAll().ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
+            list.MaxJsonLength = int.MaxValue;
+            return list;
+        }
+        //--Get contact by ID--\\
+        public JsonResult GetContactbyID(int ID)
+        {
+            var contact = contact_DB.ListAll().Find(x => x.ID.Equals(ID));
+            return Json(contact, JsonRequestBehavior.AllowGet);
+        }
+        //--Delete Contact--\\
+        [AcceptVerbs(System.Web.Mvc.HttpVerbs.Post)]
+        public ActionResult DeleteContact([DataSourceRequest] DataSourceRequest request, Contact_Model contact_Model)
+        {
+            if(contact_Model != null)
+            {
+                contact_DB.Delete(contact_Model);
+            }
+            return Json(new[] { contact_Model }.ToDataSourceResult(request));
+        }
     }
 }

@@ -6,6 +6,11 @@
     <EntitySet Name="GameSubmits" EntityType="WebGameModel.GameSubmit" />
     <EntitySet Name="List_Jobs" EntityType="WebGameModel.List_Jobs" />
     <EntitySet Name="Apply_Job" EntityType="WebGameModel.Apply_Job" />
+    <EntitySet Name="Contacts" EntityType="WebGameModel.Contact" />
+    <AssociationSet Name="FK_Contact_List_Game" Association="WebGameModel.FK_Contact_List_Game">
+      <End Role="List_Game" EntitySet="List_Game" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="List_Game">
     <Key>
@@ -18,6 +23,7 @@
     <Property Name="LinkAndroid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Caption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Featured_Games" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Contacts" Relationship="WebGameModel.FK_Contact_List_Game" FromRole="List_Game" ToRole="Contact" />
   </EntityType>
   <EntityType Name="Account">
     <Key>
@@ -70,4 +76,28 @@
     <Property Name="OtherWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="More" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Optional" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="List_Game" Relationship="WebGameModel.FK_Contact_List_Game" FromRole="Contact" ToRole="List_Game" />
+  </EntityType>
+  <Association Name="FK_Contact_List_Game">
+    <End Type="WebGameModel.List_Game" Role="List_Game" Multiplicity="1" />
+    <End Type="WebGameModel.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="List_Game">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="Optional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

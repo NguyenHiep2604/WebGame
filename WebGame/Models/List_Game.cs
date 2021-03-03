@@ -14,6 +14,12 @@ namespace WebGame.Models
     
     public partial class List_Game
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public List_Game()
+        {
+            this.Contacts = new HashSet<Contact>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public byte[] Image { get; set; }
@@ -21,5 +27,8 @@ namespace WebGame.Models
         public string LinkAndroid { get; set; }
         public string Caption { get; set; }
         public bool Featured_Games { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contact> Contacts { get; set; }
     }
 }

@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="WebGameModel.GameSubmit" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="WebGameModel.List_Jobs" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="WebGameModel.Apply_Job" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WebGameModel.Contact" Width="1.5" PointX="5.625" PointY="4.875" />
+        <AssociationConnector Association="WebGameModel.FK_Contact_List_Game" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

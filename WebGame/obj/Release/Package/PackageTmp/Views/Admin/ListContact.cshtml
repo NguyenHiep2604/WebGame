@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "ListContact";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4 id="ListName"><strong>Danh sách liên hệ</strong></h4>
+<div id="gridListContact"></div>
+
+<div id="detailsDialog">
+    <div id="detailsForm" novalidate="novalidate" class="detailsForm">
+        <input id="ID" name="ID" type="hidden">
+        <p id="FullName"></p>
+        <p id="Email"></p>
+        <p id="Subject"></p>
+        <p id="Optional"></p>
+        <p id="Message" style="word-break:break-word"></p>
+    </div>
+</div>
+
+<script src="~/Scripts/AdminScript/listContact.js"></script>

@@ -70,6 +70,13 @@ function deleteItem(btnDelete) {
             dataType: "json",
             success: function (result) {
                 $('#gridJobs').data('kendoGrid').dataSource.read();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Delete job successfully !',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             },
             error: function (errormessage) {
                 alert("Can not delete item! Please try again!");
@@ -97,6 +104,13 @@ function btnSave() {
         success: function (data) {
             $('#gridJobs').data('kendoGrid').dataSource.read();
             $('#detailsDialog').data('kendoWindow').close();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add job successfully !',
+                showConfirmButton: false,
+                timer: 1500
+            })
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -129,6 +143,13 @@ function btnUpdate() {
             $('#Location').val("");
             $('#Vacancies').val("");
             $('#Description').val("");
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Update job successfully !',
+                showConfirmButton: false,
+                timer: 1500
+            })
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

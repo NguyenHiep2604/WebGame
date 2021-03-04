@@ -443,7 +443,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/ta/WebGame.resources.dll">
-      <publishTime>02/25/2021 16:50:37</publishTime>
+      <publishTime>03/04/2021 17:19:05</publishTime>
     </File>
     <File Include="bin/tr-TR/Kendo.Mvc.resources.dll">
       <publishTime>01/15/2019 11:53:14</publishTime>
@@ -452,13 +452,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/15/2019 11:53:14</publishTime>
     </File>
     <File Include="bin/vi/WebGame.resources.dll">
-      <publishTime>02/25/2021 16:50:37</publishTime>
+      <publishTime>03/04/2021 17:19:06</publishTime>
     </File>
     <File Include="bin/WebGame.dll">
-      <publishTime>02/25/2021 16:50:36</publishTime>
+      <publishTime>03/04/2021 17:19:05</publishTime>
     </File>
     <File Include="bin/WebGame.pdb">
-      <publishTime>02/25/2021 16:50:36</publishTime>
+      <publishTime>03/04/2021 17:19:05</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -571,6 +571,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Image/cmh_600x600.png">
       <publishTime>01/26/2021 11:53:51</publishTime>
     </File>
+    <File Include="Content/Image/contact-hero-bg-photo-speaker-full.jpg">
+      <publishTime>03/02/2021 14:52:09</publishTime>
+    </File>
+    <File Include="Content/Image/contact-hero-bg-photo-speaker-mobile.jpg">
+      <publishTime>03/02/2021 15:03:27</publishTime>
+    </File>
     <File Include="Content/Image/cowboyIcon-1-1-600rev.jpg">
       <publishTime>01/26/2021 12:04:33</publishTime>
     </File>
@@ -603,6 +609,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/Image/dropdown-arrow-gray.svg">
       <publishTime>01/27/2021 10:56:00</publishTime>
+    </File>
+    <File Include="Content/Image/dropdown-arrow.svg">
+      <publishTime>03/02/2021 15:26:53</publishTime>
     </File>
     <File Include="Content/Image/EF_GameIcon_1024.png">
       <publishTime>01/26/2021 11:47:17</publishTime>
@@ -831,6 +840,33 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/Image/lion-games-layer-5.jpg">
       <publishTime>01/26/2021 15:22:07</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-mobile-1.jpg">
+      <publishTime>03/02/2021 14:05:14</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-mobile-2.jpg">
+      <publishTime>03/02/2021 14:05:46</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-mobile-3.jpg">
+      <publishTime>03/02/2021 14:06:02</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-mobile-4.jpg">
+      <publishTime>03/02/2021 14:06:15</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-mobile-5.jpg">
+      <publishTime>03/02/2021 14:06:24</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-tablette-1.jpg">
+      <publishTime>03/02/2021 14:14:37</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-tablette-2.jpg">
+      <publishTime>03/02/2021 14:14:54</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-tablette-3.jpg">
+      <publishTime>03/02/2021 14:15:03</publishTime>
+    </File>
+    <File Include="Content/Image/lion-games-layer-tablette-4.jpg">
+      <publishTime>03/02/2021 14:15:12</publishTime>
     </File>
     <File Include="Content/Image/lion-studios-casestudy-1of3-quote.jpg">
       <publishTime>01/27/2021 11:27:26</publishTime>
@@ -1727,7 +1763,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/23/2017 21:52:52</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>01/27/2021 17:01:45</publishTime>
+      <publishTime>03/02/2021 16:18:42</publishTime>
     </File>
     <File Include="Content/smart_wizard_all.min.css">
       <publishTime>02/01/2021 10:44:15</publishTime>
@@ -1739,13 +1775,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/27/2021 11:25:33</publishTime>
     </File>
     <File Include="Content/style-games.css">
-      <publishTime>01/26/2021 16:56:11</publishTime>
+      <publishTime>03/02/2021 14:18:18</publishTime>
     </File>
     <File Include="Content/style-jobs.css">
       <publishTime>01/27/2021 11:03:20</publishTime>
     </File>
     <File Include="Content/style-pages-forms.css">
-      <publishTime>01/27/2021 11:44:15</publishTime>
+      <publishTime>03/02/2021 15:27:25</publishTime>
     </File>
     <File Include="Content/style.css">
       <publishTime>01/29/2021 10:41:42</publishTime>
@@ -1755,6 +1791,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/stylesAdmin.css">
       <publishTime>06/19/2020 05:04:05</publishTime>
+    </File>
+    <File Include="Content/sweetalert2.min.css">
+      <publishTime>03/02/2021 11:26:46</publishTime>
     </File>
     <File Include="Content/Video/about-header-video-7-20-web.mp4">
       <publishTime>01/26/2021 17:16:45</publishTime>
@@ -1783,8 +1822,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Global.asax">
       <publishTime>01/26/2021 10:39:18</publishTime>
     </File>
+    <File Include="Lang/en.json">
+      <publishTime>03/02/2021 11:43:08</publishTime>
+    </File>
+    <File Include="Lang/vi.json">
+      <publishTime>03/02/2021 11:43:33</publishTime>
+    </File>
     <File Include="Models/WebGame.edmx.diagram">
-      <publishTime>02/24/2021 13:49:46</publishTime>
+      <publishTime>03/03/2021 11:39:30</publishTime>
     </File>
     <File Include="Scripts/aboutuspage.js">
       <publishTime>01/29/2021 14:29:17</publishTime>
@@ -1796,13 +1841,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/07/2020 14:19:46</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listApplyJobs.js">
-      <publishTime>02/24/2021 15:44:57</publishTime>
+      <publishTime>03/04/2021 15:43:11</publishTime>
+    </File>
+    <File Include="Scripts/AdminScript/listContact.js">
+      <publishTime>03/04/2021 14:29:44</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listGame.js">
-      <publishTime>02/05/2021 16:47:27</publishTime>
+      <publishTime>03/04/2021 15:44:50</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listJobs.js">
-      <publishTime>02/22/2021 18:16:10</publishTime>
+      <publishTime>03/04/2021 14:28:13</publishTime>
     </File>
     <File Include="Scripts/AdminScript/scripts.js">
       <publishTime>06/19/2020 05:04:05</publishTime>
@@ -1815,6 +1863,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>01/26/2021 10:39:29</publishTime>
+    </File>
+    <File Include="Scripts/contact.js">
+      <publishTime>03/03/2021 12:21:10</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js">
       <publishTime>02/01/2021 10:08:14</publishTime>
@@ -1844,7 +1895,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/27/2021 11:55:49</publishTime>
     </File>
     <File Include="Scripts/gameSubmit.js">
-      <publishTime>02/04/2021 09:44:13</publishTime>
+      <publishTime>03/03/2021 16:34:58</publishTime>
     </File>
     <File Include="Scripts/HomeScript.js">
       <publishTime>02/03/2021 16:57:18</publishTime>
@@ -3355,6 +3406,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/kendo/2014.1.318/kendo.window.min.js.map">
       <publishTime>01/28/2021 12:05:01</publishTime>
     </File>
+    <File Include="Scripts/lang.js">
+      <publishTime>03/02/2021 09:26:15</publishTime>
+    </File>
     <File Include="Scripts/list.min.js">
       <publishTime>01/27/2021 10:37:25</publishTime>
     </File>
@@ -3599,7 +3653,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/01/2021 10:08:02</publishTime>
     </File>
     <File Include="Scripts/submitGameAdmin.js">
-      <publishTime>02/19/2021 18:50:10</publishTime>
+      <publishTime>03/01/2021 12:04:59</publishTime>
+    </File>
+    <File Include="Scripts/sweetalert2.min.js">
+      <publishTime>03/02/2021 11:26:15</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.js">
       <publishTime>02/01/2021 10:08:02</publishTime>
@@ -3629,7 +3686,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/01/2021 10:08:00</publishTime>
     </File>
     <File Include="Scripts/WebGame.js">
-      <publishTime>01/27/2021 09:10:06</publishTime>
+      <publishTime>02/26/2021 14:17:46</publishTime>
     </File>
     <File Include="Scripts/wp-embed.min.js">
       <publishTime>01/26/2021 17:23:11</publishTime>
@@ -3650,61 +3707,64 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/03/2021 14:39:18</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>02/04/2021 14:21:44</publishTime>
+      <publishTime>03/04/2021 15:23:12</publishTime>
     </File>
     <File Include="Views/Admin/ListAccount.cshtml">
       <publishTime>02/03/2021 09:48:59</publishTime>
     </File>
     <File Include="Views/Admin/ListApplyJobs.cshtml">
-      <publishTime>02/24/2021 15:05:29</publishTime>
+      <publishTime>03/01/2021 12:13:31</publishTime>
+    </File>
+    <File Include="Views/Admin/ListContact.cshtml">
+      <publishTime>03/03/2021 17:55:02</publishTime>
     </File>
     <File Include="Views/Admin/ListJobs.cshtml">
-      <publishTime>02/22/2021 10:58:34</publishTime>
+      <publishTime>03/04/2021 15:25:48</publishTime>
     </File>
     <File Include="Views/Admin/SubmitGame.cshtml">
-      <publishTime>02/19/2021 18:13:23</publishTime>
+      <publishTime>03/01/2021 12:04:26</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>02/05/2021 16:52:36</publishTime>
+      <publishTime>03/01/2021 16:03:35</publishTime>
     </File>
     <File Include="Views/Home/ApplyJob.cshtml">
       <publishTime>02/24/2021 13:58:37</publishTime>
     </File>
     <File Include="Views/Home/Case.cshtml">
-      <publishTime>02/05/2021 16:54:21</publishTime>
+      <publishTime>03/01/2021 16:03:49</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>01/27/2021 15:50:00</publishTime>
+      <publishTime>03/03/2021 12:18:47</publishTime>
     </File>
     <File Include="Views/Home/DetailsJob.cshtml">
       <publishTime>02/24/2021 15:59:52</publishTime>
     </File>
     <File Include="Views/Home/FAQ.cshtml">
-      <publishTime>02/05/2021 16:56:21</publishTime>
+      <publishTime>03/04/2021 09:59:40</publishTime>
     </File>
     <File Include="Views/Home/Games.cshtml">
-      <publishTime>02/25/2021 16:52:20</publishTime>
+      <publishTime>03/01/2021 15:48:21</publishTime>
     </File>
     <File Include="Views/Home/GameSubmissions.cshtml">
-      <publishTime>02/01/2021 18:39:12</publishTime>
+      <publishTime>03/03/2021 16:35:36</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>02/25/2021 16:52:58</publishTime>
+      <publishTime>03/02/2021 11:53:45</publishTime>
     </File>
     <File Include="Views/Home/Jobs.cshtml">
-      <publishTime>02/25/2021 14:19:34</publishTime>
+      <publishTime>03/01/2021 16:04:17</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>01/26/2021 10:39:18</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/02/2021 10:33:50</publishTime>
+      <publishTime>03/03/2021 13:39:07</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAccount.cshtml">
       <publishTime>02/01/2021 12:05:41</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>02/24/2021 15:12:40</publishTime>
+      <publishTime>03/04/2021 14:21:50</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutDetailsJobs.cshtml">
       <publishTime>02/24/2021 12:03:13</publishTime>

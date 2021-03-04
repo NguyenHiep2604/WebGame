@@ -52,7 +52,7 @@
 }
 /* Contact Page */
 .contact-form .hero {
-  background-image: url('../images/contact-hero-bg-photo-speaker-full.jpg');
+  background-image: url('Image/contact-hero-bg-photo-speaker-full.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 10% center;
@@ -287,7 +287,7 @@ input[type="radio"] + label, input[type="checkbox"] + label {
   -moz-appearance: none;
 }
 .form-select {
-  background-image: url('../images/dropdown-arrow.svg');
+  background-image: url('Image/dropdown-arrow.svg');
   background-repeat: no-repeat;
   background-size: 2.5em;
   background-position: right center;
@@ -380,7 +380,7 @@ hr.ninja-forms-field {
     top: -50px;
   }
   .contact-form .hero {
-    background-image: url('../images/contact-hero-bg-photo-speaker-mobile.jpg');
+    background-image: url('Image/contact-hero-bg-photo-speaker-mobile.jpg');
     background-position: left center;
   }
   .form-name, .form-email, .form-text, .form-textfield, .form-select {

@@ -18,7 +18,7 @@ $(document).ready(function () {
         resizable: true,
         width: "350px",
         height: "720px",
-        title: "View Details Apply Jobs",
+        title: "View details apply job",
         visible: false,
         modal: true
     };
@@ -39,16 +39,16 @@ function onDataBound(arg) {
             dataType: "json",
             success: function (item) {
                 $('#ID').val(item.ID);
-                $('#FullName').val(item.FullName);
-                $('#Email').val(item.Email);
-                $('#Phone').val(item.Phone);
-                $('#CurrentCompany').val(item.CurrentCompany);
-                $('#LinkedInURL').val(item.LinkedInURL);
-                $('#TwitterURL').val(item.TwitterURL);
-                $('#GithubURL').val(item.GithubURL);
-                $('#PortfolioURL').val(item.PortfolioURL);
-                $('#Otherwebsite').val(item.OtherWebsite);
-                $('#More').val(item.More);
+                $('#FullName').text("Full name: " + item.FullName);
+                $('#Email').text("Email: " + item.Email);
+                $('#Phone').text("Phone: " + item.Phone);
+                $('#CurrentCompany').text("Current company: " + item.CurrentCompany);
+                $('#LinkedInURL').text("Linked URL: " + item.LinkedInURL);
+                $('#TwitterURL').text("Twitter URL: " + item.TwitterURL);
+                $('#GithubURL').text("Github URL: " + item.GithubURL);
+                $('#PortfolioURL').text("Portfolio URL: " + item.PortfolioURL);
+                $('#Otherwebsite').text("Other website: " + item.OtherWebsite);
+                $('#More').text(item.More);
                 $('#detailsDialog').data('kendoWindow').center().open();
             }
         });

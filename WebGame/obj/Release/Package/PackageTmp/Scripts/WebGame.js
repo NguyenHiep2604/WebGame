@@ -301,19 +301,19 @@ privacyScript.onload = function () {
 
 document.getElementsByTagName("head")[0].appendChild(privacyScript);
 
-// soft auto-scrolling
-jQuery('a[href*=#]:not([href=#])').click(function () {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = jQuery(this.hash);
-        target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-            jQuery('html,body').animate({
-                scrollTop: target.offset().top - 0 // adjust pixel offset from top here (to allow for fixed headers, etc.); default is 0
-            }, 1000);
-            return false;
-        }
-    }
-});
+//// soft auto-scrolling
+//jQuery('a[href*=#]:not([href=#])').click(function () {
+//    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+//        var target = jQuery(this.hash);
+//        target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+//        if (target.length) {
+//            jQuery('html,body').animate({
+//                scrollTop: target.offset().top - 0 // adjust pixel offset from top here (to allow for fixed headers, etc.); default is 0
+//            }, 1000);
+//            return false;
+//        }
+//    }
+//});
 
 // language switcher
 jQuery('html').click(function () { // hide the menu on click anywhere

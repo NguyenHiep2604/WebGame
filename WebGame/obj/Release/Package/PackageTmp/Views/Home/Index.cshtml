@@ -5,19 +5,6 @@
 @using WebGame.Models;
 
 <title>Home | Lion Studios</title>
-<script>
-    var verifyCallback = function (response) {
-        $("#btnSendEmail").prop('disabled', false)
-    };
-
-    var onloadCallback = function (e) {
-        grecaptcha.render('g-recaptcha', {
-            'sitekey': '6LdW0eMZAAAAAA_ChuxSBzEkchiA_POWCU2PATfC',
-            'callback': verifyCallback,
-            'theme': 'dark'
-        });
-    };
-</script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
         async defer></script>
@@ -35,16 +22,16 @@
                 <form>
                     <div class="col-sm-6" style="float: left">
                         <div>
-                            <label>Full Name</label>
-                            <input class="form-control FullName" type="text" required />
+                            <label id="nf-label-field-194">Full Name</label>
+                            <input class="form-control FullName" type="text" required onchange="changeName()" />
                         </div>
                         <div>
                             <label>Your Email</label>
-                            <input class="form-control Email" type="text" required />
+                            <input class="form-control Email" type="text" required onchange="changeEmail()" />
                         </div>
                         <div>
                             <label>Game Title(s)</label>
-                            <input class="form-control Title" type="text" required />
+                            <input class="form-control GameTitle" type="text" required onchange="changeGameTitle()" />
                         </div>
                         <div>
                             <label>Video Footage Links</label>
@@ -54,7 +41,7 @@
                     <div class="col-sm-6" style="float: right">
                         <div>
                             <label>Company Name</label>
-                            <input class="form-control CompanyName" type="text" required />
+                            <input class="form-control CompanyName" type="text" required onchange="changeCompanyName()" />
                         </div>
                         <div>
                             <label>Country</label>
@@ -62,18 +49,18 @@
                         </div>
                         <div>
                             <label>Link To Your App Store Account/Game URL</label>
-                            <input class="form-control LinkStore" type="text" required />
+                            <input class="form-control LinkStore" type="text" required onchange="changeGameURL()" />
                         </div>
                         <div>
                             <label>Tell Us More About Your Team And Game(s)</label>
-                            <textarea class="form-control MoreAbout"></textarea>
+                            <textarea class="form-control MoreAbout" onchange="changeMore()"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-9 col-md-8" id="g-recaptcha" style="margin-top:10px; margin-left: 210px"></div>
                 </form>
             </div>
             <div class="modal-footer" style="border-top: 0 !important">
-                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block">Submit</button>
+                <button type="button" id="gameSubmit" class="btn btn-primary" style="margin: auto; display: block" disabled>Submit</button>
             </div>
         </div>
     </div>
@@ -89,15 +76,14 @@
                     <video class="intro-panel-video" id="intro-panel-video" poster="~/Content/Image/home-video-poster-4-20.jpg" autoplay="" muted="" loop="" playsinline="">
                         <source src="~/Content/Video/lion-home-video-7-20-web.mp4" type="video/mp4" id="intro-panel-video-source">
                     </video>
-                    @*<p class="intro-panel-video-link video-start" data-title="lionstudios-web-trailer-7-20-web">Play the trailer</p>*@
                 </div>
                 <div class="hero-titles">
-                    <h1>
+                    <h1 langKey="Climb the charts">
                         Climb<br>
                         the<br>
                         charts
                     </h1>
-                    <h2>
+                    <h2 langKey="with us">
                         with us
                     </h2>
                 </div>
@@ -109,18 +95,16 @@
     </div>
     <div class="games-table" id="games-table">
         <div class="wrapper">
-            <h2>
+            <h2 langKey="title-index-1">
                 Lion Studios by AppLovin helps mobile game developers of all sizes grow their businesses by publishing and marketing their&nbsp;games.
             </h2>
-            <h3>
+            <h3 langKey="featured-games">
                 Featured Games
             </h3>
             <div class="app-icons-wrapper">
-
                 @{ var dataListGameFeatured = ViewBag.DataListGameFeatured as List<List_Game>; }
                 @foreach (var game in dataListGameFeatured)
                 {
-
                     <div class="app-pod award-on">
                         <img class="icon-award" src="~/Content/Image/icon-game-medal.svg" alt="medal icon">
                         <div class="app-icon">
@@ -146,7 +130,7 @@
 
             </div>
 
-            <a href="@Url.Action("Games","Home")" class="arrow-link">See all games</a>
+            <a href="@Url.Action("Games","Home")" class="arrow-link" langKey="see-all-games">See all games</a>
         </div>
     </div>
     <div class="home-quote">
@@ -166,20 +150,91 @@
                     <span class="quote-name">Thomas Castel</span><br>
                     <span class="quote-attrib">Co-Founder 1Button</span>
                 </p>
-                <a href="@Url.Action("Case","Home")" class="read-more">Read more</a>
+                <a href="@Url.Action("Case","Home")" class="read-more" langKey="read-more">Read more</a>
             </div>
         </div>
     </div>
     <div class="cta-basic pattern-black-diamonds">
-        <h2>
+        <h2 langKey="title-index-3">
             Want Lion Studios to publish your&nbsp;game?
         </h2>
-        <a data-toggle="modal" data-target="#exampleModal" class="std-button" style="cursor:pointer">
+        <a data-toggle="modal" data-target="#exampleModal" class="std-button" style="cursor:pointer" langKey="submit-here">
             Submit here
         </a>
     </div>
 </div>
+<input type="hidden" id="langCode" value="@ViewBag.LangCode" />
 @section scripts{
+    <script>
+        var reCaptchaResponse = null;
+        isValid = false;
+        function verifyCallback(response) {
+            isValid = false;
+            if (response != null) {
+                isValid = true;
+                reCaptchaResponse = response;
+            }
+            validation();
+        };
+
+        function changeName() {
+            validation();
+        }
+
+        function changeEmail() {
+            validation();
+        }
+
+        function changeGameTitle() {
+            validation();
+        }
+
+        function changeCompanyName() {
+            validation();
+        }
+
+        function changeGameURL() {
+            validation();
+        }
+
+        function changeMore() {
+            validation();
+        }
+
+        var onloadCallback = function (e) {
+            grecaptcha.render('g-recaptcha', {
+                'sitekey': '6LfQtmwaAAAAAELVUp_-u9pLQMmQfI4wnt7jQ1eh',
+                'callback': verifyCallback,
+                'theme': 'dark',
+                'expired-callback': expCallback
+            });
+        };
+
+        var expCallback = function () {
+            //grecaptcha.reset();
+            isValid = false;
+        };
+
+        function validation() {
+            var name = $('.FullName').val();
+            var email = $('.Email').val();
+            var gameTitle = $('.GameTitle').val();
+            var companyName = $('.CompanyName').val();
+            var gameURL = $('.LinkStore').val();
+            var moreAbout = $('.MoreAbout').val();
+            if (name != null && name != "" &&
+                email != null && email != "" &&
+                gameTitle != null && gameTitle != "" &&
+                companyName != null && companyName != "" &&
+                gameURL != null && gameURL != "" &&
+                moreAbout != null && moreAbout != "" &&
+                isValid == true) {
+                $("#gameSubmit").prop('disabled', false)
+            } else {
+                $("#gameSubmit").prop('disabled', true)
+            }
+        }
+    </script>
     <script src="~/Scripts/HomeScript.js"></script>
     <script src="~/Scripts/gameSubmit.js"></script>
 }

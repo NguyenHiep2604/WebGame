@@ -16,9 +16,9 @@ $(document).ready(function () {
         actions: ["Minimize", "Maximize", "Close"],
         draggable: true,
         resizable: true,
-        width: "350px",
+        width: "500px",
         height: "720px",
-        title: "View Details Game Submit",
+        title: "View detail game submit",
         visible: false,
         modal: true
     };
@@ -27,7 +27,7 @@ $(document).ready(function () {
 function onDataBound(arg) {
     $("#gridSubmitGame > div.k-grid-content.k-auto-scrollable").css('height', (innerHeight - 240) + 'px');
 
-    $('#gridSubmitGame .k-grid-view').click(function (e) {
+    $('#gridSubmitGame .k-grid-View').click(function (e) {
         var row = $(e.target).closest("tr");
         var grid = $('#gridSubmitGame').data('kendoGrid');
         var dataItem = grid.dataItem(row);
@@ -39,15 +39,16 @@ function onDataBound(arg) {
             dataType: "json",
             success: function (item) {
                 $('#ID').val(item.ID);
-                $('#FullName').val(item.FullName);
-                $('#Email').val(item.Email);
-                $('#GameTitle').val(item.GameTitle);
-                $('#VideoFootageLink').val(item.VideoFootageLink);
-                $('#CompanyName').val(item.CompanyName);
-                $('#Country').val(item.Country);
-                $('#LinkAppStore').val(item.LinkAppStore);
-                $('#MoreAbout').val(item.MoreAbout);
-                $('#DateSubmit').val(item.DateSubmit);
+                $('#FullName').text("Full name: " + item.FullName);
+                $('#Email').text("Email: " + item.Email);
+                $('#GameTitle').text("Game title: " + item.GameTitle);
+                $('#VideoFootageLink').text("Video footage link: " + item.VideoFootageLink);
+                $('#CompanyName').text("Company name: " + item.CompanyName);
+                $('#Country').text("Country: " + item.Country);
+                $('#LinkAppStore').text("Link app store: " + item.LinkAppStore);
+                $('#MoreAbout').text(item.MoreAbout);
+                var date = kendo.toString(kendo.parseDate(item.DateSubmit), "dd/MM/yyyy");
+                $('#DateSubmit').text(date);
                 $('#detailsDialog').data('kendoWindow').center().open();
             }
         });

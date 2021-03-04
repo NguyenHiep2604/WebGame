@@ -16,8 +16,8 @@ $(document).ready(function () {
         actions: ["Minimize", "Maximize", "Close"],
         draggable: true,
         resizable: true,
-        width: "350px",
-        height: "450px",
+        width: "500px",
+        height: "500px",
         title: "Create/Edit",
         visible: false,
         modal: true
@@ -42,6 +42,13 @@ function btnSave() {
         success: function (data) {
             $('#gridListGame').data('kendoGrid').dataSource.read();
             $('#detailsDialog').data('kendoWindow').close();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add game successfully !',
+                showConfirmButton: false,
+                timer: 1500
+            })
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -68,6 +75,13 @@ function btnUpdate() {
         success: function (data) {
             $('#gridListGame').data('kendoGrid').dataSource.read();
             $('#detailsDialog').data('kendoWindow').close();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Update game successfully !',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     });
 }
@@ -124,6 +138,13 @@ function onDataBound(arg) {
                 dataType: "json",
                 success: function (result) {
                     $('#gridListGame').data('kendoGrid').dataSource.read();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Delete game successfully !',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 },
                 error: function (errormessage) {
                     alert("Can not delete item! Please try again!");
@@ -170,7 +191,7 @@ jQuery("#gridListGame").kendoGrid({
             "read": { "url": "/Admin/ListGame/" },
             "prefix": ""
         },
-        "pageSize": 10, "page": 1,
+        "pageSize": 5, "page": 1,
         "total": 0,
         "serverScrollable": true,
         "serverPaging": true,

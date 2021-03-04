@@ -16,6 +16,8 @@
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 
+    <link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.common.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.default.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.mobile.all.min.css">
@@ -63,43 +65,38 @@
                                 <a class="nav-link" href="@Url.Action("ListJobs","Admin")">List Jobs</a>
                                 <a class="nav-link" href="@Url.Action("ListApplyJobs","Admin")">List Apply Jobs</a>
                                 <a class="nav-link" href="@Url.Action("ListContact","Admin")">List Contact</a>
-                                @*<a class="nav-link" href="@Url.Action("TutoriaList","Admin")">Tutoria List</a>
-                                <a class="nav-link" href="@Url.Action("BoxSliderImage","Admin")">Box Slider Image</a>
-                                <a class="nav-link" href="@Url.Action("MAPList","Admin")">MAP List</a>
-                                <a class="nav-link" href="@Url.Action("ImageList","Admin")">Figure List</a>
-                                <a class="nav-link" href="@Url.Action("VideoList","Admin")">Video List</a>*@
                             </nav>
                         </div>
                         @* Layout *@
                         @*<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Layouts
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Layouts PC
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="@Url.Action("IconTaskbar","Admin")">Icon Taskbar</a>
-                                        <a class="nav-link" href="@Url.Action("IconDowloadButton","Admin")">Icon Dowload</a>
-                                    </nav>
-                                </div>
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Layout Mobile
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="@Url.Action("IconTaskbarMobile","Admin")">Icon Taskbar Mobile</a>
-                                        <a class="nav-link" href="@Url.Action("IconDowloadMobile","Admin")">Icon Dowload Mobile</a>
-                                    </nav>
-                                </div>
-                            </nav>
-                        </div>*@
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Layouts PC
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="@Url.Action("IconTaskbar","Admin")">Icon Taskbar</a>
+                                            <a class="nav-link" href="@Url.Action("IconDowloadButton","Admin")">Icon Dowload</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Layout Mobile
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="@Url.Action("IconTaskbarMobile","Admin")">Icon Taskbar Mobile</a>
+                                            <a class="nav-link" href="@Url.Action("IconDowloadMobile","Admin")">Icon Dowload Mobile</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>*@
                     </div>
                 </div>
             </nav>
@@ -120,6 +117,7 @@
     <script src="~/Scripts/AdminScript/all.min.js" crossorigin="anonymous"></script>
     <script src="~/Scripts/AdminScript/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="~/Scripts/AdminScript/scripts.js"></script>
+    <script src="~/Scripts/sweetalert2.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -39,15 +39,15 @@ function onDataBound(arg) {
             dataType: "json",
             success: function (item) {
                 $('#ID').val(item.ID);
-                $('#FullName').text(item.FullName);
-                $('#Email').text(item.Email);
-                $('#Phone').text(item.Phone);
-                $('#CurrentCompany').text(item.CurrentCompany);
-                $('#LinkedInURL').text(item.LinkedInURL);
-                $('#TwitterURL').text(item.TwitterURL);
-                $('#GithubURL').text(item.GithubURL);
-                $('#PortfolioURL').text(item.PortfolioURL);
-                $('#Otherwebsite').text(item.OtherWebsite);
+                $('#FullName').text("Full name: " + item.FullName);
+                $('#Email').text("Email: " + item.Email);
+                $('#Phone').text("Phone: " + item.Phone);
+                $('#CurrentCompany').text("Current company: " + item.CurrentCompany);
+                $('#LinkedInURL').text("Linked URL: " + item.LinkedInURL);
+                $('#TwitterURL').text("Twitter URL: " + item.TwitterURL);
+                $('#GithubURL').text("Github URL: " + item.GithubURL);
+                $('#PortfolioURL').text("Portfolio URL: " + item.PortfolioURL);
+                $('#Otherwebsite').text("Other website: " + item.OtherWebsite);
                 $('#More').text(item.More);
                 $('#detailsDialog').data('kendoWindow').center().open();
             }

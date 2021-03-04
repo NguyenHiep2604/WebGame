@@ -22,6 +22,7 @@ namespace WebGame.Controllers
     {
         List_Game_DB list_Game_DB = new List_Game_DB();
         // GET: Admin
+        [Route("Manage-Games")]
         public ActionResult Index()
         {
             if (Session["ID"] != null)
@@ -119,6 +120,7 @@ namespace WebGame.Controllers
         //-------------------\\
         //--Account List--\\
         AccountDB accountDB = new AccountDB();
+        [Route("Manage-Account")]
         public ActionResult ListAccount()
         {
             return View();
@@ -165,6 +167,7 @@ namespace WebGame.Controllers
         //------------\\
         //Submit Game--\\
         GameSubmit_DB gameSubmit_DB = new GameSubmit_DB();
+        [Route("Manage-Game-Submit")]
         public ActionResult SubmitGame()
         {
             return View();
@@ -194,6 +197,7 @@ namespace WebGame.Controllers
         }
         //--List Jobs--\\
         List_Jobs_DB list_Jobs_DB = new List_Jobs_DB();
+        [Route("Manage-Jobs")]
         public ActionResult ListJobs()
         {
             return View();
@@ -244,6 +248,7 @@ namespace WebGame.Controllers
         //------------\\
         //--Apply Jobs--\\
         //--List Apply Jobs--\\
+        [Route("Manage-Apply-Jobs")]
         public ActionResult ListApplyJobs()
         {
             return View();
@@ -273,6 +278,7 @@ namespace WebGame.Controllers
             return Json(new[] { apply_Job_Model }.ToDataSourceResult(request));
         }
         //--List Contact--\\
+        [Route("Manage-Contact")]
         public ActionResult ListContact()
         {
             return View();

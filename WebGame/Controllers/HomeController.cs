@@ -34,6 +34,7 @@ namespace WebGame.Controllers
             return View();
         }
         //--Game--\\
+        [Route("Games")]
         public ActionResult Games()
         {
             using (WebGameEntities entities = new WebGameEntities())
@@ -51,12 +52,14 @@ namespace WebGame.Controllers
             return View();
         }
         //--About--\\
+        [Route("About")]
         public ActionResult About()
         {
             ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Jobs--\\
+        [Route("Jobs")]
         public ActionResult Jobs()
         {
             using (WebGameEntities entities = new WebGameEntities())
@@ -98,24 +101,28 @@ namespace WebGame.Controllers
             return View();
         }
         //--Case--\\
+        [Route("Case")]
         public ActionResult Case()
         {
             ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--FAQ--\\
+        [Route("FAQ")]
         public ActionResult FAQ()
         {
             ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Game Submissions--\\
+        [Route("SubmitGame")]
         public ActionResult GameSubmissions()
         {
             ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
         //--Contact--\\
+        [Route("Contact")]
         public ActionResult Contact()
         {
             using(WebGameEntities entities = new WebGameEntities())
@@ -151,6 +158,7 @@ namespace WebGame.Controllers
             return View();
         }
         //--Details Description Job--\\
+        [Route("DetailsJob")]
         public ActionResult DetailsJob(int id)
         {
             using (WebGameEntities entities = new WebGameEntities())
@@ -169,6 +177,7 @@ namespace WebGame.Controllers
             return View();
         }
         //--Apply for job--\\
+        [Route("ApplyJob")]
         public ActionResult ApplyJob(int id)
         {
             using (WebGameEntities entities = new WebGameEntities())

@@ -72,15 +72,17 @@ namespace WebGame.Controllers
 
                 var listGroup = from p in entities.List_Jobs
                                 group p by p.Team into g
-                                select new GroupJob {
+                                select new GroupJob
+                                {
                                     GroupName = g.Key,
                                     Jobs = (from i in g.ToList()
-                                            select new Job_Model { 
-                                            ID = i.ID,
-                                            Description = i.Description,
-                                            Location = i.Location,
-                                            Team = i.Team,
-                                            Vacancies = i.Vacancies
+                                            select new Job_Model
+                                            {
+                                                ID = i.ID,
+                                                Description = i.Description,
+                                                Location = i.Location,
+                                                Team = i.Team,
+                                                Vacancies = i.Vacancies
                                             }).ToList()
                                 };
 
@@ -125,7 +127,7 @@ namespace WebGame.Controllers
         [Route("Contact")]
         public ActionResult Contact()
         {
-            using(WebGameEntities entities = new WebGameEntities())
+            using (WebGameEntities entities = new WebGameEntities())
             {
                 var listGame = from game in entities.List_Game
                                select game;
@@ -139,7 +141,7 @@ namespace WebGame.Controllers
         public ActionResult SubmitGame()
         {
             bool recaptcha = ValidRecaptcha();
-            if(recaptcha == true)
+            if (recaptcha == true)
             {
                 GameSubmit_Model gameSubmit_Model = new GameSubmit_Model();
                 gameSubmit_Model.FullName = Request["FullName"];
@@ -164,7 +166,7 @@ namespace WebGame.Controllers
             using (WebGameEntities entities = new WebGameEntities())
             {
                 var listJob = from job in entities.List_Jobs
-                                     select job;
+                              select job;
                 ViewBag.Data = listJob.ToList();
                 var Job = listJob.Where(b => b.ID == id).FirstOrDefault();
                 ViewBag.ID = Job.ID;

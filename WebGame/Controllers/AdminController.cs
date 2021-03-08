@@ -115,6 +115,31 @@ namespace WebGame.Controllers
                 }
             }
         }
+        //--Read File CV--\\
+        [HttpGet]
+        public ActionResult ReadFile(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var applyJob = entities.Apply_Job.FirstOrDefault(select => select.ID == id);
+                if (applyJob != null)
+                {
+                    if (applyJob.CV != null)
+                    {
+                        byte[] fileCV = applyJob.CV;
+                        return File(fileCV, "application/pdf", string.Format("{0}.pdf", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
         //-----------------\\
         //--Manage Account--\\
         //-------------------\\

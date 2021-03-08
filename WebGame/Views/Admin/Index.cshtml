@@ -198,13 +198,18 @@
         margin-top: 10px;
     }
 
-        .details-form-field input{
-            width: 380px;
+        .details-form-field input {
+            width: 430px;
         }
 
-        label {
-            margin-bottom: 0 !important;
-        }
+    label {
+        margin-bottom: 0 !important;
+    }
+    #output{
+        margin-top: 10px;
+        width:100%;
+        height:100%;
+    }
 </style>
 <title>Admin | Lion Studios</title>
 <span id="notification" style="display:none;"></span>
@@ -239,8 +244,9 @@
         </div>
         <div class="details-form-field">
             <label for="Image"><strong>Hình ảnh:</strong></label>
-            <input id="Image" name="Image" type="file">
-            <img name="hinhanh" id="hinhanh" class="hinhanh" />
+            <input id="Image" name="Image" type="file" accept="image/*" onchange="loadFile(event)">
+            <img id="output"/>
+            @*<img name="hinhanh" id="hinhanh" class="hinhanh" />*@
         </div>
         <div class="details-form-field button">
             <button class="btnLuu btn btn-success" type="button" id="btnSave" onclick="btnSave()">Add</button>

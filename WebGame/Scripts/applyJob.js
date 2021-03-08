@@ -18,7 +18,13 @@
         contentType: false,
         type: 'POST',
         success: function (data) {
-            alert("Thanh cong")
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Update game successfully !',
+                showConfirmButton: false,
+                timer: 1500
+            })
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

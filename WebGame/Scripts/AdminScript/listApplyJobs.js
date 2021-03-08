@@ -1,4 +1,6 @@
-﻿function error_handler(e) {
+﻿//import { ie8compat } from "modernizr";
+
+function error_handler(e) {
     if (e.errors) {
         var message = "Errors:\n";
         $.each(e.errors, function (key, value) {
@@ -54,6 +56,11 @@ function onDataBound(arg) {
         });
     });
 }
+
+function dowloadCV() {
+    var id = $('#ID').val();
+    location.href = "/Admin/ReadFile/" + id;
+};
 
 jQuery("#gridApplyJobs").kendoGrid({
     "columns": [

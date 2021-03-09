@@ -3,6 +3,23 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<style>
+    #fileCV {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        /*padding: 12px 30px;*/
+        cursor: pointer;
+        font-size: 12px;
+        width: 80px;
+    }
+
+        /* Darker background on mouse-over */
+        #fileCV:hover {
+            background-color: RoyalBlue;
+        }
+</style>
+
 <h4 id="ListName"><strong>Danh sách ứng tuyển công việc</strong></h4>
 <div id="gridApplyJobs"></div>
 
@@ -22,6 +39,9 @@
         <p id="Otherwebsite"></p>
         <p style="margin-top:20px"><strong>More about:</strong></p>
         <p id="More" style="word-break:break-word"></p>
+        <p><strong>File CV</strong>
+            <button id="fileCV" onclick="dowloadCV()"><i class="fa fa-download"></i> Download</button>
+        </p>
     </div>
 </div>
 

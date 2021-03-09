@@ -21,6 +21,7 @@ $(document).ready(function () {
         height: "800px",
         title: "Create/Edit News",
         visible: false,
+        modal: true
     };
     $("#detailsDialog").kendoWindow(windowOptions);
 });

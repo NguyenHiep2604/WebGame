@@ -26,6 +26,5 @@ namespace WebGame.Models
         public string PortfolioURL { get; set; }
         public string OtherWebsite { get; set; }
         public string More { get; set; }
-
     }
 }

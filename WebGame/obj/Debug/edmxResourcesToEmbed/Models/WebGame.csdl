@@ -11,6 +11,7 @@
       <End Role="List_Game" EntitySet="List_Game" />
       <End Role="Contact" EntitySet="Contacts" />
     </AssociationSet>
+    <EntitySet Name="OurStoryAboutPages" EntityType="WebGameModel.OurStoryAboutPage" />
   </EntityContainer>
   <EntityType Name="List_Game">
     <Key>
@@ -100,4 +101,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="OurStoryAboutPage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PictureMaxWidth" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="PictureWidth640" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OurStoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

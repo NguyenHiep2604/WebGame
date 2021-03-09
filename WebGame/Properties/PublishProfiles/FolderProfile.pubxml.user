@@ -443,7 +443,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/ta/WebGame.resources.dll">
-      <publishTime>03/04/2021 17:19:05</publishTime>
+      <publishTime>03/08/2021 18:34:16</publishTime>
     </File>
     <File Include="bin/tr-TR/Kendo.Mvc.resources.dll">
       <publishTime>01/15/2019 11:53:14</publishTime>
@@ -452,13 +452,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/15/2019 11:53:14</publishTime>
     </File>
     <File Include="bin/vi/WebGame.resources.dll">
-      <publishTime>03/04/2021 17:19:06</publishTime>
+      <publishTime>03/08/2021 18:34:17</publishTime>
     </File>
     <File Include="bin/WebGame.dll">
-      <publishTime>03/04/2021 17:19:05</publishTime>
+      <publishTime>03/08/2021 18:34:16</publishTime>
     </File>
     <File Include="bin/WebGame.pdb">
-      <publishTime>03/04/2021 17:19:05</publishTime>
+      <publishTime>03/08/2021 18:34:16</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -1084,8 +1084,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Image/ytd-icon.png">
       <publishTime>01/26/2021 11:44:55</publishTime>
     </File>
+    <File Include="Content/kendo.common.min.css">
+      <publishTime>03/08/2021 09:40:50</publishTime>
+    </File>
     <File Include="Content/kendo.default-v2.min.css">
       <publishTime>02/01/2021 10:44:24</publishTime>
+    </File>
+    <File Include="Content/kendo.default.min.css">
+      <publishTime>03/08/2021 09:41:04</publishTime>
+    </File>
+    <File Include="Content/kendo.mobile.all.min.css">
+      <publishTime>03/08/2021 09:41:18</publishTime>
     </File>
     <File Include="Content/kendo/2014.1.318/Black/editor.png">
       <publishTime>01/28/2021 12:06:57</publishTime>
@@ -1765,6 +1774,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Site.css">
       <publishTime>03/02/2021 16:18:42</publishTime>
     </File>
+    <File Include="Content/slick.css">
+      <publishTime>03/04/2021 17:58:08</publishTime>
+    </File>
     <File Include="Content/smart_wizard_all.min.css">
       <publishTime>02/01/2021 10:44:15</publishTime>
     </File>
@@ -1794,6 +1806,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/sweetalert2.min.css">
       <publishTime>03/02/2021 11:26:46</publishTime>
+    </File>
+    <File Include="Content/Video/about-header-video-7-20-medium-web.mp4">
+      <publishTime>03/04/2021 17:39:42</publishTime>
+    </File>
+    <File Include="Content/Video/about-header-video-7-20-mobile-web.mp4">
+      <publishTime>03/04/2021 17:39:00</publishTime>
     </File>
     <File Include="Content/Video/about-header-video-7-20-web.mp4">
       <publishTime>01/26/2021 17:16:45</publishTime>
@@ -1841,22 +1859,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/07/2020 14:19:46</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listApplyJobs.js">
-      <publishTime>03/04/2021 15:43:11</publishTime>
+      <publishTime>03/08/2021 16:14:51</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listContact.js">
       <publishTime>03/04/2021 14:29:44</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listGame.js">
-      <publishTime>03/04/2021 15:44:50</publishTime>
+      <publishTime>03/08/2021 14:42:35</publishTime>
     </File>
     <File Include="Scripts/AdminScript/listJobs.js">
-      <publishTime>03/04/2021 14:28:13</publishTime>
+      <publishTime>03/08/2021 10:35:45</publishTime>
     </File>
     <File Include="Scripts/AdminScript/scripts.js">
       <publishTime>06/19/2020 05:04:05</publishTime>
     </File>
     <File Include="Scripts/applyJob.js">
-      <publishTime>02/24/2021 14:16:20</publishTime>
+      <publishTime>03/08/2021 18:08:10</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>01/26/2021 10:39:30</publishTime>
@@ -1906,6 +1924,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/Jobs.js">
       <publishTime>02/25/2021 09:57:58</publishTime>
     </File>
+    <File Include="Scripts/jquery-1.12.3.min.js">
+      <publishTime>03/08/2021 09:34:48</publishTime>
+    </File>
     <File Include="Scripts/jquery-3.4.1.js">
       <publishTime>01/26/2021 10:39:31</publishTime>
     </File>
@@ -1939,11 +1960,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
       <publishTime>01/26/2021 10:39:41</publishTime>
     </File>
+    <File Include="Scripts/jszip.min.js">
+      <publishTime>03/08/2021 09:42:38</publishTime>
+    </File>
     <File Include="Scripts/kendo.all.min.js">
-      <publishTime>02/01/2021 10:42:05</publishTime>
+      <publishTime>03/08/2021 09:43:07</publishTime>
     </File>
     <File Include="Scripts/kendo.aspnetmvc.min.js">
-      <publishTime>02/01/2021 10:42:15</publishTime>
+      <publishTime>03/08/2021 09:43:24</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/cultures/kendo.culture.af-ZA.min.js">
       <publishTime>01/28/2021 12:06:24</publishTime>
@@ -3461,7 +3485,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/26/2021 17:31:24</publishTime>
     </File>
     <File Include="Scripts/slick.min.js">
-      <publishTime>01/27/2021 10:17:29</publishTime>
+      <publishTime>03/04/2021 17:58:33</publishTime>
     </File>
     <File Include="Scripts/src/index.js">
       <publishTime>02/01/2021 10:08:12</publishTime>
@@ -3707,13 +3731,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/03/2021 14:39:18</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>03/04/2021 15:23:12</publishTime>
+      <publishTime>03/08/2021 12:39:33</publishTime>
     </File>
     <File Include="Views/Admin/ListAccount.cshtml">
       <publishTime>02/03/2021 09:48:59</publishTime>
     </File>
     <File Include="Views/Admin/ListApplyJobs.cshtml">
-      <publishTime>03/01/2021 12:13:31</publishTime>
+      <publishTime>03/08/2021 16:41:20</publishTime>
     </File>
     <File Include="Views/Admin/ListContact.cshtml">
       <publishTime>03/03/2021 17:55:02</publishTime>
@@ -3725,10 +3749,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/01/2021 12:04:26</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>03/01/2021 16:03:35</publishTime>
+      <publishTime>03/04/2021 17:51:17</publishTime>
     </File>
     <File Include="Views/Home/ApplyJob.cshtml">
-      <publishTime>02/24/2021 13:58:37</publishTime>
+      <publishTime>03/08/2021 16:42:36</publishTime>
     </File>
     <File Include="Views/Home/Case.cshtml">
       <publishTime>03/01/2021 16:03:49</publishTime>
@@ -3758,16 +3782,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/26/2021 10:39:18</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/03/2021 13:39:07</publishTime>
+      <publishTime>03/08/2021 09:38:35</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAccount.cshtml">
       <publishTime>02/01/2021 12:05:41</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>03/04/2021 14:21:50</publishTime>
+      <publishTime>03/08/2021 09:46:09</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutDetailsJobs.cshtml">
-      <publishTime>02/24/2021 12:03:13</publishTime>
+      <publishTime>03/08/2021 18:07:07</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/26/2021 10:39:18</publishTime>

@@ -505,6 +505,11 @@
     </Compile>
     <Compile Include="Models\List_Jobs_DB.cs" />
     <Compile Include="Models\Job_Model.cs" />
+    <Compile Include="Models\OurStoryAboutPage.cs">
+      <DependentUpon>WebGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OurStory_DB.cs" />
+    <Compile Include="Models\OurStory_Model.cs" />
     <Compile Include="Models\WebGame.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -529,6 +534,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\About.css" />
+    <Content Include="Content\ajax-loader.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -537,6 +543,8 @@
     <Content Include="Content\Image\585e4bcdcb11b227491c3396.png" />
     <Content Include="Content\Image\about-bg-photo-developer-laptop.jpg" />
     <Content Include="Content\Image\about-bg-photo-lion-halftone.jpg" />
+    <Content Include="Content\Image\about-hero-bg-art-mrbullet-medium.jpg" />
+    <Content Include="Content\Image\about-hero-bg-art-mrbullet-mobile.jpg" />
     <Content Include="Content\Image\about-photostrip.jpg" />
     <Content Include="Content\Image\applovin-logo-hz-black-2019.svg" />
     <Content Include="Content\Image\arrow-link.svg" />
@@ -908,6 +916,7 @@
     <Content Include="Content\LoginPage\Script\main.js" />
     <Content Include="Content\LoginPage\Script\select2.js" />
     <Content Include="Content\LoginPage\Script\select2.min.js" />
+    <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
     <Content Include="Content\smart_wizard_all.min.css" />
     <Content Include="Content\style-about.css" />
@@ -1029,6 +1038,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-migrate.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.smartWizard.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -1463,6 +1474,7 @@
     <Content Include="Scripts\listAccount.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ourStory.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -1654,6 +1666,7 @@
     <Content Include="Views\Home\ApplyJob.cshtml" />
     <Content Include="Views\Admin\ListApplyJobs.cshtml" />
     <Content Include="Views\Admin\ListContact.cshtml" />
+    <Content Include="Views\Admin\OurStory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

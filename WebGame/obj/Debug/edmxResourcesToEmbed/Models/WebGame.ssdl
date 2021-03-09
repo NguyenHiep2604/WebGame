@@ -74,6 +74,16 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Vacancies" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="OurStoryAboutPage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PictureMaxWidth" Type="varbinary(max)" Nullable="false" />
+    <Property Name="PictureWidth640" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OurStoryName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <Association Name="FK_Contact_List_Game">
     <End Role="List_Game" Type="Self.List_Game" Multiplicity="1" />
     <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
@@ -93,6 +103,7 @@
     <EntitySet Name="GameSubmit" EntityType="Self.GameSubmit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="List_Game" EntityType="Self.List_Game" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="List_Jobs" EntityType="Self.List_Jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OurStoryAboutPage" EntityType="Self.OurStoryAboutPage" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Contact_List_Game" Association="Self.FK_Contact_List_Game">
       <End Role="List_Game" EntitySet="List_Game" />
       <End Role="Contact" EntitySet="Contact" />

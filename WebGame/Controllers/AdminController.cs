@@ -84,7 +84,7 @@ namespace WebGame.Controllers
             game.Image = image;
             return Json(list_Game_DB.Update(game), JsonRequestBehavior.AllowGet);
         }
-
+        //--Delete Game--\\
         public ActionResult DeleteGame(int ID)
         {
             var game = list_Game_DB.Delete(ID);
@@ -102,6 +102,54 @@ namespace WebGame.Controllers
                     if (game.Image != null)
                     {
                         byte[] image = game.Image;
+                        return File(image, "image/jpg", string.Format("{0}.jpg", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        [HttpGet]
+        public ActionResult ViewImageStory1(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var story = entities.OurStoryAboutPages.FirstOrDefault(select => select.ID == id);
+                if (story != null)
+                {
+                    if (story.PictureMaxWidth != null)
+                    {
+                        byte[] image = story.PictureMaxWidth;
+                        return File(image, "image/jpg", string.Format("{0}.jpg", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        [HttpGet]
+        public ActionResult ViewImageStory2(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var story = entities.OurStoryAboutPages.FirstOrDefault(select => select.ID == id);
+                if (story != null)
+                {
+                    if (story.PictureWidth640 != null)
+                    {
+                        byte[] image = story.PictureWidth640;
                         return File(image, "image/jpg", string.Format("{0}.jpg", id));
                     }
                     else
@@ -331,6 +379,83 @@ namespace WebGame.Controllers
                 contact_DB.Delete(contact_Model);
             }
             return Json(new[] { contact_Model }.ToDataSourceResult(request));
+        }
+        //--Manage Our Story--\\
+        [Route("Manage-Our-Story")]
+        public ActionResult OurStory()
+        {
+            return View();
+        }
+        //--Read List Our Story--\\
+        OurStory_DB ourStory_DB = new OurStory_DB();
+        public ActionResult ReadListStory([DataSourceRequest] DataSourceRequest request)
+        {
+            var listStory = Json(ourStory_DB.ListAllStory().ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
+            listStory.MaxJsonLength = int.MaxValue;
+            return listStory;
+        }
+        //--Add Our Story--\\
+        public ActionResult AddStory()
+        {
+            var story = new OurStory_Model();
+            story.OurStoryName = Request["Name"];
+            story.Title = Request["Title"];
+            byte[] picture1 = null;
+            var file1 = Request.Files[0];
+            using (var binaryReader1 = new BinaryReader(file1.InputStream))
+            {
+                picture1 = binaryReader1.ReadBytes(file1.ContentLength);
+            }
+            story.PictureMaxWidth = picture1;
+
+            byte[] picture2 = null;
+            var file2 = Request.Files[1];
+            using (var binaryReader2 = new BinaryReader(file2.InputStream))
+            {
+                picture2 = binaryReader2.ReadBytes(file2.ContentLength);
+            }
+            story.PictureWidth640 = picture2;
+            return Json(ourStory_DB.AddNew(story), JsonRequestBehavior.AllowGet);
+        }
+        //--Get Our Story by ID--\\
+        public JsonResult GetStorybyID(int ID)
+        {
+            var story = ourStory_DB.ListAllStory().Find(x => x.ID.Equals(ID));
+            return Json(story, JsonRequestBehavior.AllowGet);
+        }
+        //--Update Our Story--\\
+        public ActionResult UpdateStory()
+        {
+            var story = new OurStory_Model();
+            story.ID =Convert.ToInt32(Request["ID"]);
+            story.OurStoryName = Request["Name"];
+            story.Title = Request["Title"];
+            byte[] picture1 = null;
+            var file1 = Request.Files[0];
+            using (var binaryReader1 = new BinaryReader(file1.InputStream))
+            {
+                picture1 = binaryReader1.ReadBytes(file1.ContentLength);
+            }
+            story.PictureMaxWidth = picture1;
+
+            byte[] picture2 = null;
+            var file2 = Request.Files[1];
+            using (var binaryReader2 = new BinaryReader(file2.InputStream))
+            {
+                picture2 = binaryReader2.ReadBytes(file2.ContentLength);
+            }
+            story.PictureWidth640 = picture2;
+            return Json(ourStory_DB.Update(story), JsonRequestBehavior.AllowGet);
+        }
+        //--Delete Our Story--\\
+        [AcceptVerbs(System.Web.Mvc.HttpVerbs.Post)]
+        public ActionResult DeleteStory([DataSourceRequest] DataSourceRequest request, OurStory_Model ourStory_Model)
+        {
+            if (ourStory_Model != null)
+            {
+                ourStory_DB.Delete(ourStory_Model);
+            }
+            return Json(new[] { ourStory_Model }.ToDataSourceResult(request));
         }
     }
 }

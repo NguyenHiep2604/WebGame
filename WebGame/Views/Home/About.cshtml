@@ -1,13 +1,9 @@
 ﻿@{
     ViewBag.Title = "About";
 }
+@using WebGame.Models;
 <title>About Us | Lion Studios</title>
-<link href="~/Content/About.css" rel="stylesheet" />
 <link href="~/Content/style-about.css" rel="stylesheet" />
-
-
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer></script>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="margin-top:150px; width:800px">
@@ -188,203 +184,44 @@
     </div>
     <div class="row about-photostrip fixedbg">
     </div>
-
-    <div class="row about-our-story" id="our-story-row" style="background-color: rgb(240, 101, 139);">
+    @*  *@
+    @*Our Story*@
+    @*  *@
+    <div class="row about-our-story" id="our-story-row">
         <div class="inner-wrap">
             <h2>
                 Our Story
             </h2>
-            <div id="our-story-wrap" class="slick-initialized slick-slider">
-                <button class="slick-prev slick-arrow" aria-label="Previous" type="button" aria-disabled="false" style="display: block;">Previous</button>
-                <div class="slick-list draggable" style="padding: 0px;">
-                    <div class="slick-track" style="opacity: 1; width: 2776px; transform: translate3d(347px, 0px, 0px);">
-                        <div class="our-story-slide slick-slide slick-current slick-center" data-slick-index="0" aria-hidden="true" style="width: 347px;" tabindex="0">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-1-sm.png" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-1.png" class="" alt="">
-                            </picture>
-                            <p>
-                                Lion Studios is a mobile game publishing studio with offices in <br><strong>San Francisco</strong>, Berlin, and Shanghai.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="1" aria-hidden="true" style="width: 347px;" tabindex="0">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-2-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-2.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                Since our launch in 2018, we’ve <strong>published 67 games with 13 games reaching #1 in the charts</strong> and many more breaking the top&nbsp;10.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 347px;" tabindex="0">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-3-sm.png" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-3.png" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>April 20, 2018</strong><br>
-                                <em>Love Balls</em> from SuperTapx launched with Lion — reached <strong>#1 in App Store in 63 countries and #1 in Google Play in 54 countries — in just one&nbsp;day</strong>.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-4-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-4.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>July 2018</strong><br>
-                                Official launch of the Lion Studios&nbsp;brand!
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="4" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-5-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-5.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>July 12, 2018</strong><br>
-                                Lion Studios launched the first <strong>Ultimate Game Changers Contest</strong> — selecting four mobile games based on virality and stickiness — proving to have the most promise to become the next <span style="white-space:nowrap;">chart-topper</span>.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="5" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-6-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-6.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>August 28, 2019</strong><br>
-                                <em>i Peel Good</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 17 countries and #1 in Google Play in 4&nbsp;countries</strong>.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="6" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-7-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-7.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>October 9, 2019</strong><br>
-                                <em>Icing On The Cake</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 40 countries and #1 in Google Play in 22&nbsp;countries</strong>.
-                            </p>
-                        </div>
-                        <div class="our-story-slide slick-slide" data-slick-index="7" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                            <picture>
-                                <source srcset="~/Content/Image/our-story-card-8-sm.jpg" media="(max-width: 640px)">
-                                <img src="~/Content/Image/our-story-card-8.jpg" class="" alt="">
-                            </picture>
-                            <p>
-                                <strong>January 2020</strong><br>
-                                We’ve reached a new year, and a new decade! We’re celebrating launching <strong>44 games in 2019 and more to&nbsp;come</strong>!
-                            </p>
-                        </div>
+            <div id="our-story-wrap">
+                @{ var dataListStory = ViewBag.DataListStory as List<OurStoryAboutPage>; }
+                @foreach (var story in dataListStory)
+                {
+                    <div class="our-story-slide">
+                        <picture>
+                            <source srcset="@Url.Action("ViewImageStory2", "Home", new { @id = story.ID })" media="(max-width: 640px)">
+                            <img src="@Url.Action("ViewImageStory1", "Home", new { @id = story.ID })" class="" alt="">
+                        </picture>
+                        <p>
+                            @Html.Raw(System.Uri.UnescapeDataString(story.Title))
+                        </p>
                     </div>
-                </div>
-                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" aria-disabled="false">Next</button>
+                }
             </div>
         </div>
     </div>
 
-    @*<div class="row about-our-story" id="our-story-row">
-            <div class="inner-wrap">
-                <h2>
-                    Our Story
-                </h2>
-                <div id="our-story-wrap" class="slick-initialized slick-slider">
-                    <button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button" aria-disabled="true" style="display: block;">Previous</button>
-                    <div class="slick-list draggable" style="padding: 0px;">
-                        <div class="slick-track" style="opacity: 1; width: 2776px; transform: translate3d(347px, 0px, 0px);">
-                            <div class="our-story-slide slick-slide slick-current slick-center" data-slick-index="0" aria-hidden="true" style="width: 347px;" tabindex="0">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-1-sm.png" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-1.png" class="" alt="">
-                                </picture>
-                                <p>
-                                    Lion Studios is a mobile game publishing studio with offices in <br><strong>San Francisco</strong>, Berlin, and Shanghai.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="1" aria-hidden="true" style="width: 347px;" tabindex="0">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-2-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-2.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    Since our launch in 2018, we’ve <strong>published 67 games with 13 games reaching #1 in the charts</strong> and many more breaking the top&nbsp;10.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 347px;" tabindex="0">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-3-sm.png" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-3.png" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>April 20, 2018</strong><br>
-                                    <em>Love Balls</em> from SuperTapx launched with Lion — reached <strong>#1 in App Store in 63 countries and #1 in Google Play in 54 countries — in just one&nbsp;day</strong>.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="3" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-4-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-4.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>July 2018</strong><br>
-                                    Official launch of the Lion Studios&nbsp;brand!
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="4" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-5-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-5.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>July 12, 2018</strong><br>
-                                    Lion Studios launched the first <strong>Ultimate Game Changers Contest</strong> — selecting four mobile games based on virality and stickiness — proving to have the most promise to become the next <span style="white-space:nowrap;">chart-topper</span>.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="5" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-6-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-6.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>August 28, 2019</strong><br>
-                                    <em>i Peel Good</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 17 countries and #1 in Google Play in 4&nbsp;countries</strong>.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="6" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-7-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-7.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>October 9, 2019</strong><br>
-                                    <em>Icing On The Cake</em> from Alpha Potato launched with Lion reaching <strong>#1 in App Store in 40 countries and #1 in Google Play in 22&nbsp;countries</strong>.
-                                </p>
-                            </div>
-                            <div class="our-story-slide slick-slide" data-slick-index="7" aria-hidden="true" style="width: 347px;" tabindex="-1">
-                                <picture>
-                                    <source srcset="~/Content/Image/our-story-card-8-sm.jpg" media="(max-width: 640px)">
-                                    <img src="~/Content/Image/our-story-card-8.jpg" class="" alt="">
-                                </picture>
-                                <p>
-                                    <strong>January 2020</strong><br>
-                                    We’ve reached a new year, and a new decade! We’re celebrating launching <strong>44 games in 2019 and more to&nbsp;come</strong>!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;" aria-disabled="false">Next</button>
-                </div>
-            </div>
-        </div>*@
+
     <div class="row about-hiring">
         <div class="inner-wrap">
             <h2>
                 <span class="highlight">We’re<br>Hiring</span>
             </h2>
-            <a href="@Url.Action("Lobs","Home")" class="jobs-link">Apply Here</a>
+            <a href="@Url.Action("Jobs","Home")" class="jobs-link">Apply Here</a>
         </div>
     </div>
 </div>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer></script>
 @section scripts{
     <script>
         var reCaptchaResponse = null;
@@ -456,14 +293,61 @@
             }
         }
     </script>
-    <script type="text/javascript" src="~/Scripts/slick.min.js" id="slick-slider-script-js"></script>
-    <script src="~/Scripts/aboutuspage.js"></script>
-    <script type="text/javascript" src="~/Scripts/ScriptAbout.js" id="our-story-script-js"></script>
-    <script>
-        $('.slick-track').slick({
-            nextArrow: '<i class="fa fa-arrow-right"></i>',
-            prevArrow: '<i class="fa fa-arrow-left"></i>',
-            // add the rest of your options here
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#our-story-wrap').slick({
+                centerMode: true,
+                centerPadding: '0',
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                swipeToSlide: true,
+                touchThreshold: 20,
+                arrows: true,
+                infinite: false,
+                responsive: [{
+                    breakpoint: 640,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1
+                    }
+                }]
+            });
+
+            $('#our-story-wrap').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
+                var slideto = nextSlide + 1;
+                var sliderow = document.getElementById('our-story-row');
+
+                switch (slideto) {
+                    case 1:
+                        sliderow.style.backgroundColor = "#e3a927";
+                        break;
+                    case 2:
+                        sliderow.style.backgroundColor = "#3db5a8";
+                        break;
+                    case 3:
+                        sliderow.style.backgroundColor = "#f0658b";
+                        break;
+                    case 4:
+                        sliderow.style.backgroundColor = "#eb3945";
+                        break;
+                    case 5:
+                        sliderow.style.backgroundColor = "#222222";
+                        break;
+                    case 6:
+                        sliderow.style.backgroundColor = "#e7266a";
+                        break;
+                    case 7:
+                        sliderow.style.backgroundColor = "#773897";
+                        break;
+                    case 8:
+                        sliderow.style.backgroundColor = "#144da1";
+                        break;
+                    default:
+                        sliderow.style.backgroundColor = "#e3a927";
+                }
+
+            });
         });
     </script>
     <script src="~/Scripts/gameSubmit.js"></script>

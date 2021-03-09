@@ -55,6 +55,12 @@ namespace WebGame.Controllers
         [Route("About")]
         public ActionResult About()
         {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var listStory = from story in entities.OurStoryAboutPages
+                                select story;
+                ViewBag.DataListStory = listStory.ToList();
+            }
             ViewBag.LangCode = Session["language"] ?? DefaultLangCode;
             return View();
         }
@@ -238,6 +244,54 @@ namespace WebGame.Controllers
                     if (game.Image != null)
                     {
                         byte[] image = game.Image;
+                        return File(image, "image/jpg", string.Format("{0}.jpg", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        [HttpGet]
+        public ActionResult ViewImageStory1(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var story = entities.OurStoryAboutPages.FirstOrDefault(select => select.ID == id);
+                if (story != null)
+                {
+                    if (story.PictureMaxWidth != null)
+                    {
+                        byte[] image = story.PictureMaxWidth;
+                        return File(image, "image/jpg", string.Format("{0}.jpg", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        [HttpGet]
+        public ActionResult ViewImageStory2(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var story = entities.OurStoryAboutPages.FirstOrDefault(select => select.ID == id);
+                if (story != null)
+                {
+                    if (story.PictureWidth640 != null)
+                    {
+                        byte[] image = story.PictureWidth640;
                         return File(image, "image/jpg", string.Format("{0}.jpg", id));
                     }
                     else

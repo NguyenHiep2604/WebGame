@@ -11,6 +11,7 @@
     <link rel="stylesheet" id="games-style-css" href="~/Content/style-games.css" type="text/css" media="">
     <link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
     <link href="~/Content/slick.css" rel="stylesheet" />
+    <link href="~/Content/slick-theme.css" rel="stylesheet" />
     <script type="text/javascript" src="~/Scripts/ScrollTrigger.min.js" id="scroll-trigger-script-js"></script>
     <link rel="icon" href="~/Content/Image/cropped-lion-favicon-ph-32x32.png" sizes="32x32">
     <link rel="icon" href="~/Content/Image/cropped-lion-favicon-ph-192x192.png" sizes="192x192">
@@ -149,6 +150,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-migrate.min.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
     <script src="~/Scripts/sweetalert2.min.js"></script>
     <script src="~/Scripts/lang.js"></script>
 </body>

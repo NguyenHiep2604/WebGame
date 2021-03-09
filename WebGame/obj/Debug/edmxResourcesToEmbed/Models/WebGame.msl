@@ -81,5 +81,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="OurStoryAboutPages">
+      <EntityTypeMapping TypeName="WebGameModel.OurStoryAboutPage">
+        <MappingFragment StoreEntitySet="OurStoryAboutPage">
+          <ScalarProperty Name="OurStoryName" ColumnName="OurStoryName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PictureWidth640" ColumnName="PictureWidth640" />
+          <ScalarProperty Name="PictureMaxWidth" ColumnName="PictureMaxWidth" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

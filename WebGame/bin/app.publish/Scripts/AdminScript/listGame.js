@@ -11,6 +11,18 @@
         alert(message);
     }
 }
+
+var loadFile = function (event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var ourput = document.getElementById('output');
+        ourput.src = reader.result;
+    };
+    $('#output').show();
+    reader.readAsDataURL(event.target.files[0]);
+};
+
+
 $(document).ready(function () {
     var windowOptions = {
         actions: ["Minimize", "Maximize", "Close"],
@@ -121,6 +133,7 @@ function onDataBound(arg) {
         $('#LinkAndroid').val('');
         $('#Caption').val('');
         $('#Image').val('');
+        $('#output').hide();
         $('#btnUpdate').hide();
         $('#btnSave').show();
     });

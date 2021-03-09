@@ -278,7 +278,7 @@ top:0;
 .about-hiring {
   height: 100vh;
   min-height: 900px;
-  background-image: url('Image/about-bg-photo-lion-halftone.jpg');
+  background-image: url('/Content/Image/about-bg-photo-lion-halftone.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -332,7 +332,7 @@ top:0;
 @media screen and (max-width: 1024px) {}
 @media screen and (max-width: 768px) {
   .about-page .hero {
-    background-image: url('../images/about-hero-bg-art-mrbullet-medium.jpg');
+    background-image: url('../Content/Image/about-hero-bg-art-mrbullet-medium.jpg');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 100%;
@@ -404,7 +404,7 @@ top:0;
   .about-hiring {
     height: auto;
     min-height: unset;
-    background-image: url('../images/about-bg-photo-lion-halftone.jpg');
+    background-image: url('../Content/Image/about-bg-photo-lion-halftone.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -453,7 +453,7 @@ top:0;
 }
 @media screen and (max-width: 640px) {
   .about-page .hero {
-    background-image: url('../images/about-hero-bg-art-mrbullet-mobile.jpg');
+    background-image: url('../Content/Image/about-hero-bg-art-mrbullet-mobile.jpg');
   }
   .about-hiring .jobs-link {
     font-size: 18px;
@@ -519,7 +519,7 @@ top:0;
     width: 100%;
     height: 45vw;
     padding: 2em 0 0;
-    background-image: url('../images/logo-lion-overlay-black.svg');
+    background-image: url('../Content/Image/logo-lion-overlay-black.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

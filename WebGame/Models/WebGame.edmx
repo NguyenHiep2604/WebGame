@@ -79,6 +79,16 @@
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Vacancies" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="OurStoryAboutPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PictureMaxWidth" Type="varbinary(max)" Nullable="false" />
+          <Property Name="PictureWidth640" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OurStoryName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Contact_List_Game">
           <End Role="List_Game" Type="Self.List_Game" Multiplicity="1" />
           <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
@@ -98,6 +108,7 @@
           <EntitySet Name="GameSubmit" EntityType="Self.GameSubmit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="List_Game" EntityType="Self.List_Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="List_Jobs" EntityType="Self.List_Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OurStoryAboutPage" EntityType="Self.OurStoryAboutPage" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Contact_List_Game" Association="Self.FK_Contact_List_Game">
             <End Role="List_Game" EntitySet="List_Game" />
             <End Role="Contact" EntitySet="Contact" />
@@ -118,6 +129,7 @@
             <End Role="List_Game" EntitySet="List_Game" />
             <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
+          <EntitySet Name="OurStoryAboutPages" EntityType="WebGameModel.OurStoryAboutPage" />
         </EntityContainer>
         <EntityType Name="List_Game">
           <Key>
@@ -207,6 +219,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="OurStoryAboutPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PictureMaxWidth" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="PictureWidth640" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OurStoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -289,6 +311,17 @@
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurStoryAboutPages">
+            <EntityTypeMapping TypeName="WebGameModel.OurStoryAboutPage">
+              <MappingFragment StoreEntitySet="OurStoryAboutPage">
+                <ScalarProperty Name="OurStoryName" ColumnName="OurStoryName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PictureWidth640" ColumnName="PictureWidth640" />
+                <ScalarProperty Name="PictureMaxWidth" ColumnName="PictureMaxWidth" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

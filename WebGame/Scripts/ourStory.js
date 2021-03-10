@@ -31,14 +31,13 @@ var loadFile2 = function (event) {
     reader.readAsDataURL(event.target.files[0]);
 };
 
-
 $(document).ready(function () {
     var windowOptions = {
         actions: ["Minimize", "Maximize", "Close"],
         draggable: true,
         resizable: true,
         width: "500px",
-        height: "800px",
+        height: "900px",
         title: "Create/Edit",
         visible: false,
         modal: true
@@ -80,8 +79,15 @@ function btnUpdate() {
     var formData = new FormData();
     formData.append('ID', $('#ID').val());
     formData.append('Name', $('#Name').val());
-    formData.append('Picture1', $('#PictureMaxWidth')[0].files[0]);
-    formData.append('Picture2', $('#Picture640Width')[0].files[0]);
+    formData.append('Picture1', $('#PictureMaxWidth')[0].files.length > 0 ? $('#PictureMaxWidth')[0].files[0].name : "");
+    if ($('#PictureMaxWidth')[0].files.length > 0) {
+        formData.append('File1', $('#PictureMaxWidth')[0].files[0]);
+    }
+    
+    formData.append('Picture2', $('#Picture640Width')[0].files.length > 0 ? $('#Picture640Width')[0].files[0].name : "");
+    if ($('#Picture640Width')[0].files.length > 0) {
+        formData.append('File2', $('#Picture640Width')[0].files[0]);
+    }
     formData.append('Title', encodeURIComponent(CKEDITOR.instances.Title.getData()))
     $.ajax({
         url: "/Admin/UpdateStory",
@@ -121,6 +127,10 @@ function onDataBound(arg) {
                 $('#ID').val(item.ID);
                 $('#Name').val(item.OurStoryName);
                 CKEDITOR.instances.Title.setData(decodeURIComponent(item.Title));
+                document.getElementById('output1').src = '/Admin/ViewImageStory1?id=' + (item.ID) + '&time=' + new Date().getTime();
+                document.getElementById('output2').src = '/Admin/ViewImageStory2?id=' + (item.ID) + '&time=' + new Date().getTime();
+                $('#output1').show();
+                $('#output2').show();
                 $('#detailsDialog').data('kendoWindow').center().open();
                 $('#btnSave').hide();
                 $('#btnUpdate').show();

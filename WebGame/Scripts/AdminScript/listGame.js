@@ -29,7 +29,7 @@ $(document).ready(function () {
         draggable: true,
         resizable: true,
         width: "500px",
-        height: "500px",
+        height: "600px",
         title: "Create/Edit",
         visible: false,
         modal: true
@@ -118,9 +118,16 @@ function onDataBound(arg) {
                 $('#LinkIOS').val(item.LinkIOS);
                 $('#LinkAndroid').val(item.LinkAndroid);
                 $('#Caption').val(item.Caption);
-                $('#Featured').val(item.Featured_Games);
+                if (item.Featured_Games == false) {
+                    document.getElementById('Featured').selectedIndex = "0";
+                } else {
+                    $('#Featured').val() = "True";
+                }
+                document.getElementById('output').src = '/Admin/ViewImageGame?id=' + (item.ID) + '&time=' + new Date().getTime();
+                $('#output').show();
                 $('#detailsDialog').data('kendoWindow').center().open();
                 $('#btnSave').hide();
+                $('#btnUpdate').show();
             }
         });
     });

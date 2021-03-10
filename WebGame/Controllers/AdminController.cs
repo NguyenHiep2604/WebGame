@@ -163,6 +163,30 @@ namespace WebGame.Controllers
                 }
             }
         }
+        [HttpGet]
+        public ActionResult ViewImageGame(int id)
+        {
+            using (WebGameEntities entities = new WebGameEntities())
+            {
+                var game = entities.List_Game.FirstOrDefault(select => select.ID == id);
+                if (game != null)
+                {
+                    if (game.Image != null)
+                    {
+                        byte[] image = game.Image;
+                        return File(image, "image/jpg", string.Format("{0}.jpg", id));
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
         //--Read File CV--\\
         [HttpGet]
         public ActionResult ReadFile(int id)
@@ -374,7 +398,7 @@ namespace WebGame.Controllers
         [AcceptVerbs(System.Web.Mvc.HttpVerbs.Post)]
         public ActionResult DeleteContact([DataSourceRequest] DataSourceRequest request, Contact_Model contact_Model)
         {
-            if(contact_Model != null)
+            if (contact_Model != null)
             {
                 contact_DB.Delete(contact_Model);
             }
@@ -427,24 +451,49 @@ namespace WebGame.Controllers
         public ActionResult UpdateStory()
         {
             var story = new OurStory_Model();
-            story.ID =Convert.ToInt32(Request["ID"]);
+            story.ID = Convert.ToInt32(Request["ID"]);
             story.OurStoryName = Request["Name"];
             story.Title = Request["Title"];
-            byte[] picture1 = null;
-            var file1 = Request.Files[0];
-            using (var binaryReader1 = new BinaryReader(file1.InputStream))
+            
+            if(Request["Picture1"] != "" && Request["Picture2"] != "")
             {
-                picture1 = binaryReader1.ReadBytes(file1.ContentLength);
-            }
-            story.PictureMaxWidth = picture1;
+                byte[] picture1 = null;
+                var file1 = Request.Files[0];
+                using (var binaryReader1 = new BinaryReader(file1.InputStream))
+                {
+                    picture1 = binaryReader1.ReadBytes(file1.ContentLength);
+                }
+                story.PictureMaxWidth = picture1;
 
-            byte[] picture2 = null;
-            var file2 = Request.Files[1];
-            using (var binaryReader2 = new BinaryReader(file2.InputStream))
-            {
-                picture2 = binaryReader2.ReadBytes(file2.ContentLength);
+                byte[] picture2 = null;
+                var file2 = Request.Files[1];
+                using (var binaryReader2 = new BinaryReader(file2.InputStream))
+                {
+                    picture2 = binaryReader2.ReadBytes(file2.ContentLength);
+                }
+                story.PictureWidth640 = picture2;
             }
-            story.PictureWidth640 = picture2;
+            else if(Request["Picture1"] != "" && Request["Picture2"] == "")
+            {
+                byte[] picture1 = null;
+                var file1 = Request.Files[0];
+                using (var binaryReader1 = new BinaryReader(file1.InputStream))
+                {
+                    picture1 = binaryReader1.ReadBytes(file1.ContentLength);
+                }
+                story.PictureMaxWidth = picture1;
+            }
+            else if(Request["Picture1"] == "" && Request["Picture2"] != "")
+            {
+                byte[] picture2 = null;
+                var file2 = Request.Files[0];
+                using (var binaryReader2 = new BinaryReader(file2.InputStream))
+                {
+                    picture2 = binaryReader2.ReadBytes(file2.ContentLength);
+                }
+                story.PictureWidth640 = picture2;
+            }
+
             return Json(ourStory_DB.Update(story), JsonRequestBehavior.AllowGet);
         }
         //--Delete Our Story--\\

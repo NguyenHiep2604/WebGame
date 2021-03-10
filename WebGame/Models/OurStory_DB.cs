@@ -16,8 +16,6 @@ namespace WebGame.Models
                                  select new OurStory_Model
                                  {
                                      ID = story.ID,
-                                     PictureMaxWidth = story.PictureMaxWidth,
-                                     PictureWidth640 = story.PictureWidth640,
                                      Title = story.Title,
                                      OurStoryName = story.OurStoryName
                                  }).OrderByDescending(story => story.ID).ToList();
@@ -46,8 +44,23 @@ namespace WebGame.Models
             using (WebGameEntities entities = new WebGameEntities())
             {
                 var story = entities.OurStoryAboutPages.FirstOrDefault(s => s.ID == ourStory_Model.ID);
-                story.PictureMaxWidth = ourStory_Model.PictureMaxWidth;
-                story.PictureWidth640 = ourStory_Model.PictureWidth640;
+                if(ourStory_Model.PictureMaxWidth != null)
+                {
+                    story.PictureMaxWidth = ourStory_Model.PictureMaxWidth;
+                }
+                else
+                {
+                    story.PictureMaxWidth = story.PictureMaxWidth;
+                }
+
+                if(ourStory_Model.PictureWidth640 != null)
+                {
+                    story.PictureWidth640 = ourStory_Model.PictureWidth640;
+                }
+                else
+                {
+                    story.PictureWidth640 = story.PictureWidth640;
+                }
                 story.Title = ourStory_Model.Title;
                 story.OurStoryName = ourStory_Model.OurStoryName;
                 entities.SaveChanges();

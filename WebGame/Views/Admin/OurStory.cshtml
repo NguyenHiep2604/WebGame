@@ -214,8 +214,16 @@
     #output1,
     #output2 {
         margin-top: 10px;
-        width: 100%;
-        height: 100%;
+        width: 50%;
+        height: 50%;
+    }
+    #cke_Title,
+    #output1,
+    #output2{
+        margin-left: 10px;
+    }
+    #cke_Title{
+        height: 50%;
     }
 </style>
 <title>Admin | Lion Studios</title>
@@ -232,12 +240,14 @@
         </div>
         <div class="details-form-field">
             <label for="PictureMaxWidth"><strong>Picture Max Width :</strong></label>
-            <input id="PictureMaxWidth" name="PictureMaxWidth" type="file" accept="image/*" onchange="loadFile1(event)">
+            <button style="display:block;width:80px; height:20px;" onclick="document.getElementById('PictureMaxWidth').click()">Picture 1</button>
+            <input id="PictureMaxWidth" name="PictureMaxWidth" type="file" accept="image/*" onchange="loadFile1(event)" style="display: none">
             <img id="output1" />
         </div>
         <div class="details-form-field">
             <label for="Picture640Width"><strong>Picture 640 Width :</strong></label>
-            <input id="Picture640Width" name="Picture640Width" type="file" accept="image/*" onchange="loadFile2(event)">
+            <button style="display:block;width:80px; height:20px;" onclick="document.getElementById('Picture640Width').click()">Picture 2</button>
+            <input id="Picture640Width" name="Picture640Width" type="file" accept="image/*" onchange="loadFile2(event)" style="display: none">
             <img id="output2" />
         </div>
         <div class="details-form-field">

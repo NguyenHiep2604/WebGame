@@ -207,8 +207,9 @@
     }
     #output{
         margin-top: 10px;
-        width:100%;
-        height:100%;
+        margin-left: 10px;
+        width:50%;
+        height:50%;
     }
 </style>
 <title>Admin | Lion Studios</title>
@@ -238,15 +239,15 @@
         <div class="details-form-field">
             <label for="Featured"><strong>Game nổi bật:</strong></label>
             <select name="Featured" id="Featured">
-                <option value="True">Có</option>
-                <option value="False">Không</option>
+                <option value="true">Có</option>
+                <option value="false">Không</option>
             </select>
         </div>
         <div class="details-form-field">
             <label for="Image"><strong>Hình ảnh:</strong></label>
-            <input id="Image" name="Image" type="file" accept="image/*" onchange="loadFile(event)">
-            <img id="output"/>
-            @*<img name="hinhanh" id="hinhanh" class="hinhanh" />*@
+            <button style="display:block;width:100px; height:20px;" onclick="document.getElementById('Image').click()">Choose Image</button>
+            <input id="Image" name="Image" type="file" accept="image/*" onchange="loadFile(event)" style="display: none">
+            <img id="output" />
         </div>
         <div class="details-form-field button">
             <button class="btnLuu btn btn-success" type="button" id="btnSave" onclick="btnSave()">Add</button>
